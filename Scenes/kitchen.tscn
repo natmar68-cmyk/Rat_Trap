@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cwryah8rjcu28"]
+
+[node name="Kitchen" type="Node3D" unique_id=2066472100]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1162045850]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
+use_collision = true
+size = Vector3(100, 0, 100)
+
+[node name="Wall x-" type="CSGBox3D" parent="." unique_id=719272905]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -50.327, 24.5, 0.025)
+use_collision = true
+size = Vector3(50, 0, 100)
+
+[node name="Wall x+" type="CSGBox3D" parent="." unique_id=461151980]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 50, 24.5, 0.025)
+use_collision = true
+size = Vector3(50, 0, 100)
+
+[node name="Wall y+" type="CSGBox3D" parent="." unique_id=335010111]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 24.5, 50)
+use_collision = true
+size = Vector3(50, 0, 100)
+
+[node name="Wall y-" type="CSGBox3D" parent="." unique_id=294544597]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 24.5, -50)
+use_collision = true
+size = Vector3(50, 0, 100)
+
+[node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 22, -40.87291)
+size = Vector3(45, 15, 30)
+
+[node name="Counter -x" type="CSGBox3D" parent="." unique_id=1853158274]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 9.866701, -0.116435796)
+size = Vector3(20, 100, 20)
+
+[node name="Chimney" type="CSGBox3D" parent="." unique_id=1573001966]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -0.6014519)
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="Counter +y" type="CSGBox3D" parent="." unique_id=1114300356]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -8.647625, 9.8667, 39.808304)
+size = Vector3(20, 42.42781, 20)
+
+[node name="Island" type="CSGBox3D" parent="." unique_id=2089766419]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 1.1757555, 9.79906, -1.3498305)
+size = Vector3(20, 28.267048, 23.901367)

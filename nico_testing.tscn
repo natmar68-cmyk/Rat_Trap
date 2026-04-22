@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c5fjngcx0xqip"]
+
+[ext_resource type="PackedScene" uid="uid://cliutm7bruchj" path="res://Scenes/player.tscn" id="1_jrpsd"]
+[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="2_00lxa"]
+[ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://FoodLabel.gd" id="3_00lxa"]
+
+[node name="testing" type="Node3D" unique_id=481571155]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=483040962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -10)
+use_collision = true
+size = Vector3(10, 1, 21)
+
+[node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_jrpsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -2)
+
+[node name="FoodItem" parent="." unique_id=624277446 instance=ExtResource("2_00lxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -15)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1509362542]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, -9)
+sky_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1486079851]
+script = ExtResource("3_00lxa")
+
+[node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1698774709]
+offset_right = 40.0
+offset_bottom = 23.0

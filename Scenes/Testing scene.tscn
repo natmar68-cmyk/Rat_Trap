@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cdrcybiddw6w8"]
+
+[ext_resource type="PackedScene" uid="uid://dd4lxdm8jcxrl" path="res://Scenes/player.tscn" id="1_5dop0"]
+
+[node name="Node3D" type="Node3D" unique_id=1836041409]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1844308436]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 33.072, 0)
+light_energy = 0.562
+light_indirect_energy = 1.35
+light_volumetric_fog_energy = 0.585
+sky_mode = 1
+
+[node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_5dop0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1319739192]
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1820868888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.681141, 0.722497, 10.793422)
+use_collision = true
+size = Vector3(3.8046875, 4.246582, 6.823242)

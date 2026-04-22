@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 # Movement
 const SPEED = 10.0
-const SPRINT_SPEED = 16.0
-const JUMP_VELOCITY = 3.0
+const SPRINT_SPEED = 20.0
+const JUMP_VELOCITY = 7.0
 const GRAVITY = 20.0
 
 # Mouse look

@@ -2,9 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dd4lxdm8jcxrl" path="res://Scenes/player.tscn" id="1_5dop0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dop0"]
-albedo_color = Color(0.5217111, 0.9396389, 0.7895922, 1)
-
 [node name="Node3D" type="Node3D" unique_id=1836041409]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1844308436]
@@ -20,4 +17,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1319739192]
 use_collision = true
 size = Vector3(100, 1, 100)
-material = SubResource("StandardMaterial3D_5dop0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1820868888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.681141, 0.722497, 10.793422)
+use_collision = true
+size = Vector3(3.8046875, 4.246582, 6.823242)

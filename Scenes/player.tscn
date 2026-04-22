@@ -4,6 +4,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bb2n"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0iea"]
+radius = 0.2
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0iea"]
 
 [node name="Player" type="CharacterBody3D" unique_id=757251869]
@@ -17,12 +20,12 @@ shape = SubResource("CapsuleShape3D_0bb2n")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=311673167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5099509, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Head/Camera3D" unique_id=761627289]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 1.8971059, 4.952985)
-spring_length = 3.0
+[node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=761627289]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 0.9218118, 4.953)
+shape = SubResource("SphereShape3D_v0iea")
 
-[node name="Camera3D" type="Camera3D" parent="Head/Camera3D/SpringArm3D" unique_id=304773825]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.5696651, -1.5651422)
+[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=304773825]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 2.2466102, -2.698114)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1447038475]
 mesh = SubResource("CapsuleMesh_v0iea")

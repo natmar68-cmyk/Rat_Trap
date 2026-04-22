@@ -19,16 +19,13 @@ var is_first_person := true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-	# Safely find the third person camera
 	var spring_arm = head.get_node_or_null("SpringArm3D")
 	if spring_arm:
 		tp_camera = spring_arm.get_node_or_null("Camera3D")
-
 	fp_camera.make_current()
 	body_mesh.visible = false
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	# Toggle first/third person
 	if Input.is_action_just_pressed("toggle_camera"):
 		if tp_camera == null:
@@ -56,20 +53,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
-	_apply_gravity(delta)
-	_handle_jump()
-	_handle_movement(delta)
-	move_and_slide()
-
-func _apply_gravity(delta: float) -> void:
+	# Gravity
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 
-func _handle_jump() -> void:
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# Debug
+	if Input.is_action_just_pressed("jump"):
+		print("jump pressed, on_floor: ", is_on_floor(), " velocity: ", velocity)
+
+	# Jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-func _handle_movement(delta: float) -> void:
+	# Movement
 	var speed = SPRINT_SPEED if Input.is_action_pressed("sprint") else SPEED
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -80,3 +76,5 @@ func _handle_movement(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+
+	move_and_slide()

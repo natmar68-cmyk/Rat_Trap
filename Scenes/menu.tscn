@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dubxkrjahpba0"]
+
+[ext_resource type="Script" uid="uid://c6jo25r4duexb" path="res://Scripts/quit.gd" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://cmiaf8aa3ejrs" path="res://Scripts/play.gd" id="1_xhh6f"]
+
+[node name="Menu" type="Node2D" unique_id=975360590]
+
+[node name="Play" type="Button" parent="." unique_id=312970535]
+anchors_preset = -1
+anchor_left = 0.45900002
+anchor_top = 1.9610001
+anchor_right = 0.587
+anchor_bottom = 2.39
+offset_left = 456.0
+offset_top = 218.0
+offset_right = 646.0
+offset_bottom = 249.0
+text = "Play"
+script = ExtResource("1_xhh6f")
+
+[node name="Settings" type="Button" parent="." unique_id=315474599]
+anchors_preset = -1
+anchor_left = 0.45900002
+anchor_top = 1.9610001
+anchor_right = 0.587
+anchor_bottom = 2.39
+offset_left = 456.0
+offset_top = 260.0
+offset_right = 646.0
+offset_bottom = 291.0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="." unique_id=961115492]
+anchors_preset = -1
+anchor_left = 0.45900002
+anchor_top = 1.9610001
+anchor_right = 0.587
+anchor_bottom = 2.39
+offset_left = 458.0
+offset_top = 305.0
+offset_right = 648.0
+offset_bottom = 336.0
+text = "Quit"
+script = ExtResource("1_1rerr")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=228146721]
+offset_left = 266.0
+offset_top = 49.0
+offset_right = 830.0
+offset_bottom = 126.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Rat Trap
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

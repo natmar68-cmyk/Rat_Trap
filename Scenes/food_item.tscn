@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cw5fd08d4wqkk"]
 
+[ext_resource type="Script" uid="uid://q6caq56pr1g" path="res://Scripts/food_item.gd" id="1_dn6ae"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dlus5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vpskc"]
@@ -10,6 +12,7 @@ height = 2.1074219
 
 [node name="FoodItem" type="RigidBody3D" unique_id=624277446]
 freeze = true
+script = ExtResource("1_dn6ae")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=178529328]
 mesh = SubResource("CapsuleMesh_dlus5")
@@ -18,6 +21,7 @@ mesh = SubResource("CapsuleMesh_dlus5")
 shape = SubResource("CapsuleShape3D_vpskc")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1018479906]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=629648654]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.064453125, 0)

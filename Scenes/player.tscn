@@ -6,6 +6,20 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0iea"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0iea"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvnsp"]
+bg_color = Color(1, 0.8666667, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="Player" type="CharacterBody3D" unique_id=417054637]
 script = ExtResource("1_v0iea")
 
@@ -25,15 +39,34 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=1439410076]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=271647571]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2124015901]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1480052086]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=508166944]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer/Control" unique_id=198535931]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=616191877]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1982750010]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_v0iea")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cvnsp")
+show_percentage = false

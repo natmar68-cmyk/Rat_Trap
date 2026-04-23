@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwryah8rjcu28"]
 
-[ext_resource type="PackedScene" uid="uid://dd4lxdm8jcxrl" path="res://Scenes/player.tscn" id="1_7u47w"]
+[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_7u47w"]
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -27,7 +27,7 @@ size = Vector3(60, 0, 100)
 [node name="Wall y-" type="CSGBox3D" parent="." unique_id=294544597]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, -50)
 use_collision = true
-size = Vector3(60, 0, 100)
+size = Vector3(60, 0, 101)
 
 [node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 6.6307755, 22, -40.87291)
@@ -84,3 +84,8 @@ sky_mode = 1
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=2141064549]
 transform = Transform3D(1, 0, 0, 0, 0.4909342, 0.8711966, 0, -0.8711966, 0.4909342, 0, 43, 34.827698)
 sky_mode = 1
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=951287844]
+transform = Transform3D(1, 0, 0, 0, 0.04013183, -0.9991944, 0, 0.9991944, 0.04013183, -20.25611, 0.39317206, -49.297707)
+radius = 2.338
+height = 0.55

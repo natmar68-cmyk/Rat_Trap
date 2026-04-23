@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dubxkrjahpba0"]
 
-[ext_resource type="Script" uid="uid://c6jo25r4duexb" path="res://Scripts/quit.gd" id="1_1rerr"]
-[ext_resource type="Script" uid="uid://cmiaf8aa3ejrs" path="res://Scripts/play.gd" id="1_xhh6f"]
+[ext_resource type="Script" uid="uid://c6jo25r4duexb" path="res://Scripts/Menu Scripts/quit.gd" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://cmiaf8aa3ejrs" path="res://Scripts/Menu Scripts/play.gd" id="1_xhh6f"]
+[ext_resource type="Script" uid="uid://dgule5t5mslv2" path="res://Scripts/Menu Scripts/settings.gd" id="2_cayip"]
 
 [node name="Menu" type="Node2D" unique_id=975360590]
 
@@ -29,6 +30,7 @@ offset_top = 260.0
 offset_right = 646.0
 offset_bottom = 291.0
 text = "Settings"
+script = ExtResource("2_cayip")
 
 [node name="Quit" type="Button" parent="." unique_id=961115492]
 anchors_preset = -1
@@ -54,4 +56,6 @@ text = "Rat Trap
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Settings" to="Play" method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings" to="Settings" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

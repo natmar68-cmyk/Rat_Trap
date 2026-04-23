@@ -1,72 +1,39 @@
-[gd_scene format=3 uid="uid://cliutm7bruchj"]
+[gd_scene format=3 uid="uid://chb6j77e846ue"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://dcoxhsokwhvd7" path="res://Scripts/player.gd" id="1_v0iea"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bb2n"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_v0iea"]
-radius = 0.2
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0iea"]
 
-<<<<<<< HEAD
-[node name="Player" type="CharacterBody3D" unique_id=757251869 groups=["rat"]]
-=======
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0iea"]
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvnsp"]
-bg_color = Color(1, 0.8666667, 0, 1)
-corner_detail = 6
-
-[node name="Player" type="CharacterBody3D" unique_id=757251869]
->>>>>>> cf3650149a9f12cf4a8e8c71b930fc2fb6528463
+[node name="Player" type="CharacterBody3D" unique_id=417054637]
 script = ExtResource("1_v0iea")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=733045887]
-shape = SubResource("CapsuleShape3D_0bb2n")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1427649674]
+shape = SubResource("CapsuleShape3D_v0iea")
 
-[node name="Head" type="Node3D" parent="." unique_id=923047142]
-
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=311673167]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5099509, 0)
-
-[node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=761627289]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 0.9218118, 4.953)
-shape = SubResource("SphereShape3D_v0iea")
-
-[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=304773825]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 2.2466102, -2.698114)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1447038475]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=358697453]
 mesh = SubResource("CapsuleMesh_v0iea")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1183112665]
+[node name="Head" type="Node3D" parent="." unique_id=1822367765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75593865, 0)
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1884782029]
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=496888060]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=1745696751]
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=1439410076]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=271647571]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1480052086]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1266378286]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=616191877]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=814686111]
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 406.0
-offset_top = 581.0
-offset_right = 706.0
-offset_bottom = 608.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_v0iea")
-theme_override_styles/fill = SubResource("StyleBoxFlat_cvnsp")
+offset_right = 4.0
+offset_bottom = 27.0

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjw38vn4j6tb4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fd37"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=951616777]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=503922650]
+shape = SubResource("CapsuleShape3D_7fd37")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]

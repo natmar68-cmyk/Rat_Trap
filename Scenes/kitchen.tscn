@@ -27,18 +27,24 @@ size = Vector3(60, 0, 100)
 [node name="Hole_maker" type="CSGCombiner3D" parent="." unique_id=1170892875]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, -50)
 
-[node name="Hole_maker2" type="CSGCombiner3D" parent="Hole_maker" unique_id=1200368828]
-transform = Transform3D(1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 0, 0, 0)
-
-[node name="Wall y-" type="CSGBox3D" parent="Hole_maker/Hole_maker2" unique_id=981362354]
-transform = Transform3D(1, 3.5527137e-15, -2.1175824e-22, -3.5527137e-15, 1, 3.5527137e-15, -2.1175824e-22, -3.5527137e-15, 1, 0, 0, 0)
+[node name="Wall y-" type="CSGBox3D" parent="Hole_maker" unique_id=981362354]
+transform = Transform3D(1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 0, 0, 0)
 use_collision = true
-size = Vector3(60, 0, 101)
+size = Vector3(60, 1, 101)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Hole_maker/Hole_maker2" unique_id=1980869416]
-transform = Transform3D(0.0029237042, 0.0025586665, -0.9999924, 0.005627753, 0.9999807, 0.0025750988, 0.99998087, -0.005635246, 0.002909237, -28.678648, 0.017753601, -17.381962)
+[node name="Hole_wall" type="CSGBox3D" parent="Hole_maker" unique_id=1633334237]
+transform = Transform3D(1, 2.0961011e-13, -9.3173624e-21, -2.0961011e-13, 1, 2.0961011e-13, -9.3173624e-21, -2.0961011e-13, 1, -28.5, -4.241, -19.676)
+size = Vector3(3, 7.5, 7.5)
+
+[node name="Hole" type="CSGPolygon3D" parent="Hole_maker" unique_id=1506180309]
+transform = Transform3D(1.1, 0, -1.0658141e-14, -1.0658141e-14, -4.8082526e-08, -1.1, -2.1175824e-22, 1.1, -4.808253e-08, -29.983604, -0.5586586, -19.121819)
 operation = 2
-height = 0.13671875
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
+
+[node name="Hole_room" type="CSGBox3D" parent="Hole_maker" unique_id=451364005]
+transform = Transform3D(1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, -28.5, -4.241, -19.676)
+operation = 2
+size = Vector3(2.9, 7.4, 7.2)
 
 [node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 6.6307755, 22, -40.87291)

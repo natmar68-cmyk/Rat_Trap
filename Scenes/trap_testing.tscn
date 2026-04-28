@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b0b3soyjopidh"]
+
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="1_40do3"]
+[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="2_ki1fp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40do3"]
+
+[node name="Node3D" type="Node3D" unique_id=901152563]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1412993552]
+transform = Transform3D(0.054706216, 0, 0.99850243, 0, 1, 0, -0.99850243, 0, 0.054706216, -0.19147825, 0.050827265, -0.15099478)
+size = Vector3(8.071289, 0.33642578, 6.3268127)
+material = SubResource("StandardMaterial3D_40do3")
+
+[node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("1_40do3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6547985, 0.2812255, 2.6946383)
+
+[node name="Player" parent="." unique_id=417054637 instance=ExtResource("2_ki1fp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2928877, 1.3471463, -1.067565)

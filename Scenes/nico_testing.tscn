@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="1_1jav3"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://FoodLabel.gd" id="2_bd4tc"]
-[ext_resource type="PackedScene" uid="uid://cliutm7bruchj" path="res://Scenes/player.tscn" id="3_3chpj"]
+[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="3_3chpj"]
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="4_bd4tc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_00lxa"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,3 +46,6 @@ offset_bottom = 73.0
 
 [node name="Player" parent="." unique_id=417054637 groups=["Player"] instance=ExtResource("3_3chpj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8595068, 0)
+
+[node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("4_bd4tc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -4)

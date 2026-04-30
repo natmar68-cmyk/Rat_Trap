@@ -26,6 +26,7 @@ size = Vector3(60, 0, 100)
 
 [node name="Hole_maker" type="CSGCombiner3D" parent="." unique_id=1170892875]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, -50)
+use_collision = true
 
 [node name="Wall y-" type="CSGBox3D" parent="Hole_maker" unique_id=981362354]
 transform = Transform3D(1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 0, 0, 0)

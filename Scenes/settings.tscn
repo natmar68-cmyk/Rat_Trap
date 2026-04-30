@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://1v6aqifhi6rd"]
 
+[ext_resource type="Script" uid="uid://ddfaxucgqkb8o" path="res://Scripts/settings_return.gd" id="1_4geyq"]
+
 [node name="Settings" type="Node2D" unique_id=1317655628]
+
+[node name="Label" type="Label" parent="." unique_id=72852364]
+offset_left = 523.0
+offset_top = 275.0
+offset_right = 597.0
+offset_bottom = 298.0
+text = "SETTINGS"
+
+[node name="Settings_Return" type="Button" parent="." unique_id=1883649695]
+offset_left = 447.0
+offset_top = 298.0
+offset_right = 675.0
+offset_bottom = 329.0
+text = "Click here to return to menu"
+script = ExtResource("1_4geyq")
+
+[connection signal="pressed" from="Settings_Return" to="Settings_Return" method="_on_pressed"]

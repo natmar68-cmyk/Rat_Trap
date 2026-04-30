@@ -1,9 +1,20 @@
 extends Node
 
-var food_count: int = 0
+var food_carried: int = 0
+var food_delivered: int = 0
+var total_food: int = 0
 
-signal food_count_changed(new_count)
+signal carried_changed(new_count)
+signal delivered_changed(new_count)
 
-func collect_food(food_name: String):
-	food_count += 1
-	food_count_changed.emit(food_count)
+func register_food():
+	total_food += 1
+
+func collect_food(_food_name: String):
+	food_carried += 1
+	carried_changed.emit(food_carried)
+
+func deliver_food():
+	food_delivered += food_carried
+	food_carried = 0
+	delivered_changed.emit(food_delivered)

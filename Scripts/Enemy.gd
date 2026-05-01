@@ -10,13 +10,13 @@ signal player_hit
 
 # ── Tunable parameters ────────────────────────
 @export var move_speed        : float = 10.0
-@export var chase_speed       : float = 15.0
+@export var chase_speed       : float = 12.0
 @export var sight_range       : float = 14.0
 @export var sight_fov_deg     : float = 90.0
-@export var attack_range      : float = 1.8
+@export var attack_range      : float = 2.8
 @export var attack_cooldown   : float = 1.2
 @export var alert_linger      : float = 3.0
-@export var roam_radius       : float = 8.0
+@export var roam_radius       : float = 10.0
 
 # ── Node references ───────────────────────────
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
@@ -35,13 +35,13 @@ const GRAVITY : float = -9.8
 
 
 func _ready() -> void:
+	scale = Vector3(4, 4, 4)   # ← add this line
 	spawn_position = global_position
 	roam_target    = _random_roam_point()
 
 	var players := get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-
 
 func _physics_process(delta: float) -> void:
 	if state == State.DEAD:

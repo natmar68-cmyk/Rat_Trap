@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://cdrcybiddw6w8"]
 
 [ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_5dop0"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemy.tscn" id="2_vntp2"]
+[ext_resource type="PackedScene" uid="uid://cjw38vn4j6tb4" path="res://Scenes/Enemy.tscn" id="2_vntp2"]
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_6rqk1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vntp2"]
 vertices = PackedVector3Array(7.25, 0.849206, 7, 9, 0.849206, 6.75, 8.75, 0.849206, -49.5, -49.5, 0.849206, -49.5, -49.5, 0.849206, 8.25, 7.25, 0.849206, 8.5, 10.5, 0.849206, 6.75, 10.75, 0.849206, -49.5, 12, 0.849206, 6.75, 12.25, 0.849206, 8.5, 49.5, 0.849206, 8.25, 49.5, 0.849206, -49.5, 8.25, 3.099206, 7.75, 8.25, 3.099206, 13.75, 11.25, 3.099206, 13.75, 11.25, 3.099206, 7.75, 8.5, 0.849206, 8, 8.5, 0.849206, 13.5, 11, 0.849206, 13.5, 11, 0.849206, 8, -49.5, 0.849206, 13.25, 7.25, 0.849206, 13, 12.25, 0.849206, 13, 49.5, 0.849206, 13.25, 8.75, 0.849206, 49.5, 9, 0.849206, 14.75, 7.25, 0.849206, 14.5, -49.5, 0.849206, 49.5, 12, 0.849206, 14.75, 10.5, 0.849206, 14.75, 10.75, 0.849206, 49.5, 49.5, 0.849206, 49.5)
@@ -27,7 +28,7 @@ light_indirect_energy = 1.35
 light_volumetric_fog_energy = 0.585
 sky_mode = 1
 
-[node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_5dop0")]
+[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_5dop0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Enemy" parent="." unique_id=951616777 instance=ExtResource("2_vntp2")]
@@ -47,3 +48,6 @@ mesh = SubResource("ArrayMesh_vntp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.681141, 0.722497, 10.793422)
 use_collision = true
 size = Vector3(3.8046875, 4.246582, 6.823242)
+
+[node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("3_6rqk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5283833, 0.575, -11.830872)

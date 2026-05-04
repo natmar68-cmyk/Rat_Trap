@@ -20,7 +20,7 @@ signal player_hit
 
 # ── Node references ───────────────────────────
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
-
+@onready var anim : AnimationPlayer = $kitty/AnimationPlayer
 # ── Internal state ────────────────────────────
 enum State { ROAM, ALERT, CHASE, ATTACK, DEAD }
 var state          : State = State.ROAM
@@ -35,7 +35,6 @@ const GRAVITY : float = -9.8
 
 
 func _ready() -> void:
-	scale = Vector3(4, 4, 4)   # ← add this line
 	spawn_position = global_position
 	roam_target    = _random_roam_point()
 

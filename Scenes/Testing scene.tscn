@@ -31,7 +31,7 @@ sky_mode = 1
 [node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_5dop0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Enemy" parent="." unique_id=951616777 instance=ExtResource("2_vntp2")]
+[node name="Enemy" parent="." unique_id=951616777 groups=["enemy"] instance=ExtResource("2_vntp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9190903, 4.289788, 10.825661)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1029260790]

@@ -18,3 +18,11 @@ func deliver_food():
 	food_delivered += food_carried
 	food_carried = 0
 	delivered_changed.emit(food_delivered)
+	carried_changed.emit(0)
+
+func reset():
+	food_carried = 0
+	food_delivered = 0
+	total_food = 0
+	carried_changed.emit(0)
+	delivered_changed.emit(0)

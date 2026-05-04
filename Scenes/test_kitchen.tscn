@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://yqvgneujmkru"]
+
+[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_uq4tq"]
+[ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="2_54j5g"]
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_hfsmk"]
+[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="4_4uwio"]
+[ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="5_hf3hi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfsmk"]
+size = Vector3(0.5986328, 4.960251, 1)
+
+[node name="Kitchen" type="Node3D" unique_id=2066472100]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1162045850]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
+use_collision = true
+size = Vector3(100, 0, 100)
+
+[node name="Wall x-" type="CSGBox3D" parent="." unique_id=719272905]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -50.327, 29.5, 0.025)
+use_collision = true
+size = Vector3(60, 0, 100)
+
+[node name="Wall x+" type="CSGBox3D" parent="." unique_id=461151980]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 49.5, 29.5, 0.025)
+use_collision = true
+size = Vector3(60, 0, 100)
+
+[node name="Wall y+" type="CSGBox3D" parent="." unique_id=335010111]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, 50)
+use_collision = true
+size = Vector3(60, 0, 100)
+
+[node name="Hole_maker" type="CSGCombiner3D" parent="." unique_id=1170892875]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, -50)
+use_collision = true
+
+[node name="Wall y-" type="CSGBox3D" parent="Hole_maker" unique_id=981362354]
+transform = Transform3D(1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 1.4210855e-14, -8.4703295e-22, -1.4210855e-14, 1, 0, 0, 0)
+use_collision = true
+size = Vector3(60, 1, 101)
+
+[node name="Hole_wall" type="CSGBox3D" parent="Hole_maker" unique_id=1633334237]
+transform = Transform3D(1, 2.0961011e-13, -9.3173624e-21, -2.0961011e-13, 1, 2.0961011e-13, -9.3173624e-21, -2.0961011e-13, 1, -28.5, -4.241, -19.676)
+size = Vector3(3, 7.5, 7.5)
+
+[node name="Hole" type="CSGPolygon3D" parent="Hole_maker" unique_id=1506180309]
+transform = Transform3D(1.1, 0, -1.0658141e-14, -1.0658141e-14, -4.8082526e-08, -1.1, -2.1175824e-22, 1.1, -4.808253e-08, -29.983604, -0.5586586, -19.121819)
+operation = 2
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
+
+[node name="Hole_room" type="CSGBox3D" parent="Hole_maker" unique_id=451364005]
+transform = Transform3D(1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, -28.5, -4.241, -19.676)
+operation = 2
+size = Vector3(2.9, 7.4, 7.2)
+
+[node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 6.6307755, 22, -40.87291)
+use_collision = true
+size = Vector3(45, 15, 30)
+
+[node name="Counter -x" type="CSGBox3D" parent="." unique_id=1853158274]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 9.866701, -0.116435796)
+use_collision = true
+size = Vector3(20, 100, 20)
+
+[node name="Cupboard -z" type="CSGBox3D" parent="." unique_id=1573001966]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -38.261154)
+use_collision = true
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="Chimney" type="CSGBox3D" parent="." unique_id=2104832627]
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -2.8357697)
+use_collision = true
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="Cupboard +z" type="CSGBox3D" parent="." unique_id=1460989941]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -17.39821, 42.105217, 39.883945)
+use_collision = true
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="Counter +y" type="CSGBox3D" parent="." unique_id=1114300356]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -8.647625, 9.8667, 39.808304)
+use_collision = true
+size = Vector3(20, 42.42781, 20)
+
+[node name="Island" type="CSGBox3D" parent="." unique_id=2089766419]
+transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 1.1757555, 9.79906, -1.3498305)
+use_collision = true
+size = Vector3(20, 28.267048, 23.901367)
+
+[node name="Shelf" type="CSGBox3D" parent="." unique_id=847364875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73134, 35.675278, -25.228111)
+use_collision = true
+size = Vector3(7.5, 1, 40)
+
+[node name="Shelf2" type="CSGBox3D" parent="." unique_id=11538325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73134, 28.373306, 17.78783)
+use_collision = true
+size = Vector3(7.5, 1, 40)
+
+[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_uq4tq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.77812, 55.408207, -42.44033)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1762153572]
+transform = Transform3D(1, 0, 0, 0, 0.046025537, 0.9989403, 0, -0.9989403, 0.046025537, 0, 43, 0)
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=2141064549]
+transform = Transform3D(1, 0, 0, 0, 0.4909342, 0.8711966, 0, -0.8711966, 0.4909342, 0, 43, 34.827698)
+sky_mode = 1
+
+[node name="RatHoleEntrance" type="Area3D" parent="." unique_id=1054460793]
+script = ExtResource("2_54j5g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RatHoleEntrance" unique_id=1772056645]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -20.221523, 0.0010604858, -49.717274)
+shape = SubResource("BoxShape3D_hfsmk")
+
+[node name="MouseTrap" parent="RatHoleEntrance" unique_id=430545207 instance=ExtResource("3_hfsmk")]
+transform = Transform3D(0.98654705, -0.0383476, 0.15891658, 0.0395008, 0.99921113, -0.004103113, -0.15863387, 0.010325234, 0.9872835, -36.843063, 19.941698, -14.113258)
+
+[node name="FoodItem" parent="." unique_id=624277446 instance=ExtResource("4_4uwio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.084343, 50.369865, -29.84024)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1313978239]
+script = ExtResource("5_hf3hi")
+
+[node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1759022403]
+offset_left = 945.0
+offset_top = 56.0
+offset_right = 985.0
+offset_bottom = 79.0
+metadata/_edit_use_anchors_ = true
+
+[node name="FoodItem2" parent="." unique_id=640037650 instance=ExtResource("4_4uwio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.770187, 20.866703, -19.067768)
+
+[node name="FoodItem3" parent="." unique_id=1754783054 instance=ExtResource("4_4uwio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.808252, 0.52627563, -37.21061)
+
+[node name="MouseTrap" parent="." unique_id=1646424392 instance=ExtResource("3_hfsmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.193369, -0.4260202, -41.424957)

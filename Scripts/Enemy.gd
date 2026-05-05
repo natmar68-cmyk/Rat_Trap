@@ -20,7 +20,7 @@ signal player_hit
 
 # ── Node references ───────────────────────────
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
-@onready var anim : AnimationPlayer = $kitty/AnimationPlayer
+
 # ── Internal state ────────────────────────────
 enum State { ROAM, ALERT, CHASE, ATTACK, DEAD }
 var state          : State = State.ROAM

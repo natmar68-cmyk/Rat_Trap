@@ -32,7 +32,7 @@ sky_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.12624, 2, 0)
 
 [node name="Enemy" parent="." unique_id=951616777 groups=["enemy"] instance=ExtResource("2_vntp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9190903, 10.096968, 10.825661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9190903, 7.1877613, 10.825661)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1029260790]
 navigation_mesh = SubResource("NavigationMesh_vntp2")
@@ -45,9 +45,14 @@ size = Vector3(100, 1, 100)
 mesh = SubResource("ArrayMesh_vntp2")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1820868888]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.681141, 0.722497, 10.793422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.681141, 0.09194279, 2.0556288)
 use_collision = true
-size = Vector3(3.8046875, 4.246582, 6.823242)
+size = Vector3(3.8046875, 2.9854736, 24.298828)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D" unique_id=297026261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.26777, 0.09194279, 2.0556288)
+use_collision = true
+size = Vector3(3.8046875, 2.9854736, 24.298828)
 
 [node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("3_6rqk1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5283833, 0.575, -11.830872)

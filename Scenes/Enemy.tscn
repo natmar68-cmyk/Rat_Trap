@@ -18,10 +18,10 @@ shape = SubResource("CapsuleShape3D_7fd37")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]
 
-[node name="kitty" parent="." unique_id=991021938 instance=ExtResource("2_xeo28")]
-transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0, 0)
+[node name="Cat" parent="." unique_id=991021938 instance=ExtResource("2_xeo28")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.8841319, 0)
 
-[node name="Cylinder" parent="kitty/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 1127844330) index="0" unique_id=1468966285]
+[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 1127844330) index="0" unique_id=1468966285]
 material_override = SubResource("StandardMaterial3D_1exfc")
 
-[editable path="kitty"]
+[editable path="Cat"]

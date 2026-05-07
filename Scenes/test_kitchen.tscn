@@ -1,17 +1,30 @@
 [gd_scene format=3 uid="uid://yqvgneujmkru"]
 
+[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="1_tg2q0"]
 [ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_uq4tq"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="2_54j5g"]
 [ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_hfsmk"]
 [ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="4_4uwio"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="5_hf3hi"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_tg2q0"]
+vertices = PackedVector3Array(-50.1111, -0.09804493, 5.4943047, -50.1111, 0.15195507, 49.494305, -5.6110992, 0.15195507, 49.744305, 49.1389, 0.40195507, 49.744305, 49.3889, 0.15195507, 5.4943047, 49.3889, 0.15195507, -49.255695, -49.6111, -0.09804493, -49.755695)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 0), PackedInt32Array(4, 0, 5), PackedInt32Array(5, 0, 6)]
+geometry_parsed_geometry_type = 1
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfsmk"]
 size = Vector3(0.5986328, 4.960251, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=1162045850]
+[node name="Chef" parent="." unique_id=1627712324 instance=ExtResource("1_tg2q0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.2836, 5.804207, 21.605337)
+patrol_points = Array[NodePath]([NodePath("../PatrolPoint1"), NodePath("../PatrolPoint2"), NodePath("../PatrolPoint3")])
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1485751085]
+navigation_mesh = SubResource("NavigationMesh_tg2q0")
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1162045850]
 transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
 use_collision = true
 size = Vector3(100, 0, 100)
@@ -127,11 +140,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.084343, 50.369865, -29.84
 script = ExtResource("5_hf3hi")
 
 [node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1759022403]
-offset_left = 945.0
-offset_top = 56.0
-offset_right = 985.0
-offset_bottom = 79.0
+offset_left = 883.0
+offset_top = 49.0
+offset_right = 923.0
+offset_bottom = 72.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PatrolPoint1" type="Node3D" parent="." unique_id=1381340172]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -16.226662, 1, 21.978)
+
+[node name="PatrolPoint2" type="Node3D" parent="." unique_id=1182973029]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 27.414, 1, -35.725)
+
+[node name="PatrolPoint3" type="Node3D" parent="." unique_id=1383531233]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -14.914, 1, -30.747)
 
 [node name="FoodItem2" parent="." unique_id=640037650 instance=ExtResource("4_4uwio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.770187, 20.866703, -19.067768)

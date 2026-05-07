@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://u1m4lw5imm7c"]
 
-[ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scenes/chef.gd" id="1_sqin4"]
+[ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scripts/chef.gd" id="1_sqin4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0fah"]
 
@@ -21,6 +21,7 @@ radius = 1.1442219
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 collision_layer = 8
 script = ExtResource("1_sqin4")
+patrol_points = Array[NodePath]([NodePath(""), NodePath(""), NodePath("")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1448733344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010906856, -0.016447842, -0.012827556)

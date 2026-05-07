@@ -15,5 +15,5 @@ material = SubResource("StandardMaterial3D_40do3")
 [node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("1_40do3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6547985, 0.2812255, 2.6946383)
 
-[node name="Player" parent="." unique_id=417054637 instance=ExtResource("2_ki1fp")]
+[node name="Player" parent="." unique_id=417054637 groups=["Player"] instance=ExtResource("2_ki1fp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2928877, 1.3471463, -1.067565)

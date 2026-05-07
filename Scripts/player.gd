@@ -51,7 +51,7 @@ void fragment() {
 	mat.shader = shader
 	mat.set_shader_parameter("intensity", 0.0)
 	vignette.material = mat
-
+	_connect_enemies()
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_camera"):
 		if tp_camera == null:
@@ -120,3 +120,12 @@ func _update_vignette(delta: float) -> void:
 		target = 0.0
 	var new_intensity := move_toward(current, target, delta * 3.0)
 	mat.set_shader_parameter("intensity", new_intensity)
+func _connect_enemies() -> void:
+	# Connect any enemies already in the scene
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if not enemy.player_hit.is_connected(_on_player_hit):
+			enemy.player_hit.connect(_on_player_hit)
+
+func _on_player_hit() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/death_screen.tscn")

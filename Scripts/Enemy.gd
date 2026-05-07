@@ -35,7 +35,6 @@ const GRAVITY : float = -9.8
 
 
 func _ready() -> void:
-	scale = Vector3(4, 4, 4)   # ← add this line
 	spawn_position = global_position
 	roam_target    = _random_roam_point()
 
@@ -224,3 +223,4 @@ func _random_roam_point() -> Vector3:
 	var angle  := randf() * TAU
 	var radius := randf_range(2.0, roam_radius)
 	return spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
+	

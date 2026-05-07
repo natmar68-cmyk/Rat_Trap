@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cjw38vn4j6tb4"]
 
 [ext_resource type="Script" uid="uid://qht6hdf704tm" path="res://Scripts/Enemy.gd" id="1_m1htj"]
+[ext_resource type="PackedScene" uid="uid://n1v65pffpy8p" path="res://Assets/cat-ps1-low-poly-rigged/source/kitty.fbx" id="2_xeo28"]
+[ext_resource type="Texture2D" uid="uid://c6v1w47el0a6x" path="res://Assets/cat-ps1-low-poly-rigged/textures/cat_tex.png" id="3_kpr8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fd37"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_m1htj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1exfc"]
+albedo_texture = ExtResource("3_kpr8r")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=951616777]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -15,6 +18,10 @@ shape = SubResource("CapsuleShape3D_7fd37")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=479191993]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_m1htj")
+[node name="Cat" parent="." unique_id=991021938 instance=ExtResource("2_xeo28")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.8841319, 0)
+
+[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 1127844330) index="0" unique_id=1468966285]
+material_override = SubResource("StandardMaterial3D_1exfc")
+
+[editable path="Cat"]

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://yqvgneujmkru"]
 
-[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="1_tg2q0"]
-[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_uq4tq"]
-[ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="2_54j5g"]
-[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_hfsmk"]
-[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="4_4uwio"]
-[ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="5_hf3hi"]
+[ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="2_qw8tm"]
+[ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="3_kdh3s"]
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="4_n7mkv"]
+[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="5_hvqhr"]
+[ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_x3kg1"]
+[ext_resource type="PackedScene" uid="uid://cjw38vn4j6tb4" path="res://Scenes/Enemy.tscn" id="7_fqfe0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_tg2q0"]
 vertices = PackedVector3Array(-50.1111, -0.09804493, 5.4943047, -50.1111, 0.15195507, 49.494305, -5.6110992, 0.15195507, 49.744305, 49.1389, 0.40195507, 49.744305, 49.3889, 0.15195507, 5.4943047, 49.3889, 0.15195507, -49.255695, -49.6111, -0.09804493, -49.755695)
@@ -16,10 +16,6 @@ geometry_parsed_geometry_type = 1
 size = Vector3(0.5986328, 4.960251, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
-
-[node name="Chef" parent="." unique_id=1627712324 instance=ExtResource("1_tg2q0")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 35.2836, 5.804207, 21.605337)
-patrol_points = Array[NodePath]([NodePath("../PatrolPoint1"), NodePath("../PatrolPoint2"), NodePath("../PatrolPoint3")])
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1485751085]
 navigation_mesh = SubResource("NavigationMesh_tg2q0")
@@ -112,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73134, 28.373306, 17.78783
 use_collision = true
 size = Vector3(7.5, 1, 40)
 
-[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_uq4tq")]
+[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("2_qw8tm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.77812, 55.408207, -42.44033)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1762153572]
@@ -124,20 +120,20 @@ transform = Transform3D(1, 0, 0, 0, 0.4909342, 0.8711966, 0, -0.8711966, 0.49093
 sky_mode = 1
 
 [node name="RatHoleEntrance" type="Area3D" parent="." unique_id=1054460793]
-script = ExtResource("2_54j5g")
+script = ExtResource("3_kdh3s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RatHoleEntrance" unique_id=1772056645]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -20.221523, 0.0010604858, -49.717274)
 shape = SubResource("BoxShape3D_hfsmk")
 
-[node name="MouseTrap" parent="RatHoleEntrance" unique_id=430545207 instance=ExtResource("3_hfsmk")]
+[node name="MouseTrap" parent="RatHoleEntrance" unique_id=430545207 instance=ExtResource("4_n7mkv")]
 transform = Transform3D(0.98654705, -0.0383476, 0.15891658, 0.0395008, 0.99921113, -0.004103113, -0.15863387, 0.010325234, 0.9872835, -36.843063, 19.941698, -14.113258)
 
-[node name="FoodItem" parent="." unique_id=624277446 instance=ExtResource("4_4uwio")]
+[node name="FoodItem" parent="." unique_id=624277446 instance=ExtResource("5_hvqhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.084343, 50.369865, -29.84024)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1313978239]
-script = ExtResource("5_hf3hi")
+script = ExtResource("6_x3kg1")
 
 [node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1759022403]
 offset_left = 883.0
@@ -155,11 +151,14 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 27.414, 1, -35.725)
 [node name="PatrolPoint3" type="Node3D" parent="." unique_id=1383531233]
 transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -14.914, 1, -30.747)
 
-[node name="FoodItem2" parent="." unique_id=640037650 instance=ExtResource("4_4uwio")]
+[node name="FoodItem2" parent="." unique_id=640037650 instance=ExtResource("5_hvqhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.770187, 20.866703, -19.067768)
 
-[node name="FoodItem3" parent="." unique_id=1754783054 instance=ExtResource("4_4uwio")]
+[node name="FoodItem3" parent="." unique_id=1754783054 instance=ExtResource("5_hvqhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.808252, 0.52627563, -37.21061)
 
-[node name="MouseTrap" parent="." unique_id=1646424392 instance=ExtResource("3_hfsmk")]
+[node name="MouseTrap" parent="." unique_id=1646424392 instance=ExtResource("4_n7mkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.193369, -0.4260202, -41.424957)
+
+[node name="Enemy" parent="." unique_id=951616777 groups=["enemy"] instance=ExtResource("7_fqfe0")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 32.591457, 4.968142, -11.489803)

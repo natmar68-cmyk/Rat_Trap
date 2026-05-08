@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://n1v65pffpy8p" path="res://Assets/cat-ps1-low-poly-rigged/source/kitty.fbx" id="2_xeo28"]
 [ext_resource type="Texture2D" uid="uid://c6v1w47el0a6x" path="res://Assets/cat-ps1-low-poly-rigged/textures/cat_tex.png" id="3_kpr8r"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fd37"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xeo28"]
+size = Vector3(2.2356873, 4.9907646, 0.20389462)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1exfc"]
 albedo_texture = ExtResource("3_kpr8r")
@@ -12,16 +13,19 @@ albedo_texture = ExtResource("3_kpr8r")
 [node name="Enemy" type="CharacterBody3D" unique_id=951616777]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_m1htj")
+sight_range = 34.0
+sight_fov_deg = 200.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=503922650]
-shape = SubResource("CapsuleShape3D_7fd37")
+transform = Transform3D(1, 0, 0, 0, 0.0033684298, 0.99999434, 0, -0.99999434, 0.0033684298, -0.004477501, -0.62508553, 0.54733634)
+shape = SubResource("BoxShape3D_xeo28")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]
 
 [node name="Cat" parent="." unique_id=991021938 instance=ExtResource("2_xeo28")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -0.8841319, 0)
 
-[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 1127844330) index="0" unique_id=1468966285]
+[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 267695844) index="0" unique_id=2000083229]
 material_override = SubResource("StandardMaterial3D_1exfc")
 
 [editable path="Cat"]

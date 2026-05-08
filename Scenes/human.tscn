@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c8acvga20s6i6"]
+
+[ext_resource type="Script" uid="uid://qht6hdf704tm" path="res://Scripts/Enemy.gd" id="1_073c6"]
+[ext_resource type="PackedScene" uid="uid://n1v65pffpy8p" path="res://Assets/cat-ps1-low-poly-rigged/source/kitty.fbx" id="2_42mg8"]
+[ext_resource type="Texture2D" uid="uid://c6v1w47el0a6x" path="res://Assets/cat-ps1-low-poly-rigged/textures/cat_tex.png" id="3_8atu2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fd37"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1exfc"]
+albedo_texture = ExtResource("3_8atu2")
+
+[node name="Enemy" type="CharacterBody3D" unique_id=951616777]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("1_073c6")
+sight_range = 34.0
+sight_fov_deg = 200.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=503922650]
+shape = SubResource("CapsuleShape3D_7fd37")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]
+
+[node name="Cat" parent="." unique_id=991021938 instance=ExtResource("2_42mg8")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -0.43619967, -0.8841319, 0)
+
+[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(991021938, 267695844) index="0" unique_id=2000083229]
+material_override = SubResource("StandardMaterial3D_1exfc")
+
+[editable path="Cat"]

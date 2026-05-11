@@ -223,4 +223,3 @@ func _random_roam_point() -> Vector3:
 	var angle  := randf() * TAU
 	var radius := randf_range(2.0, roam_radius)
 	return spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
-	

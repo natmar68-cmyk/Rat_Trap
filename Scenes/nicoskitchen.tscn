@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="5_hvqhr"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_x3kg1"]
 [ext_resource type="PackedScene" uid="uid://cjw38vn4j6tb4" path="res://Scenes/Enemy.tscn" id="7_fqfe0"]
+[ext_resource type="PackedScene" uid="uid://c8acvga20s6i6" path="res://Scenes/human.tscn" id="7_y6vyd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_tg2q0"]
 vertices = PackedVector3Array(-50.1111, -0.09804493, 5.4943047, -50.1111, 0.15195507, 49.494305, -5.6110992, 0.15195507, 49.744305, 49.1389, 0.40195507, 49.744305, 49.3889, 0.15195507, 5.4943047, 49.3889, 0.15195507, -49.255695, -49.6111, -0.09804493, -49.755695)
@@ -162,3 +163,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.193369, -0.4260202, -41.4
 
 [node name="Enemy" parent="." unique_id=951616777 groups=["enemy"] instance=ExtResource("7_fqfe0")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 32.591457, 4.968142, -11.489803)
+
+[node name="Human" parent="." unique_id=1810776799 groups=["enemy"] instance=ExtResource("7_y6vyd")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 31.871258, -15.226648, 25.810026)
+move_speed = 1000.0
+chase_speed = 120.0
+sight_range = 25.0
+sight_fov_deg = 200.0

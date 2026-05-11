@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://qht6hdf704tm" path="res://Scripts/Enemy.gd" id="1_073c6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7fd37"]
+radius = 0.50439453
+height = 3.5484924
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_byrx8"]
 
@@ -10,14 +12,16 @@
 albedo_color = Color(1, 0.74250877, 0.55576885, 1)
 
 [node name="Enemy" type="CharacterBody3D" unique_id=951616777]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 script = ExtResource("1_073c6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=503922650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2847137, 0)
 shape = SubResource("CapsuleShape3D_7fd37")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807676611]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2066383823]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, 0, 4.3, 0)
 mesh = SubResource("CapsuleMesh_byrx8")
 surface_material_override/0 = SubResource("StandardMaterial3D_j03jf")

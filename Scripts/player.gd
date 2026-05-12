@@ -29,11 +29,11 @@ var climb_normal := Vector3.ZERO
 @onready var body_mesh: MeshInstance3D = $MeshInstance3D
 @onready var stamina_bar: ProgressBar = $CanvasLayer/Control/ProgressBar
 @onready var vignette: ColorRect = $CanvasLayer/Control/Vignette
+@onready var climb_prompt: Label = $CanvasLayer/Control/ClimbPrompt
 
 var tp_camera: Camera3D = null
 var is_first_person := true
 
-# Target head pitch for climbing camera tilt
 var target_head_pitch := 0.0
 var override_head_pitch := false
 
@@ -64,6 +64,16 @@ void fragment() {
 	mat.shader = shader
 	mat.set_shader_parameter("intensity", 0.0)
 	vignette.material = mat
+
+	# Climb prompt setup
+	climb_prompt.text = "Press 'E' to Climb"
+	climb_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	climb_prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	climb_prompt.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	climb_prompt.position.y -= 80
+	climb_prompt.visible = false
+	climb_prompt.add_theme_font_size_override("font_size", 18)
+
 	_connect_enemies()
 
 func _input(event: InputEvent) -> void:
@@ -104,6 +114,7 @@ func _physics_process(delta: float) -> void:
 		_process_normal(delta)
 	_update_mesh_rotation(delta)
 	_update_camera_tilt(delta)
+	_update_climb_prompt()
 
 # ── Normal movement ────────────────────────────────────────────────────────────
 
@@ -153,12 +164,10 @@ func _try_enter_climb() -> void:
 	is_climbing = true
 	velocity = Vector3.ZERO
 
-	# Rotate player yaw to face the wall
 	var flat_normal := Vector3(climb_normal.x, 0, climb_normal.z).normalized()
 	var angle := Vector3.FORWARD.signed_angle_to(-flat_normal, Vector3.UP)
 	rotation.y = angle
 
-	# Tilt camera to look upward (face the wall surface)
 	target_head_pitch = PI / 2.0
 	override_head_pitch = true
 
@@ -245,12 +254,19 @@ func _get_nearby_climbable() -> Dictionary:
 			return {"normal": hit["normal"], "position": hit["position"]}
 	return {}
 
+# ── Climb prompt ───────────────────────────────────────────────────────────────
+
+func _update_climb_prompt() -> void:
+	if is_climbing:
+		climb_prompt.visible = false
+		return
+	climb_prompt.visible = not _get_nearby_climbable().is_empty()
+
 # ── Mesh rotation ──────────────────────────────────────────────────────────────
 
 func _update_mesh_rotation(delta: float) -> void:
 	var target_basis: Basis
 	if is_climbing:
-		# Build target in GLOBAL space then convert to local so player yaw doesn't affect it
 		var world_up := climb_normal
 		var world_fwd := Vector3.UP
 		if abs(world_up.dot(world_fwd)) > 0.99:
@@ -258,7 +274,6 @@ func _update_mesh_rotation(delta: float) -> void:
 		var world_right := world_fwd.cross(world_up).normalized()
 		world_fwd = world_up.cross(world_right).normalized()
 		var global_target := Basis(world_right, world_up, -world_fwd)
-		# Convert to local space of the CharacterBody3D
 		target_basis = global_transform.basis.inverse() * global_target
 	else:
 		target_basis = Basis()

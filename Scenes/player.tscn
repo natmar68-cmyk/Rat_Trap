@@ -70,3 +70,8 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_v0iea")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cvnsp")
 show_percentage = false
+
+[node name="ClimbPrompt" type="Label" parent="CanvasLayer/Control" unique_id=494492209]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

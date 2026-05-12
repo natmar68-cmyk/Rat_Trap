@@ -122,7 +122,7 @@ func _process_normal(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 
-	var can_sprint := Input.is_action_pressed("sprint") and stamina > 0 and not exhausted
+	var can_sprint := Input.is_action_pressed("sprint") and stamina > 0 and not exhausted and Input.is_action_pressed("move_forward")
 	if can_sprint:
 		stamina = max(stamina - STAMINA_DRAIN * delta, 0)
 		if stamina == 0:

@@ -187,3 +187,8 @@ shape = SubResource("BoxShape3D_0r5da")
 
 [node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("5_0r5da")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.11703, -0.37520462, -25.168303)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1211612269]
+transform = Transform3D(0.99736434, 0.07214906, -0.0076697767, -0.07215951, 0.99739254, -0.001093634, 0.007570865, 0.0016442378, 0.99996996, -12.158782, 47.147293, -35.961323)
+use_collision = true
+size = Vector3(59.61576, 1, 1)

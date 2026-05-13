@@ -1,9 +1,30 @@
-[gd_scene format=3 uid="uid://b7r5wcbcuw7s6"]
+[gd_scene format=4 uid="uid://b7r5wcbcuw7s6"]
 
 [ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_g80ae"]
+[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="2_x7gce"]
+[ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="3_p8fgl"]
+[ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="4_igqup"]
+[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="5_0r5da"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0r5da"]
+_surfaces = [{
+"aabb": AABB(-50, 0, -50, 100, 1e-05, 100),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABIQgAAAIAAAEjCAABIwgAAAAAAAEjCAABIwgAAAAAAAEhCAABIQgAAAAAAAEhCAABIwgAAAAAAAEhCAABIwgAAAAAAAEjCAABIwgAAAAAAAEjCAABIQgAAAIAAAEjCAABIQgAAAAAAAEhCAABIwgAAAAAAAEhCAABIQgAAAAAAAEhCAABIQgAAAIAAAEjC/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2puwv"]
+data = PackedVector3Array(50, 0, -50, -50, 0, -50, -50, 0, 50, 50, 0, 50, -50, 0, 50, -50, 0, -50, -50, 0, -50, 50, 0, -50, 50, 0, 50, -50, 0, 50, 50, 0, 50, 50, 0, -50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g80ae"]
 size = Vector3(7.2974854, 14.991425, 8.316406)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0r5da"]
+size = Vector3(0.5986328, 4.960251, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -11,6 +32,18 @@ size = Vector3(7.2974854, 14.991425, 8.316406)
 transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
 use_collision = true
 size = Vector3(100, 0, 100)
+
+[node name="CSGBakedMeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1491710264]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
+mesh = SubResource("ArrayMesh_0r5da")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1423327811]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
+shape = SubResource("ConcavePolygonShape3D_2puwv")
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=313276804]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -0.33034497, -0.3239264, 0.024730325)
+mesh = SubResource("ArrayMesh_0r5da")
 
 [node name="Wall x-" type="CSGBox3D" parent="." unique_id=719272905]
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -50.327, 29.5, 0.025)
@@ -95,8 +128,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73134, 28.373306, 17.78783
 use_collision = true
 size = Vector3(7.5, 1, 40)
 
-[node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_g80ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.726826, 26.810509, 7.7609177)
+[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_g80ae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.726826, 48.308052, -39.607872)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1762153572]
 transform = Transform3D(1, 0, 0, 0, 0.046025537, 0.9989403, 0, -0.9989403, 0.046025537, 0, 43, 0)
@@ -119,3 +152,38 @@ debug_color = Color(0, 0.5794125, 0.80703056, 0.41960785)
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=296255180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1791382, 7.001892, -3.6311646)
 size = Vector3(7.3582764, 15.003784, 8.262329)
+
+[node name="FoodItem" parent="." unique_id=624277446 instance=ExtResource("2_x7gce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1689873, 45.5, -43.334873)
+
+[node name="FoodItem2" parent="." unique_id=200168674 instance=ExtResource("2_x7gce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53718114, 45.5, -43.00382)
+
+[node name="FoodItem3" parent="." unique_id=1110889119 instance=ExtResource("2_x7gce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7684631, 45.5, -43.047356)
+
+[node name="FoodItem4" parent="." unique_id=1509615621 instance=ExtResource("2_x7gce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9517903, 45.5, -39.045025)
+
+[node name="FoodItem5" parent="." unique_id=769975916 instance=ExtResource("2_x7gce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40321326, 45.5, -39.5221)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1076222013]
+script = ExtResource("3_p8fgl")
+
+[node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=2139666240]
+offset_left = 883.0
+offset_top = 49.0
+offset_right = 923.0
+offset_bottom = 72.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RatHoleEntrance" type="Area3D" parent="." unique_id=1706023200]
+script = ExtResource("4_igqup")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RatHoleEntrance" unique_id=697609112]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -20.221523, 0.0010604858, -49.717274)
+shape = SubResource("BoxShape3D_0r5da")
+
+[node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("5_0r5da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.11703, -0.37520462, -25.168303)

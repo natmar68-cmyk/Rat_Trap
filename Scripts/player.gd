@@ -188,7 +188,22 @@ func _process_climbing(delta: float) -> void:
 		_do_vault()
 		return
 
-	var move := (wall_right * input_dir.x + Vector3.UP * -input_dir.y) * CLIMB_SPEED
+	# Sprint while climbing
+	var can_climb_sprint := Input.is_action_pressed("sprint") and stamina > 0 and not exhausted and input_dir.length() > 0.0
+	var current_climb_speed := CLIMB_SPEED * 2.0 if can_climb_sprint else CLIMB_SPEED
+
+	if can_climb_sprint:
+		stamina = max(stamina - STAMINA_DRAIN * delta, 0)
+		if stamina == 0:
+			exhausted = true
+	else:
+		stamina = min(stamina + STAMINA_REGEN * 0.5 * delta, STAMINA_MAX)
+		if exhausted and stamina == STAMINA_MAX:
+			exhausted = false
+	stamina_bar.value = stamina
+	_update_vignette(delta)
+
+	var move := (wall_right * input_dir.x + Vector3.UP * -input_dir.y) * current_climb_speed
 	velocity.x = move.x + into_wall.x
 	velocity.y = move.y
 	velocity.z = move.z + into_wall.z
@@ -204,10 +219,6 @@ func _process_climbing(delta: float) -> void:
 
 	if _get_nearby_climbable().is_empty() or is_on_floor():
 		_exit_climb()
-
-	stamina = min(stamina + STAMINA_REGEN * 0.5 * delta, STAMINA_MAX)
-	stamina_bar.value = stamina
-	_update_vignette(delta)
 
 func _can_vault_over() -> bool:
 	var space := get_world_3d().direct_space_state

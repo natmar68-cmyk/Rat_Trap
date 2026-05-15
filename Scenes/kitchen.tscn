@@ -20,7 +20,10 @@ albedo_texture = ExtResource("1_23qos")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23qos"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23qos"]
-size = Vector3(8.546631, 59.40381, 1)
+size = Vector3(3.5228252, 59.708126, 1.7006836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvc4q"]
+size = Vector3(5.749939, 12.214233, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -68,6 +71,21 @@ size = Vector3(60, 0, 100.47949)
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 0, 29.5, -50)
 use_collision = true
 
+[node name="Cupboard -z" type="CSGBox3D" parent="Hole_maker" unique_id=1573001966]
+transform = Transform3D(1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 12.605219, 11.738842, -39.802654)
+use_collision = true
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="Cupboard -z room" type="CSGBox3D" parent="Hole_maker" unique_id=848542178]
+transform = Transform3D(0.98, 6.963319e-15, 4.1504615e-22, -6.963319e-15, 0.98, 6.963319e-15, -4.150461e-22, -6.963319e-15, 0.98, 12.605219, 11.738842, -39.802654)
+operation = 2
+use_collision = true
+size = Vector3(14.529297, 23.497131, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Hole_maker" unique_id=789669419]
+transform = Transform3D(1.9106857e-15, 1.0000001, 4.3711985e-08, 4.371198e-08, -4.371198e-08, 1, 1.0000001, 8.404284e-24, -4.3711985e-08, 15.628904, -1.7691689, -30.738731)
+size = Vector3(14.6102295, 3.2433167, 2.482727)
+
 [node name="Wall y-" type="CSGBox3D" parent="Hole_maker" unique_id=981362354]
 transform = Transform3D(1, 2.4868996e-14, -1.2705494e-21, -2.4868996e-14, 1, 2.4868996e-14, -1.2705494e-21, -2.4868996e-14, 1, -0.44545746, 0, 0)
 use_collision = true
@@ -79,7 +97,7 @@ transform = Transform3D(1, 2.2737368e-13, -9.952637e-21, -2.2737368e-13, 1, 2.27
 size = Vector3(50, 7.5, 7.5)
 
 [node name="Hole" type="CSGPolygon3D" parent="Hole_maker" unique_id=1506180309]
-transform = Transform3D(1.1, 0, -1.7763568e-14, -1.7763568e-14, -4.8082526e-08, -1.1, -4.2351647e-22, 1.1, -4.808253e-08, -30.427034, -0.5586586, -19.121819)
+transform = Transform3D(1.1, 0, -2.4868996e-14, -2.4868996e-14, -4.8082526e-08, -1.1, -6.352747e-22, 1.1, -4.808253e-08, -30.427034, -0.57662964, -19.121819)
 operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
@@ -87,6 +105,21 @@ polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.6
 transform = Transform3D(1, 2.4868996e-13, -1.1011428e-20, -2.4868996e-13, 1, 2.4868996e-13, -1.1011428e-20, -2.4868996e-13, 1, -5.8049335, -4.2410164, -19.676)
 operation = 2
 size = Vector3(49, 7.4, 7.2)
+
+[node name="Hole2" type="CSGPolygon3D" parent="Hole_maker" unique_id=627964552]
+transform = Transform3D(1.1, -1.6609542e-07, 2.264937e-06, -1.6609539e-07, -1.1, -1.3113431e-06, 1.660954e-07, 9.616515e-08, -15.000001, 14.254129, -2.750187, -37.475533)
+operation = 2
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
+
+[node name="Hole3" type="CSGPolygon3D" parent="Hole_maker" unique_id=962877508]
+transform = Transform3D(1.1, 1.9233018e-07, -5.684342e-14, -7.1054274e-15, -4.808252e-08, -3, -1.923302e-07, 1.1, -1.3113416e-07, 14.2541065, -1.6998634, -35.13348)
+operation = 2
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
+
+[node name="Hole4" type="CSGPolygon3D" parent="Hole_maker" unique_id=135130619]
+transform = Transform3D(7.1054274e-15, 4.808253e-08, 1, 1.1, -4.8082523e-08, -3.5527137e-15, 4.808253e-08, 1.1, -4.371139e-08, 20.368963, 0.5138931, -45.032894)
+operation = 2
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
 [node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, 6.6307755, 21.481583, -40.87291)
@@ -97,11 +130,6 @@ size = Vector3(45, 15, 30)
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 9.119625, -0.116435796)
 use_collision = true
 size = Vector3(20, 100, 20)
-
-[node name="Cupboard -z" type="CSGBox3D" parent="." unique_id=1573001966]
-transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -38.261154)
-use_collision = true
-size = Vector3(14.529297, 23.497131, 20)
 
 [node name="Chimney" type="CSGBox3D" parent="." unique_id=2104832627]
 transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -2.8357697)
@@ -133,6 +161,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.73134, 28.373306, 17.78783
 use_collision = true
 size = Vector3(7.5, 1, 40)
 
+[node name="Shelf3" type="CSGBox3D" parent="." unique_id=1035494458]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.178009, 42.795334, -46.230488)
+use_collision = true
+size = Vector3(7.5, 1, 11.617706)
+
+[node name="Shelf4" type="CSGBox3D" parent="." unique_id=1254160471]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.98491, 25.808434, -46.230488)
+use_collision = true
+size = Vector3(7.5, 1, 21.231506)
+
 [node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_7u47w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.77812, 55.408207, -42.44033)
 
@@ -146,14 +184,37 @@ omni_range = 4096.0
 omni_attenuation = 0.496
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=191641568 groups=["climbable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.168922, 0, -57.420002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.168922, 0, -52.10184)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=441246388]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1255247303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4173584, 29.201904, -4.753914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56871796, 26.021318, -5.1042557)
 shape = SubResource("BoxShape3D_23qos")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D" unique_id=788255779]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9332886, 25.724998, -5.450245)
-size = Vector3(9.951294, 52.449997, 1.9727783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9332886, 22.675243, -5.450245)
+size = Vector3(9.951294, 46.350487, 1.9727783)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=899559546 groups=["climbable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.11899, 40.219234, -43.706394)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1057894356]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D2" unique_id=1388579069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -6.72073)
+size = Vector3(3.268055, 8.093866, 1.9727783)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=475963021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106536865, 5.6071167, -5.9907227)
+shape = SubResource("BoxShape3D_lvc4q")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1580043793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.771786)
+use_collision = true
+size = Vector3(7.2348022, 0.40185547, 4.4582825)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=660251725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.367172, 42.172928, -38.046356)
+use_collision = true
+size = Vector3(15.080406, 0.40185547, 23.003757)

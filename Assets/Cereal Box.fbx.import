@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhjdl6ivdry3q"
-path="res://.godot/imported/exported-model.glb-95acd12adedf75ea3b4a616ca60a3fc2.scn"
+uid="uid://cx38v4wa0atd7"
+path="res://.godot/imported/Cereal Box.fbx-30ef564c8f43649003da3362dd4c4ae7.scn"
 
 [deps]
 
-source_file="res://Assets/exported-model.glb"
-dest_files=["res://.godot/imported/exported-model.glb-95acd12adedf75ea3b4a616ca60a3fc2.scn"]
+source_file="res://Assets/Cereal Box.fbx"
+dest_files=["res://.godot/imported/Cereal Box.fbx-30ef564c8f43649003da3362dd4c4ae7.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,5 +38,7 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

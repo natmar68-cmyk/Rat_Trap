@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bk7yyyoo63d8v"]
+
+[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="1_8ndg4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4doh"]
+
+[node name="Node3D" type="Node3D" unique_id=1658821702]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1109159627]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=552098056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.656, 0, 42.447372)
+size = Vector3(227.5461, 1, 262.9869)
+material = SubResource("StandardMaterial3D_g4doh")
+
+[node name="chef" parent="." unique_id=2039077097 instance=ExtResource("1_8ndg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8818417, 23.864845, -6.832477)

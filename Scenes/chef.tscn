@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://u1m4lw5imm7c"]
+
+[ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scripts/chef.gd" id="1_sqin4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sqin4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0fah"]
+radius = 3.5
+height = 12.0
+
+[node name="chef" type="CharacterBody3D" unique_id=2039077097 groups=["enemy"]]
+script = ExtResource("1_sqin4")
+chase_speed = 10.0
+sight_range = 40.0
+sight_fov_deg = 200.0
+alert_linger = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1022989235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CapsuleShape3D_vr64p")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1456739691]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1824396123]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 6, 0)
+mesh = SubResource("CapsuleMesh_sqin4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1298763607]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1011505106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("CapsuleShape3D_v0fah")

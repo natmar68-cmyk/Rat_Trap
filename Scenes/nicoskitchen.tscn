@@ -165,4 +165,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.193369, -0.4260202, -41.4
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 32.591457, 4.968142, -20.666063)
 
 [node name="chef" parent="." unique_id=2039077097 instance=ExtResource("7_y6vyd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.097, 28.618725, 19.856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.097, 8.774546, 19.856)

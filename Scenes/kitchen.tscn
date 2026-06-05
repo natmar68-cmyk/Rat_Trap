@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_7u47w"]
 [ext_resource type="Texture2D" uid="uid://o7mbiy4fcvsf" path="res://Assets/Textures/wood.jpg" id="1_23qos"]
-[ext_resource type="PackedScene" uid="uid://cx38v4wa0atd7" path="res://Assets/Cereal Box.fbx" id="2_6pjjr"]
 [ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_lvc4q"]
+[ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cetdd"]
 
@@ -199,7 +199,7 @@ operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
 [node name="Chimney" type="CSGBox3D" parent="." unique_id=2104832627]
-transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.802643, 42.105217, -2.8357697)
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.768635, 42.076477, -2.7600822)
 use_collision = true
 size = Vector3(14.529297, 23.497131, 20)
 
@@ -212,9 +212,9 @@ size = Vector3(20.407715, 42.42781, 20)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.368603, 42.172928, 41.651077)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Shelfshelfs" unique_id=660251725]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 79.69743, 0, -24.998568)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 84.67146, 0, -24.998568)
 use_collision = true
-size = Vector3(15.080406, 0.40185547, 23.003757)
+size = Vector3(15.080406, 0.40185547, 13.055688)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Shelfshelfs" unique_id=601896166]
 use_collision = true
@@ -361,9 +361,6 @@ material = SubResource("StandardMaterial3D_ykbxl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0008965, 6.0073433, -5.6141357)
 shape = SubResource("BoxShape3D_lvc4q")
 
-[node name="Cereal Box" parent="climbing walls/StaticBody3D11" unique_id=544284992 instance=ExtResource("2_6pjjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.729918, 4.0076714, -0.031010628)
-
 [node name="StaticBody3D2" type="StaticBody3D" parent="climbing walls" unique_id=899559546 groups=["climbable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.11899, 40.219234, -43.706394)
 
@@ -448,19 +445,19 @@ material = SubResource("StandardMaterial3D_6pjjr")
 [node name="MouseTrap" parent="." unique_id=430545207 instance=ExtResource("3_lvc4q")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.872824, -0.8059323, -29.239767)
 
-[node name="DirectionalLight3D" type="OmniLight3D" parent="." unique_id=515987948]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 73.397545, 0)
+[node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
+transform = Transform3D(1.9106848e-15, 4.3711385e-08, 0.99999994, 0.9999999, -4.3711385e-08, -3.6705226e-22, 4.371138e-08, 1, -4.371138e-08, 6.6307793, 21.481583, -40.87291)
+use_collision = true
+size = Vector3(45, 15, 30)
+
+[node name="DirectionalLight3D" type="OmniLight3D" parent="Fridge" unique_id=515987948]
+transform = Transform3D(1.9106859e-15, -8.7422784e-08, 1.0000001, 4.371139e-08, -1, -8.742278e-08, 1.0000001, 4.3711392e-08, 1.9106859e-15, 51.91597, 40.872906, -6.630782)
 light_color = Color(0.9999998, 0.97387224, 0.70304704, 1)
 light_energy = 4.059
 light_indirect_energy = 2.0
 light_size = 90.0
 omni_range = 4096.0
 omni_attenuation = 0.496
-
-[node name="Fridge" type="CSGBox3D" parent="." unique_id=42084637]
-transform = Transform3D(1.9106848e-15, 4.3711385e-08, 0.99999994, 0.9999999, -4.3711385e-08, -3.6705226e-22, 4.371138e-08, 1, -4.371138e-08, 6.6307793, 21.481583, -40.87291)
-use_collision = true
-size = Vector3(45, 15, 30)
 
 [node name="Counter shelves" type="CSGBox3D" parent="." unique_id=591262038]
 transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -42.439117, 7.2202797, -35.873756)
@@ -476,3 +473,9 @@ size = Vector3(0.48651123, 27.117476, 14.619629)
 transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -42.439117, 7.2202797, 18.102633)
 use_collision = true
 size = Vector3(0.48651123, 27.117476, 14.619629)
+
+[node name="Node3D" parent="." unique_id=239350646 instance=ExtResource("4_6pjjr")]
+transform = Transform3D(-9, 0, 7.86805e-07, 0, 9, 0, -7.86805e-07, 0, -9, -44.99761, 35.137074, -30.98063)
+
+[node name="Node3D2" parent="." unique_id=1237393498 instance=ExtResource("4_6pjjr")]
+transform = Transform3D(-9, 5.5635513e-07, -5.5635513e-07, 0, 6.3639607, 6.3639607, 7.86805e-07, 6.3639607, -6.3639607, -44.99761, 38.01567, -42.16615)

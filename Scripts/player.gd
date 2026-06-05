@@ -38,6 +38,7 @@ var target_head_pitch := 0.0
 var override_head_pitch := false
 
 func _ready() -> void:
+	AudioManager.play_game_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var spring_arm = head.get_node_or_null("SpringArm3D")
 	if spring_arm:
@@ -52,6 +53,7 @@ func _ready() -> void:
 	var mat := ShaderMaterial.new()
 	var shader := Shader.new()
 	shader.code = """
+	
 shader_type canvas_item;
 uniform float intensity : hint_range(0.0, 1.0) = 0.0;
 void fragment() {

@@ -225,7 +225,7 @@ transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0
 use_collision = true
 size = Vector3(20, 28.267048, 23.901367)
 
-[node name="Player" parent="." unique_id=757251869 instance=ExtResource("1_7u47w")]
+[node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_7u47w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.77812, 55.408207, -42.44033)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1580043793]

@@ -201,9 +201,9 @@ operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
 [node name="Chimney" type="CSGBox3D" parent="." unique_id=2104832627]
-transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.768635, 42.076477, -2.7600822)
+transform = Transform3D(1.9106853e-15, 4.371139e-08, 0.99999994, 0.9999999, -4.371139e-08, 0, 4.3711385e-08, 1, -4.3711385e-08, -39.768635, 42.076477, -0.719265)
 use_collision = true
-size = Vector3(14.529297, 23.497131, 20)
+size = Vector3(14.529297, 27.578766, 20)
 
 [node name="Counter +y" type="CSGBox3D" parent="." unique_id=1114300356]
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, -8.647625, 8.931708, 39.808304)
@@ -465,7 +465,6 @@ light_energy = 0.3
 light_size = 500.0
 light_specular = 16.0
 light_cull_mask = 4294967293
-shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.496

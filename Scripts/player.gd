@@ -26,7 +26,7 @@ var climb_normal := Vector3.ZERO
 
 @onready var head: Node3D = $Head
 @onready var fp_camera: Camera3D = $Head/Camera3D
-@onready var body_mesh: MeshInstance3D = $MeshInstance3D
+@onready var rat_mesh: Node3D = $Rat
 @onready var stamina_bar: ProgressBar = $CanvasLayer/Control/ProgressBar
 @onready var vignette: ColorRect = $CanvasLayer/Control/Vignette
 @onready var climb_prompt: Label = $CanvasLayer/Control/ClimbPrompt
@@ -44,7 +44,7 @@ func _ready() -> void:
 	if spring_arm:
 		tp_camera = spring_arm.get_node_or_null("Camera3D")
 	fp_camera.make_current()
-	body_mesh.visible = false
+	rat_mesh.visible = false
 	stamina_bar.max_value = STAMINA_MAX
 	stamina_bar.value = stamina
 	vignette.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -53,7 +53,6 @@ func _ready() -> void:
 	var mat := ShaderMaterial.new()
 	var shader := Shader.new()
 	shader.code = """
-	
 shader_type canvas_item;
 uniform float intensity : hint_range(0.0, 1.0) = 0.0;
 void fragment() {
@@ -67,7 +66,6 @@ void fragment() {
 	mat.set_shader_parameter("intensity", 0.0)
 	vignette.material = mat
 
-	# Climb prompt setup
 	climb_prompt.text = "Press 'E' to Climb"
 	climb_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	climb_prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -86,10 +84,10 @@ func _input(event: InputEvent) -> void:
 		is_first_person = !is_first_person
 		if is_first_person:
 			fp_camera.make_current()
-			body_mesh.visible = false
+			rat_mesh.visible = false
 		else:
 			tp_camera.make_current()
-			body_mesh.visible = true
+			rat_mesh.visible = true
 
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
@@ -117,7 +115,9 @@ func _physics_process(delta: float) -> void:
 	_update_mesh_rotation(delta)
 	_update_camera_tilt(delta)
 	_update_climb_prompt()
-
+	_debug_climb()   # ← add this temporarily
+	if is_climbing:
+		print("works")
 # ── Normal movement ────────────────────────────────────────────────────────────
 
 func _process_normal(delta: float) -> void:
@@ -190,7 +190,6 @@ func _process_climbing(delta: float) -> void:
 		_do_vault()
 		return
 
-	# Sprint while climbing
 	var can_climb_sprint := Input.is_action_pressed("sprint") and stamina > 0 and not exhausted and input_dir.length() > 0.0
 	var current_climb_speed := CLIMB_SPEED * 2.0 if can_climb_sprint else CLIMB_SPEED
 
@@ -247,6 +246,7 @@ func _do_vault() -> void:
 
 func _get_nearby_climbable() -> Dictionary:
 	var space := get_world_3d().direct_space_state
+	var ray_origin := global_position + Vector3.UP * 0.5
 	var probe_dirs: Array[Vector3] = [
 		-global_transform.basis.z,
 		global_transform.basis.z,
@@ -254,19 +254,21 @@ func _get_nearby_climbable() -> Dictionary:
 		-global_transform.basis.x,
 	]
 	for dir in probe_dirs:
-		var query := PhysicsRayQueryParameters3D.create(
-			global_position,
-			global_position + dir * CLIMB_DETECT_DIST
-		)
-		query.exclude = [self]
-		var hit: Dictionary = space.intersect_ray(query)
-		if hit.is_empty():
-			continue
-		var collider = hit["collider"]
-		if collider is Node and collider.is_in_group("climbable"):
-			return {"normal": hit["normal"], "position": hit["position"]}
+		var excluded := [self]
+		var end := ray_origin + dir * CLIMB_DETECT_DIST
+		# Keep casting, skipping non-climbable blockers
+		for i in range(8):
+			var query := PhysicsRayQueryParameters3D.create(ray_origin, end)
+			query.exclude = excluded
+			var hit: Dictionary = space.intersect_ray(query)
+			if hit.is_empty():
+				break
+			var collider = hit["collider"]
+			if collider is Node and collider.is_in_group("climbable"):
+				return {"normal": hit["normal"], "position": hit["position"]}
+			# Not climbable — exclude it and try again
+			excluded.append(collider)
 	return {}
-
 # ── Climb prompt ───────────────────────────────────────────────────────────────
 
 func _update_climb_prompt() -> void:
@@ -289,12 +291,13 @@ func _update_mesh_rotation(delta: float) -> void:
 		var global_target := Basis(world_right, world_up, -world_fwd)
 		target_basis = global_transform.basis.inverse() * global_target
 	else:
-		target_basis = Basis()
+		# Rotate 180° around Y so the mesh faces forward (away from the camera)
+		target_basis = Basis(Vector3.UP, PI)
 
-	var current_quat := Quaternion(body_mesh.transform.basis.orthonormalized())
+	var current_quat := Quaternion(rat_mesh.transform.basis.orthonormalized())
 	var target_quat := Quaternion(target_basis.orthonormalized())
 	var new_quat := current_quat.slerp(target_quat, clamp(MESH_TILT_SPEED * delta, 0.0, 1.0))
-	body_mesh.transform.basis = Basis(new_quat)
+	rat_mesh.transform.basis = Basis(new_quat)
 
 # ── Camera tilt ────────────────────────────────────────────────────────────────
 
@@ -327,4 +330,24 @@ func _connect_enemies() -> void:
 
 func _on_player_hit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/death_screen.tscn")
+
+func _debug_climb() -> void:
+	var space := get_world_3d().direct_space_state
+	var ray_origin := global_position + Vector3.UP * 0.5
+	var probe_dirs: Array[Vector3] = [
+		-global_transform.basis.z,
+		global_transform.basis.z,
+		global_transform.basis.x,
+		-global_transform.basis.x,
+	]
+	for dir in probe_dirs:
+		var query := PhysicsRayQueryParameters3D.create(
+			ray_origin,
+			ray_origin + dir * CLIMB_DETECT_DIST
+		)
+		query.exclude = [self]
+		var hit: Dictionary = space.intersect_ray(query)
+		if not hit.is_empty():
+			var collider = hit["collider"]
+			print("RAY HIT: ", collider.name, " | groups: ", collider.get_groups())

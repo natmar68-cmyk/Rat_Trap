@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dka670iirrdx" path="res://Assets/Rat.fbx" id="2_cvnsp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
-radius = 0.80810547
-height = 4.1627197
+radius = 0.6230469
+height = 3.3375015
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0iea"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
@@ -21,27 +21,25 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cvnsp"]
-
 [node name="Player" type="CharacterBody3D" unique_id=417054637 groups=["player"]]
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1427649674]
-transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.99999624, 0, 0.99999624, 0.002740217, 0, -0.13763809, -0.010307327)
+transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.99999624, 0, 0.99999624, 0.002740217, 0, -0.05773976, 0.027484732)
 shape = SubResource("CapsuleShape3D_v0iea")
 
 [node name="Head" type="Node3D" parent="." unique_id=1822367765]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75593865, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6585407, 0.39064115)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=496888060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8940715)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=1745696751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008668423, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.5, 0)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=1439410076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9345871)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.97922283, 0.20278732, 0, -0.2027873, 0.9792227, 0, 0, 1.990827)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2124015901]
 
@@ -81,8 +79,4 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Rat" parent="." unique_id=1237194992 instance=ExtResource("2_cvnsp")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.8648928, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=439197532]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.20337945, 1.128075)
-mesh = SubResource("CapsuleMesh_cvnsp")
+transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, -0.8648928, 0)

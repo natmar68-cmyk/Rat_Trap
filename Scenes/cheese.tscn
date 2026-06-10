@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://cea1c3cqqrwh4"]
 
+[ext_resource type="PackedScene" uid="uid://b5lf4ty2r6mm6" path="res://Assets/cheese/source/cheese.glb" id="1_c5fed"]
 [ext_resource type="Texture2D" uid="uid://cn7jv8m2hige" path="res://Assets/cheese/textures/Material_Base_Color.png" id="1_m1ooa"]
+[ext_resource type="Script" uid="uid://dinm6ptibqy8v" path="res://Scripts/collectable_item.gd" id="2_6vrp5"]
 [ext_resource type="Texture2D" uid="uid://b7ugghdoq2ptf" path="res://Assets/cheese/textures/Material_Mixed_AO.png" id="2_c5fed"]
 [ext_resource type="Texture2D" uid="uid://wf34ac34b5k7" path="res://Assets/cheese/textures/Material_Metallic.png" id="3_6vrp5"]
 [ext_resource type="Texture2D" uid="uid://ccyg8mrug3t6u" path="res://Assets/cheese/textures/Material_Normal_DirectX.png" id="4_bytn0"]
 [ext_resource type="Texture2D" uid="uid://cxh3ykw0mlt15" path="res://Assets/cheese/textures/Material_Roughness.png" id="5_qjx26"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iloeb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5fed"]
 albedo_texture = ExtResource("1_m1ooa")
 metallic = 1.0
 metallic_texture = ExtResource("3_6vrp5")
@@ -16,8 +18,8 @@ normal_texture = ExtResource("4_bytn0")
 ao_enabled = true
 ao_texture = ExtResource("2_c5fed")
 
-[node name="cheese2_low" unique_id=361222968]
+[node name="cheese" unique_id=1379381143 instance=ExtResource("1_c5fed")]
+script = ExtResource("2_6vrp5")
 
-[node name="cheese2_low" parent="." index="0" unique_id=1910536009]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0.27786803, 0)
-material_override = SubResource("StandardMaterial3D_iloeb")
+[node name="cheese2_low" parent="." index="0" unique_id=1194412331]
+surface_material_override/0 = SubResource("StandardMaterial3D_c5fed")

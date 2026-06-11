@@ -8,4 +8,4 @@ func _on_retry_pressed() -> void:
 	AudioManager.unmuffle()
 	GameManager.reset()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	get_tree().change_scene_to_file("res://Scenes/nicoskitchen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/kitchen.tscn")

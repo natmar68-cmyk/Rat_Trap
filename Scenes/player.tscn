@@ -22,24 +22,25 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [node name="Player" type="CharacterBody3D" unique_id=417054637 groups=["player"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1427649674]
-transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.99999624, 0, 0.99999624, 0.002740217, 0, -0.05773976, 0.027484732)
+transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.9999963, 0, 0.9999963, 0.002740217, 0, -0.25737774, 0.027484734)
 shape = SubResource("CapsuleShape3D_v0iea")
 
 [node name="Head" type="Node3D" parent="." unique_id=1822367765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6585407, 0.39064115)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=496888060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8940715)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.97925544, -1.8940716)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=1745696751]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.5, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.4246726, 0)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D" unique_id=1439410076]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.97922283, 0.20278732, 0, -0.2027873, 0.9792227, 0, 0, 1.990827)
+transform = Transform3D(1.9999998, 0, 0, 0, 1.985782, 0.23805583, 0, -0.2380557, 1.9857818, 0, -0.86088395, 1.990827)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2124015901]
 

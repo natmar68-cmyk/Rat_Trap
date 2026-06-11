@@ -3,8 +3,8 @@ extends CharacterBody3D
 # Movement
 const SPEED = 10.0
 const SPRINT_SPEED = 20.0
-const JUMP_VELOCITY = 7.0
-const GRAVITY = 20.0
+const JUMP_VELOCITY = 10.0
+const GRAVITY = 25.0
 # Mouse look
 const MOUSE_SENSITIVITY = 0.002
 const PITCH_LIMIT = deg_to_rad(89)

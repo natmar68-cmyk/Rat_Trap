@@ -23,6 +23,9 @@ var stamina := STAMINA_MAX
 var exhausted := false
 var is_climbing := false
 var climb_normal := Vector3.ZERO
+# Grace period after entering climb so is_on_floor() doesn't immediately cancel it
+var climb_grace_timer := 0.0
+const CLIMB_GRACE_TIME = 0.3
 
 @onready var head: Node3D = $Head
 @onready var fp_camera: Camera3D = $Head/Camera3D
@@ -88,6 +91,9 @@ func _input(event: InputEvent) -> void:
 		else:
 			tp_camera.make_current()
 			rat_mesh.visible = true
+			# Reset head pitch so the SpringArm camera doesn't end up
+			# inside the player when climbing tilts the head to PI/2
+			head.rotation.x = 0.0
 
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
@@ -115,9 +121,8 @@ func _physics_process(delta: float) -> void:
 	_update_mesh_rotation(delta)
 	_update_camera_tilt(delta)
 	_update_climb_prompt()
-	_debug_climb()   # ← add this temporarily
-	if is_climbing:
-		print("works")
+	_debug_climb()
+
 # ── Normal movement ────────────────────────────────────────────────────────────
 
 func _process_normal(delta: float) -> void:
@@ -153,6 +158,41 @@ func _process_normal(delta: float) -> void:
 
 # ── Climbing ───────────────────────────────────────────────────────────────────
 
+func _get_nearby_climbable() -> Dictionary:
+	var space := get_world_3d().direct_space_state
+
+	# The capsule is horizontal, so global_transform.basis axes are tilted.
+	# Instead, derive directions purely from the CharacterBody3D's Y rotation
+	# (yaw only) so rays always travel horizontally in world space regardless
+	# of capsule orientation.
+	var yaw := rotation.y
+	var fwd   := Vector3(-sin(yaw), 0,  -cos(yaw))   # local -Z in world (forward)
+	var back  := Vector3( sin(yaw), 0,   cos(yaw))   # local +Z in world (backward)
+	var right := Vector3( cos(yaw), 0,  -sin(yaw))   # local +X in world (right)
+	var left  := Vector3(-cos(yaw), 0,   sin(yaw))   # local -X in world (left)
+
+	# Ray origin: slightly above ground so it hits the wall at rat body height,
+	# not at floor level. World UP is correct here since the rat walks on the floor.
+	var ray_origin := global_position + Vector3.UP * 0.3
+
+	var probe_dirs: Array[Vector3] = [fwd, back, right, left]
+	for dir in probe_dirs:
+		var excluded := [self]
+		var end := ray_origin + dir * CLIMB_DETECT_DIST
+		# Keep casting, skipping non-climbable blockers
+		for i in range(8):
+			var query := PhysicsRayQueryParameters3D.create(ray_origin, end)
+			query.exclude = excluded
+			var hit: Dictionary = space.intersect_ray(query)
+			if hit.is_empty():
+				break
+			var collider = hit["collider"]
+			if collider is Node and collider.is_in_group("climbable"):
+				return {"normal": hit["normal"], "position": hit["position"]}
+			# Not climbable — exclude it and try again
+			excluded.append(collider)
+	return {}
+
 func _try_enter_climb() -> void:
 	var result: Dictionary = _get_nearby_climbable()
 	if result.is_empty():
@@ -160,16 +200,23 @@ func _try_enter_climb() -> void:
 
 	climb_normal = result["normal"]
 
+	# Reject floors/ceilings — only allow actual walls
 	if abs(climb_normal.dot(Vector3.UP)) > 0.9:
 		return
 
 	is_climbing = true
-	velocity = Vector3.ZERO
+	climb_grace_timer = CLIMB_GRACE_TIME
 
+	# Give an immediate upward + into-wall push so the player lifts off the
+	# floor right away — otherwise is_on_floor() cancels the climb instantly.
+	velocity = Vector3.UP * 3.0 + (-climb_normal) * 2.0
+
+	# Rotate the character body so it faces the wall (yaw only)
 	var flat_normal := Vector3(climb_normal.x, 0, climb_normal.z).normalized()
 	var angle := Vector3.FORWARD.signed_angle_to(-flat_normal, Vector3.UP)
 	rotation.y = angle
 
+	# Tilt the camera upward so the rat appears to look up the wall surface
 	target_head_pitch = PI / 2.0
 	override_head_pitch = true
 
@@ -218,18 +265,24 @@ func _process_climbing(delta: float) -> void:
 
 	move_and_slide()
 
-	if _get_nearby_climbable().is_empty() or is_on_floor():
+	climb_grace_timer = max(climb_grace_timer - delta, 0.0)
+	# Only exit due to floor contact after the grace period has elapsed,
+	# so starting a climb from the ground doesn't instantly cancel it.
+	if _get_nearby_climbable().is_empty() or (is_on_floor() and climb_grace_timer <= 0.0):
 		_exit_climb()
 
 func _can_vault_over() -> bool:
 	var space := get_world_3d().direct_space_state
 
-	var chest_origin := global_position + Vector3.UP * 0.5
+	# Chest ray: small world-UP offset so it probes from rat body height, not floor
+	var chest_origin := global_position + Vector3.UP * 0.3
 	var chest_target := chest_origin + (-climb_normal) * CLIMB_DETECT_DIST
 	var chest_query := PhysicsRayQueryParameters3D.create(chest_origin, chest_target)
 	chest_query.exclude = [self]
 	var chest_hit: Dictionary = space.intersect_ray(chest_query)
 
+	# Over ray: check clear space above the wall top (world UP is fine here,
+	# since we're checking the wall geometry above, not the rat's body)
 	var over_origin := global_position + Vector3.UP * 1.8 + (-climb_normal) * 0.8
 	var over_target := over_origin + Vector3.UP * 0.5
 	var over_query := PhysicsRayQueryParameters3D.create(over_origin, over_target)
@@ -244,31 +297,6 @@ func _do_vault() -> void:
 	velocity.y = VAULT_BOOST
 	velocity += -saved_normal * SPEED
 
-func _get_nearby_climbable() -> Dictionary:
-	var space := get_world_3d().direct_space_state
-	var ray_origin := global_position + Vector3.UP * 0.5
-	var probe_dirs: Array[Vector3] = [
-		-global_transform.basis.z,
-		global_transform.basis.z,
-		global_transform.basis.x,
-		-global_transform.basis.x,
-	]
-	for dir in probe_dirs:
-		var excluded := [self]
-		var end := ray_origin + dir * CLIMB_DETECT_DIST
-		# Keep casting, skipping non-climbable blockers
-		for i in range(8):
-			var query := PhysicsRayQueryParameters3D.create(ray_origin, end)
-			query.exclude = excluded
-			var hit: Dictionary = space.intersect_ray(query)
-			if hit.is_empty():
-				break
-			var collider = hit["collider"]
-			if collider is Node and collider.is_in_group("climbable"):
-				return {"normal": hit["normal"], "position": hit["position"]}
-			# Not climbable — exclude it and try again
-			excluded.append(collider)
-	return {}
 # ── Climb prompt ───────────────────────────────────────────────────────────────
 
 func _update_climb_prompt() -> void:
@@ -282,27 +310,35 @@ func _update_climb_prompt() -> void:
 func _update_mesh_rotation(delta: float) -> void:
 	var target_basis: Basis
 	if is_climbing:
-		var world_up := climb_normal
-		var world_fwd := Vector3.UP
-		if abs(world_up.dot(world_fwd)) > 0.99:
-			world_fwd = Vector3.FORWARD
-		var world_right := world_fwd.cross(world_up).normalized()
-		world_fwd = world_up.cross(world_right).normalized()
-		var global_target := Basis(world_right, world_up, -world_fwd)
+		# Build a world-space basis where:
+		#   Y (up)      = climb_normal  (rat's belly faces away from wall)
+		#   Z (forward) = world DOWN along the wall (rat's nose points up the wall)
+		#   X (right)   = horizontal along the wall surface
+		var mesh_up    := climb_normal                              # away from wall
+		var mesh_fwd   := -Vector3.UP                              # nose points up wall (world up = -fwd)
+		# Avoid degenerate case where wall normal is vertical
+		if abs(mesh_up.dot(Vector3.UP)) > 0.99:
+			mesh_fwd = Vector3.FORWARD
+		var mesh_right := mesh_fwd.cross(mesh_up).normalized()
+		mesh_fwd       = mesh_up.cross(mesh_right).normalized()
+		var global_target := Basis(mesh_right, mesh_up, -mesh_fwd)
+		# Convert world-space target into the mesh's local space
 		target_basis = global_transform.basis.inverse() * global_target
 	else:
 		# Rotate 180° around Y so the mesh faces forward (away from the camera)
 		target_basis = Basis(Vector3.UP, PI)
 
 	var current_quat := Quaternion(rat_mesh.transform.basis.orthonormalized())
-	var target_quat := Quaternion(target_basis.orthonormalized())
-	var new_quat := current_quat.slerp(target_quat, clamp(MESH_TILT_SPEED * delta, 0.0, 1.0))
+	var target_quat  := Quaternion(target_basis.orthonormalized())
+	var new_quat     := current_quat.slerp(target_quat, clamp(MESH_TILT_SPEED * delta, 0.0, 1.0))
 	rat_mesh.transform.basis = Basis(new_quat)
 
 # ── Camera tilt ────────────────────────────────────────────────────────────────
 
 func _update_camera_tilt(delta: float) -> void:
-	if not override_head_pitch:
+	# Don't tilt the head in third-person — the SpringArm camera would go
+	# inside the player. Only apply the climbing pitch in first-person mode.
+	if not override_head_pitch or not is_first_person:
 		return
 	head.rotation.x = lerp(head.rotation.x, target_head_pitch, clamp(CAM_TILT_SPEED * delta, 0.0, 1.0))
 
@@ -334,13 +370,17 @@ func _on_player_hit() -> void:
 
 func _debug_climb() -> void:
 	var space := get_world_3d().direct_space_state
-	var ray_origin := global_position + Vector3.UP * 0.5
+
+	# Match _get_nearby_climbable exactly: yaw-only directions, world-UP offset
+	var yaw := rotation.y
 	var probe_dirs: Array[Vector3] = [
-		-global_transform.basis.z,
-		global_transform.basis.z,
-		global_transform.basis.x,
-		-global_transform.basis.x,
+		Vector3(-sin(yaw), 0, -cos(yaw)),
+		Vector3( sin(yaw), 0,  cos(yaw)),
+		Vector3( cos(yaw), 0, -sin(yaw)),
+		Vector3(-cos(yaw), 0,  sin(yaw)),
 	]
+	var ray_origin := global_position + Vector3.UP * 0.3
+
 	for dir in probe_dirs:
 		var query := PhysicsRayQueryParameters3D.create(
 			ray_origin,

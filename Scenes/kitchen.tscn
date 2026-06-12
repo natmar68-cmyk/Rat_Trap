@@ -608,4 +608,16 @@ transform = Transform3D(1, -1.3500312e-13, -6.750156e-14, -1.3500312e-13, -1, 8.
 [node name="Mouse_Trap holder" type="Node3D" parent="." unique_id=1892470537]
 
 [node name="MouseTrap2" parent="Mouse_Trap holder" unique_id=430545207 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(5, 7.224918e-23, -1.7763568e-14, -7.2249057e-23, 5, 3.5527137e-14, 1.7763568e-14, -3.5527137e-14, 5, -18.872822, -0.50507754, -29.239765)
+transform = Transform3D(2.33965, 0, 4.4188275, 0, 5, 0, -4.4188275, 0, 2.33965, -18.872822, -0.50507754, -29.239765)
+
+[node name="MouseTrap3" parent="Mouse_Trap holder" unique_id=1554057990 instance=ExtResource("3_lvc4q")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.08392, -0.50507754, 10.652435)
+
+[node name="MouseTrap5" parent="Mouse_Trap holder" unique_id=1668411018 instance=ExtResource("3_lvc4q")]
+transform = Transform3D(3.233949, 0, -3.8133419, 0, 5, 0, 3.8133419, 0, 3.233949, 34.08392, -0.50507754, -16.176552)
+
+[node name="MouseTrap4" parent="Mouse_Trap holder" unique_id=1469813759 instance=ExtResource("3_lvc4q")]
+transform = Transform3D(-1.8487337, 0, 4.645663, 0, 5, 0, -4.645663, 0, -1.8487337, -18.872822, -0.50507754, 10.652435)
+
+[node name="MouseTrap6" parent="Mouse_Trap holder" unique_id=654612880 instance=ExtResource("3_lvc4q")]
+transform = Transform3D(3.9826493, 0, 3.0229955, 0, 5, 0, -3.0229955, 0, 3.9826493, -38.976524, -0.50507754, 10.652435)

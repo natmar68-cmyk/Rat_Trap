@@ -1,22 +1,54 @@
 [gd_scene format=3 uid="uid://1v6aqifhi6rd"]
 
 [ext_resource type="Script" uid="uid://ddfaxucgqkb8o" path="res://Scripts/settings_return.gd" id="1_4geyq"]
+[ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="1_i44u3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhmql"]
+font = ExtResource("1_i44u3")
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqfp"]
+bg_color = Color(0.9019608, 0.4627451, 0.08235294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2dne"]
+font = ExtResource("1_i44u3")
+font_size = 30
 
 [node name="Settings" type="Node2D" unique_id=1317655628]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=714865771]
+offset_right = 1154.0
+offset_bottom = 646.0
+color = Color(0.38039216, 0.6, 0.37254903, 1)
+
 [node name="Label" type="Label" parent="." unique_id=72852364]
-offset_left = 523.0
-offset_top = 275.0
-offset_right = 597.0
-offset_bottom = 298.0
-text = "SETTINGS"
+offset_left = 460.0
+offset_top = 92.0
+offset_right = 651.0
+offset_bottom = 143.0
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_lhmql")
 
 [node name="Settings_Return" type="Button" parent="." unique_id=1883649695]
-offset_left = 447.0
-offset_top = 298.0
-offset_right = 675.0
-offset_bottom = 329.0
+offset_left = 412.0
+offset_top = 378.0
+offset_right = 707.0
+offset_bottom = 409.0
+theme_override_fonts/font = ExtResource("1_i44u3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_aaqfp")
 text = "Click here to return to menu"
 script = ExtResource("1_4geyq")
+
+[node name="Label2" type="Label" parent="." unique_id=405603635]
+offset_left = 479.0
+offset_top = 175.0
+offset_right = 634.0
+offset_bottom = 308.0
+text = "Move - WASD
+Sprint - Ctrl
+Climb - E
+Jump - Space"
+label_settings = SubResource("LabelSettings_j2dne")
 
 [connection signal="pressed" from="Settings_Return" to="Settings_Return" method="_on_pressed"]

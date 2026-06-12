@@ -81,16 +81,23 @@ bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 [node name="Menu" type="Node2D" unique_id=975360590]
 script = ExtResource("1_158mb")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2039531744]
+offset_right = 1155.0
+offset_bottom = 662.0
+color = Color(0.25882354, 0.67058825, 0.98039216, 1)
+
 [node name="Play" type="Button" parent="." unique_id=312970535]
 anchors_preset = -1
 anchor_left = 0.45900002
 anchor_top = 1.9610001
 anchor_right = 0.587
 anchor_bottom = 2.39
-offset_left = 456.0
-offset_top = 218.0
-offset_right = 646.0
-offset_bottom = 249.0
+offset_left = 470.0
+offset_top = 283.0
+offset_right = 660.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_jsrd8")
@@ -110,10 +117,12 @@ anchor_left = 0.45900002
 anchor_top = 1.9610001
 anchor_right = 0.587
 anchor_bottom = 2.39
-offset_left = 456.0
-offset_top = 260.0
-offset_right = 646.0
-offset_bottom = 291.0
+offset_left = 470.0
+offset_top = 325.0
+offset_right = 660.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
@@ -124,7 +133,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kmwmt")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_rc6uw")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dldpb")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d77ms")
-text = "Settings"
+text = "Controls"
 script = ExtResource("2_cayip")
 
 [node name="Quit" type="Button" parent="." unique_id=961115492]
@@ -133,10 +142,12 @@ anchor_left = 0.45900002
 anchor_top = 1.9610001
 anchor_right = 0.587
 anchor_bottom = 2.39
-offset_left = 456.0
-offset_top = 305.0
-offset_right = 646.0
-offset_bottom = 336.0
+offset_left = 470.0
+offset_top = 370.0
+offset_right = 660.0
+offset_bottom = 401.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxFlat_3p34a")
@@ -151,10 +162,14 @@ text = "Quit"
 script = ExtResource("1_1rerr")
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=228146721]
-offset_left = 266.0
-offset_top = 49.0
-offset_right = 830.0
-offset_bottom = 126.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 433.0
+offset_top = 149.0
+offset_right = 701.0
+offset_bottom = 226.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_wwsa2")
 theme_override_fonts/bold_font = ExtResource("2_wwsa2")
 theme_override_fonts/bold_italics_font = ExtResource("2_wwsa2")

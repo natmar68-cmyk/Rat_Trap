@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://tlhc81k4qqng"]
 
 [ext_resource type="Script" uid="uid://bxuvg47g7clos" path="res://Scripts/DeathScreen.gd" id="1_8hps1"]
+[ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="2_rwas2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tseak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amiou"]
+bg_color = Color(0.9019608, 0.4627451, 0.08235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb6s7"]
+bg_color = Color(0.9019608, 0.4627451, 0.08235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpvs2"]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=389953836]
 script = ExtResource("1_8hps1")
@@ -11,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.82036155, 0.31902242, 0.19320264, 0.69411767)
+color = Color(0.87700397, 0.2275804, 0.2551377, 0.69411767)
 
 [node name="Label" type="Label" parent="." unique_id=1332553061]
 anchors_preset = 8
@@ -19,13 +30,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -41.0
-offset_right = -69.25
-offset_bottom = -8.5
+offset_left = -367.0
+offset_top = -159.0
+offset_right = -193.0
+offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("2_rwas2")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tseak")
 text = "YOU DIED"
 
 [node name="Button" type="Button" parent="." unique_id=679652745]
@@ -34,10 +48,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -43.0
-offset_top = -210.0
-offset_right = 49.0
-offset_bottom = -179.0
+offset_left = -79.0
+offset_top = -238.0
+offset_right = 33.0
+offset_bottom = -207.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_amiou")
 text = "TRY AGAIN"
+
+[node name="Button2" type="Button" parent="." unique_id=1547237864]
+offset_left = 496.0
+offset_top = 474.0
+offset_right = 610.0
+offset_bottom = 505.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vb6s7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tpvs2")
+text = "back to menu"
+
+[connection signal="pressed" from="Button2" to="." method="_on_main_menu_pressed"]

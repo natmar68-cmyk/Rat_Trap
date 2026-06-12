@@ -9,3 +9,9 @@ func _on_retry_pressed() -> void:
 	GameManager.reset()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().change_scene_to_file("res://Scenes/kitchen.tscn")
+func _on_main_menu_pressed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.

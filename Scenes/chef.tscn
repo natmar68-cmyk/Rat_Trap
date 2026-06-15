@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scripts/chef.gd" id="1_sqin4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
-radius = 3.0
-height = 12.0
+radius = 2.6333008
+height = 12.208862
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqin4"]
 

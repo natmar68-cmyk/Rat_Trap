@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b4bq2ehlue3pq"]
+
+[ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scripts/chef.gd" id="1_hvwxg"]
+[ext_resource type="PackedScene" uid="uid://n1v65pffpy8p" path="res://Assets/cat-ps1-low-poly-rigged/source/kitty.fbx" id="2_c7ays"]
+[ext_resource type="Texture2D" uid="uid://c6v1w47el0a6x" path="res://Assets/cat-ps1-low-poly-rigged/textures/cat_tex.png" id="3_btjcn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
+radius = 2.6333008
+height = 12.208862
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0fah"]
+radius = 3.5
+height = 12.204102
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lonpr"]
+albedo_texture = ExtResource("3_btjcn")
+
+[node name="cat_v2" type="CharacterBody3D" unique_id=2039077097 groups=["enemy"]]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_hvwxg")
+chase_speed = 10.0
+sight_range = 40.0
+sight_fov_deg = 200.0
+alert_linger = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1022989235]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -2.9670066e-08, 1.8436966, -0.678772)
+shape = SubResource("CapsuleShape3D_vr64p")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1456739691]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1298763607]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1011505106]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.4941509, -1.2505177)
+shape = SubResource("CapsuleShape3D_v0fah")
+
+[node name="Cat" parent="." unique_id=460442181 instance=ExtResource("2_c7ays")]
+transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, -0.8841319, 0)
+
+[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(460442181, 267695844) index="0" unique_id=2000083229]
+material_override = SubResource("StandardMaterial3D_lonpr")
+
+[editable path="Cat"]

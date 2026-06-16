@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="animation_library"
 importer_version=1
-type="PackedScene"
+type="AnimationLibrary"
 uid="uid://cahj411q17yuh"
-path="res://.godot/imported/Crouching Idle.fbx-80fc75ef4708b0d51365df5f5a54d0c6.scn"
+path="res://.godot/imported/Crouching Idle.fbx-80fc75ef4708b0d51365df5f5a54d0c6.res"
 
 [deps]
 
 source_file="res://Chef Animations/Crouching Idle.fbx"
-dest_files=["res://.godot/imported/Crouching Idle.fbx-80fc75ef4708b0d51365df5f5a54d0c6.scn"]
+dest_files=["res://.godot/imported/Crouching Idle.fbx-80fc75ef4708b0d51365df5f5a54d0c6.res"]
 
 [params]
 

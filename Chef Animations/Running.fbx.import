@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="animation_library"
 importer_version=1
-type="PackedScene"
+type="AnimationLibrary"
 uid="uid://b4uh64yqwhe1"
-path="res://.godot/imported/Running.fbx-a61288d5ec506374ab6d217f6b32bd05.scn"
+path="res://.godot/imported/Running.fbx-a61288d5ec506374ab6d217f6b32bd05.res"
 
 [deps]
 
 source_file="res://Chef Animations/Running.fbx"
-dest_files=["res://.godot/imported/Running.fbx-a61288d5ec506374ab6d217f6b32bd05.scn"]
+dest_files=["res://.godot/imported/Running.fbx-a61288d5ec506374ab6d217f6b32bd05.res"]
 
 [params]
 

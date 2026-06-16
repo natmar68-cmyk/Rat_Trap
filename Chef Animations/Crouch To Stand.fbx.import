@@ -1,15 +1,15 @@
 [remap]
 
-importer="scene"
+importer="animation_library"
 importer_version=1
-type="PackedScene"
+type="AnimationLibrary"
 uid="uid://wnw23gvraekr"
-path="res://.godot/imported/Crouch To Stand.fbx-b6e132b403125a8d0103830c92aae1f2.scn"
+path="res://.godot/imported/Crouch To Stand.fbx-b6e132b403125a8d0103830c92aae1f2.res"
 
 [deps]
 
 source_file="res://Chef Animations/Crouch To Stand.fbx"
-dest_files=["res://.godot/imported/Crouch To Stand.fbx-b6e132b403125a8d0103830c92aae1f2.scn"]
+dest_files=["res://.godot/imported/Crouch To Stand.fbx-b6e132b403125a8d0103830c92aae1f2.res"]
 
 [params]
 

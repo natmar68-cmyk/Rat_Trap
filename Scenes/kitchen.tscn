@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
 [ext_resource type="PackedScene" uid="uid://b4bq2ehlue3pq" path="res://Scenes/cat_v2.tscn" id="8_o8uib"]
+[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="9_kr0tx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0dk1"]
 albedo_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
@@ -118,6 +119,7 @@ size = Vector3(20, 25.55706, 20)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Hole_maker" unique_id=1726417403]
 transform = Transform3D(1.9106857e-15, 1.0000001, 4.37121e-08, 4.3712095e-08, -4.3712095e-08, 1, 1.0000001, 1.7691002e-22, -4.37121e-08, -28.929901, -1.8583374, -28.883593)
+layers = 3
 size = Vector3(11.307404, 3.7560349, 3.7948647)
 
 [node name="Cupboard +z" type="CSGBox3D" parent="Hole_maker" unique_id=1460989941]
@@ -183,6 +185,7 @@ polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.6
 
 [node name="Hole6" type="CSGPolygon3D" parent="Hole_maker" unique_id=603192084]
 transform = Transform3D(1.1, -1.660954e-07, 1.8119497e-06, -1.6609539e-07, -1.1, -1.0490769e-06, 1.660954e-07, 9.616536e-08, -12, -30.312864, -2.750183, -34.319138)
+layers = 3
 operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
@@ -247,7 +250,7 @@ size = Vector3(20, 28.267048, 23.901367)
 transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -19.640068, 1.433264, -53.38084)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1580043793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.771786)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.69891)
 use_collision = true
 size = Vector3(7.2348022, 0.40185547, 4.4582825)
 
@@ -632,3 +635,6 @@ transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0
 use_collision = true
 size = Vector3(50, 0.25, 50)
 material = SubResource("StandardMaterial3D_6pjjr")
+
+[node name="chef" parent="." unique_id=339184799 instance=ExtResource("9_kr0tx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.786566, -0.60478836, 23.837957)

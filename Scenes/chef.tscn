@@ -5,6 +5,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cahj411q17yuh" path="res://Chef Animations/Crouching Idle.fbx" id="3_lvmq8"]
 [ext_resource type="AnimationLibrary" uid="uid://b4uh64yqwhe1" path="res://Chef Animations/Running.fbx" id="4_0c20u"]
 [ext_resource type="AnimationLibrary" uid="uid://be44vrloenn24" path="res://Chef Animations/Standing Melee Attack Downward.fbx" id="5_dc6ua"]
+[ext_resource type="PackedScene" uid="uid://vn3dwt46yw7i" path="res://Chef Animations/male_casual.fbx" id="6_lvmq8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
 radius = 3.0
@@ -13,21 +14,48 @@ height = 12.0
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqin4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0fah"]
-radius = 3.5
-height = 12.0
+radius = 5.338867
+height = 25.827148
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0gcn"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t263q"]
+animation = &"Crouch To Stand/mixamo_com"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvmq8"]
 animation = &"Crouching Idle/mixamo_com"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fxqjo"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0c20u"]
 animation = &"Running/mixamo_com"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dc6ua"]
+animation = &"Standing Melee Attack Downward/mixamo_com"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h0gcn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxqjo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xxctr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tno6d"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s45xk"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sqin4"]
-"states/Crouching Idle_mixamo_com/node" = SubResource("AnimationNodeAnimation_h0gcn")
-"states/Crouching Idle_mixamo_com/position" = Vector2(589, 100)
+"states/Crouch To Stand_mixamo_com/node" = SubResource("AnimationNodeAnimation_t263q")
+"states/Crouch To Stand_mixamo_com/position" = Vector2(562, 181)
+"states/Crouching Idle_mixamo_com 2/node" = SubResource("AnimationNodeAnimation_lvmq8")
+"states/Crouching Idle_mixamo_com 2/position" = Vector2(260, 174)
 states/End/position = Vector2(1251, 100)
-states/Running_mixamo_com/node = SubResource("AnimationNodeAnimation_fxqjo")
-states/Running_mixamo_com/position = Vector2(345, 100)
+"states/Running_mixamo_com 2/node" = SubResource("AnimationNodeAnimation_0c20u")
+"states/Running_mixamo_com 2/position" = Vector2(171, 100)
+"states/Standing Melee Attack Downward_mixamo_com/node" = SubResource("AnimationNodeAnimation_dc6ua")
+"states/Standing Melee Attack Downward_mixamo_com/position" = Vector2(742, 131)
+states/Start/position = Vector2(80, 26)
+transitions = ["Start", "Running_mixamo_com 2", SubResource("AnimationNodeStateMachineTransition_h0gcn"), "Running_mixamo_com 2", "Crouching Idle_mixamo_com 2", SubResource("AnimationNodeStateMachineTransition_fxqjo"), "Crouching Idle_mixamo_com 2", "Crouch To Stand_mixamo_com", SubResource("AnimationNodeStateMachineTransition_xxctr"), "Crouch To Stand_mixamo_com", "Standing Melee Attack Downward_mixamo_com", SubResource("AnimationNodeStateMachineTransition_tno6d"), "Standing Melee Attack Downward_mixamo_com", "End", SubResource("AnimationNodeStateMachineTransition_s45xk")]
 
 [node name="chef" type="CharacterBody3D" unique_id=2039077097 groups=["enemy"]]
 script = ExtResource("1_sqin4")
@@ -46,20 +74,27 @@ target_desired_distance = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1824396123]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 6, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_sqin4")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1298763607]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1011505106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.913574, 0)
 shape = SubResource("CapsuleShape3D_v0fah")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1735011560]
+root_node = NodePath("../male_casual")
 "libraries/Crouch To Stand" = ExtResource("2_t263q")
 "libraries/Crouching Idle" = ExtResource("3_lvmq8")
 libraries/Running = ExtResource("4_0c20u")
 "libraries/Standing Melee Attack Downward" = ExtResource("5_dc6ua")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1247419400]
+active = false
+root_node = NodePath("../male_casual")
 tree_root = SubResource("AnimationNodeStateMachine_sqin4")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="male_casual" parent="." unique_id=651683977 instance=ExtResource("6_lvmq8")]
+transform = Transform3D(-15, 0, -1.3113416e-06, 0, 15, 0, 1.3113416e-06, 0, -15, 0, 0, 0)

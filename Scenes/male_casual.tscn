@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dbm4blfamdltu"]
+
+[ext_resource type="PackedScene" uid="uid://vn3dwt46yw7i" path="res://Chef Animations/male_casual.fbx" id="1_qetkv"]
+
+[node name="male_casual" unique_id=651683977 instance=ExtResource("1_qetkv")]

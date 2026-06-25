@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 
 func _state_roam(_delta: float) -> void:
 	_move_toward(roam_target, move_speed)
-	_play_anim("Standing Melee Atta")  # standing idle, adjust name if you have a plain idle
+	_play_anim("Running/mixamo_com") # standing idle, adjust name if you have a plain idle
 
 	if nav_agent.is_navigation_finished():
 		roam_target = _random_roam_point()
@@ -88,7 +88,7 @@ func _state_alert(delta: float) -> void:
 	velocity.x = 0
 	velocity.z = 0
 	alert_timer -= delta
-	_play_anim("Standing Melee Atta")  # standing, looking around
+	_play_anim("Standing Melee Attack Downward_mixamo_com")
 
 	if player:
 		last_known_pos = player.global_position
@@ -101,7 +101,7 @@ func _state_alert(delta: float) -> void:
 
 
 func _state_chase(delta: float) -> void:
-	_play_anim("Running")
+	_play_anim("Running/mixamo_com")
 
 	if not player:
 		_enter_state(State.ROAM)
@@ -136,12 +136,12 @@ func _state_attack(delta: float) -> void:
 
 	if attack_timer <= 0.0 and not is_attacking:
 		is_attacking = true
-		_play_anim("Crouching Idle")           # crouch down toward player
+		_play_anim("Crouching Idle/mixamo_com") # crouch down toward player
 		await get_tree().create_timer(0.4).timeout
-		_play_anim("Standing Melee Atta")      # swing attack
+		_play_anim("Standing Melee Attack Downward/mixamo_com") # swing attack
 		_do_attack()
 		await get_tree().create_timer(0.5).timeout
-		_play_anim("Crouch To Stand")          # stand back up
+		_play_anim("Crouch To Stand/mixamo_com")  # stand back up
 		await get_tree().create_timer(0.4).timeout
 		is_attacking   = false
 		attack_timer   = attack_cooldown

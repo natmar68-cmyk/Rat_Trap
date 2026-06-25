@@ -346,8 +346,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.82239, -2.6597052, -43.32
 [node name="MeshInstance3D" type="MeshInstance3D" parent="climbing walls/StaticBody3D9" unique_id=446970239]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="climbing walls/StaticBody3D9" unique_id=559342103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -6.6482353)
-size = Vector3(3.268055, 8.093866, 1.9727783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 9.297964, -6.6482353)
+size = Vector3(3.268055, 14.827665, 1.9727783)
 material = SubResource("StandardMaterial3D_ykbxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="climbing walls/StaticBody3D9" unique_id=1721426028]
@@ -360,8 +360,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.82239, -2.6597052, -16.12
 [node name="MeshInstance3D" type="MeshInstance3D" parent="climbing walls/StaticBody3D10" unique_id=943465630]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="climbing walls/StaticBody3D10" unique_id=22961355]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -5.915066)
-size = Vector3(3.268055, 8.093866, 0.5064392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 9.326529, -5.915066)
+size = Vector3(3.268055, 14.884794, 0.5064392)
 material = SubResource("StandardMaterial3D_ykbxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="climbing walls/StaticBody3D10" unique_id=174263421]
@@ -374,8 +374,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.82239, -2.6597052, 10.652
 [node name="MeshInstance3D" type="MeshInstance3D" parent="climbing walls/StaticBody3D11" unique_id=218117005]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="climbing walls/StaticBody3D11" unique_id=1589845126]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -5.915066)
-size = Vector3(3.268055, 8.093866, 0.5064392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 11.512534, -5.915066)
+size = Vector3(3.268055, 19.256804, 0.5064392)
 material = SubResource("StandardMaterial3D_ykbxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="climbing walls/StaticBody3D11" unique_id=133045252]
@@ -443,9 +443,9 @@ use_collision = true
 size = Vector3(45, 15, 30)
 
 [node name="Counter shelves" type="CSGBox3D" parent="." unique_id=591262038]
-transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -42.439117, 7.2202797, -35.873756)
+transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -43.085842, 7.2202797, -35.873756)
 use_collision = true
-size = Vector3(0.48651123, 27.025967, 14.619629)
+size = Vector3(0.48651123, 27.025967, 13.299805)
 
 [node name="Counter shelves2" type="CSGBox3D" parent="." unique_id=487969434]
 transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -42.439117, 7.2202797, -8.924603)

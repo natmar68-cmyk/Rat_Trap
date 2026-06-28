@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://7efg62r7q748"]
+
+[ext_resource type="Texture2D" uid="uid://bsvsq7f5kde2n" path="res://Assets/New Piskel (9).png" id="1_3r4vc"]
+[ext_resource type="Texture2D" uid="uid://csgybobuakjig" path="res://Assets/New Piskel-4.png (1).png" id="2_x2xcn"]
+[ext_resource type="Texture2D" uid="uid://d4mllnsxe3hr3" path="res://Assets/New Piskel-2.png (1).png" id="3_cr37u"]
+[ext_resource type="Texture2D" uid="uid://cdvrjxeaw6g6k" path="res://Assets/New Piskel-3.png (1).png" id="4_n77ro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6g5d"]
+albedo_texture = ExtResource("1_3r4vc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35yda"]
+albedo_texture = ExtResource("2_x2xcn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojcbs"]
+albedo_texture = ExtResource("3_cr37u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nclxh"]
+albedo_texture = ExtResource("4_n77ro")
+
+[node name="Node3D" type="Node3D" unique_id=421073880]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1206121798]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.004078888, 0.7008997, -0.08927939)
+material_override = SubResource("StandardMaterial3D_g6g5d")
+flip_faces = true
+size = Vector3(0.9916992, 1.7707214, 0.001)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=665964302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0028107562, 0.70015204, -0.4966738)
+material_override = SubResource("StandardMaterial3D_35yda")
+flip_faces = true
+size = Vector3(0.99694824, 1.7722168, 0.001)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2056558990]
+transform = Transform3D(0.9998157, 8.7406654e-08, 0.019197388, 8.742278e-08, -0.99999994, 0, 0.01919739, 1.678289e-09, -0.99981564, 0.4850518, 0.700205, -0.2966349)
+material_override = SubResource("StandardMaterial3D_ojcbs")
+size = Vector3(0.024902344, 1.7722168, 0.40940094)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=197390381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4887056, 0.700152, -0.28820845)
+material_override = SubResource("StandardMaterial3D_nclxh")
+size = Vector3(0.024902344, 1.7722168, 0.41281125)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=474687705]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.001781255, 1.574936, -0.29289097)
+material_override = SubResource("StandardMaterial3D_nclxh")
+size = Vector3(0.024902344, 0.9744873, 0.39999008)

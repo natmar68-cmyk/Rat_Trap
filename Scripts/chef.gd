@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # ─────────────────────────────────────────────
-#  Chef.gd  –  Godot 4  |  Chef enemy AI
+#  Enemy.gd  –  Godot 4  |  self-contained AI
 #  States: ROAM → ALERT → CHASE → ATTACK → DEAD
 # ─────────────────────────────────────────────
 
@@ -9,18 +9,18 @@ extends CharacterBody3D
 signal player_hit
 
 # ── Tunable parameters ────────────────────────
-@export var move_speed      : float = 6.0
-@export var chase_speed     : float = 8.0
-@export var sight_range     : float = 12.0
-@export var sight_fov_deg   : float = 85.0
-@export var attack_range    : float = 2.0
-@export var attack_cooldown : float = 1.5
+@export var move_speed      : float = 10.0
+@export var chase_speed     : float = 12.0
+@export var sight_range     : float = 14.0
+@export var sight_fov_deg   : float = 90.0
+@export var attack_range    : float = 2.8
+@export var attack_cooldown : float = 1.2
 @export var alert_linger    : float = 3.0
-@export var roam_radius     : float = 8.0
+@export var roam_radius     : float = 10.0
 
 # ── Node references ───────────────────────────
-@onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
-@onready var area      : Area3D            = $Area3D
+@onready var nav_agent   : NavigationAgent3D = $NavigationAgent3D
+@onready var anim_player : AnimationPlayer   = $Cat/AnimationPlayer
 
 # ── Internal state ────────────────────────────
 enum State { ROAM, ALERT, CHASE, ATTACK, DEAD }
@@ -37,21 +37,19 @@ const GRAVITY : float = -9.8
 
 func _ready() -> void:
 	spawn_position = global_position
-	roam_target    = spawn_position
+	roam_target    = _random_roam_point()
 
 	var players := get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
 
-	area.body_entered.connect(_on_body_entered)
+	# Set looping animations
+	_set_loop("Walk",       true)
+	_set_loop("Idle",       true)
+	_set_loop("Idle Alert", true)
+	_set_loop("Sneak",      true)
 
-	await get_tree().process_frame
-	roam_target = _random_roam_point()
-
-
-func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		emit_signal("player_hit")
+	_play_anim("Idle")
 
 
 func _physics_process(delta: float) -> void:
@@ -148,16 +146,25 @@ func _do_attack() -> void:
 func _enter_state(new_state: State) -> void:
 	state = new_state
 	match new_state:
+		State.ROAM:
+			alert_timer = 0.0
+			_play_anim("Walk")
 		State.ALERT:
 			alert_timer = alert_linger
+			_play_anim("Idle Alert")
+		State.CHASE:
+			_play_anim("Walk")
+		State.ATTACK:
+			attack_timer = 0.0
+			_play_anim("Bite")
 		State.DEAD:
+			_play_anim("Death")
 			_die()
 
 
 func _die() -> void:
 	set_physics_process(false)
-	if has_node("CollisionShape3D"):
-		$CollisionShape3D.disabled = true
+	$CollisionShape3D.disabled = true
 	await get_tree().create_timer(2.5).timeout
 	queue_free()
 
@@ -235,5 +242,24 @@ func _face_direction(dir: Vector3) -> void:
 func _random_roam_point() -> Vector3:
 	var angle  := randf() * TAU
 	var radius := randf_range(2.0, roam_radius)
-	var raw    := spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
-	return NavigationServer3D.map_get_closest_point(nav_agent.get_navigation_map(), raw)
+	return spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
+
+
+# ── Animation helpers ─────────────────────────
+
+func _play_anim(anim_name: String) -> void:
+	if not anim_player:
+		return
+	if anim_player.current_animation == anim_name:
+		return
+	if anim_player.has_animation(anim_name):
+		anim_player.play(anim_name)
+	else:
+		push_warning("Enemy: animation '%s' not found." % anim_name)
+
+
+func _set_loop(anim_name: String, should_loop: bool) -> void:
+	if not anim_player or not anim_player.has_animation(anim_name):
+		return
+	var anim := anim_player.get_animation(anim_name)
+	anim.loop_mode = Animation.LOOP_LINEAR if should_loop else Animation.LOOP_NONE

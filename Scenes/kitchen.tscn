@@ -14,16 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://cv68dr3hvr5xx" path="res://Low Poly Furniture/Kitchen/Knife Block.fbx" id="12_i6vcq"]
 [ext_resource type="PackedScene" uid="uid://d3scxghp5a7dt" path="res://Low Poly Furniture/Kitchen/Microwave.fbx" id="13_bgcuo"]
 [ext_resource type="PackedScene" uid="uid://ca0upy7hls3a6" path="res://Low Poly Furniture/Kitchen/Toaster.fbx" id="14_m1yx5"]
-[ext_resource type="PackedScene" uid="uid://2jl7wbyomk47" path="res://Low Poly Furniture/Doors/Door B.fbx" id="16_1i8y3"]
-[ext_resource type="PackedScene" uid="uid://bdl0j2guaxw6" path="res://Low Poly Furniture/Miscellaneous/Clock.fbx" id="17_1i8y3"]
-[ext_resource type="PackedScene" uid="uid://celh4a7m4i8hi" path="res://Low Poly Furniture/Miscellaneous/Pan.fbx" id="18_hqj0s"]
 [ext_resource type="PackedScene" uid="uid://2hasb76lqaf2" path="res://Low Poly Furniture/Miscellaneous/Mug.fbx" id="19_ocwuj"]
-[ext_resource type="PackedScene" uid="uid://0ff40xeib4xy" path="res://Low Poly Furniture/Miscellaneous/Plant B.fbx" id="20_v7v86"]
-[ext_resource type="PackedScene" uid="uid://n24nlpwpj1ya" path="res://Low Poly Furniture/Miscellaneous/Pot.fbx" id="21_j87t8"]
 [ext_resource type="PackedScene" uid="uid://co0r72pljl7ka" path="res://Low Poly Furniture/Miscellaneous/Plate.fbx" id="23_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://btcbp8xfqtn43" path="res://Assets/window_c.tscn" id="24_1i8y3"]
+[ext_resource type="PackedScene" uid="uid://on5mwf7puxng" path="res://Low Poly Furniture/Miscellaneous/clock.tscn" id="24_3287f"]
 [ext_resource type="PackedScene" uid="uid://c6uki3nk3ybs0" path="res://Low Poly Furniture/Kitchen/oven.tscn" id="24_hqj0s"]
+[ext_resource type="PackedScene" uid="uid://dhgqci4lbgopc" path="res://Low Poly Furniture/Miscellaneous/pan.tscn" id="24_j87t8"]
+[ext_resource type="PackedScene" uid="uid://dobyyuwexfn7v" path="res://Low Poly Furniture/Miscellaneous/pot.tscn" id="24_ocwuj"]
+[ext_resource type="PackedScene" uid="uid://b420vi1pwovnb" path="res://Low Poly Furniture/Doors/door_b.tscn" id="24_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://0tlh8msk3b54" path="res://Low Poly Furniture/Miscellaneous/Glass.fbx" id="24_rdhyb"]
+[ext_resource type="PackedScene" uid="uid://nod1s670vrou" path="res://Low Poly Furniture/Miscellaneous/plant_b.tscn" id="24_v7v86"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l700"]
 albedo_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
@@ -654,48 +654,6 @@ shadow_bias = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.496
 
-[node name="Door B" parent="." unique_id=757048912 instance=ExtResource("16_1i8y3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.103535, 22.305128, -49.44305)
-
-[node name="Door B2" parent="." unique_id=1079613227 instance=ExtResource("16_1i8y3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 25.103535, 22.305128, 49.909153)
-
-[node name="Clock" parent="." unique_id=692167270 instance=ExtResource("17_1i8y3")]
-transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, 48.645145, 44.67157, 22.76624)
-
-[node name="Pan" parent="." unique_id=309342765 instance=ExtResource("18_hqj0s")]
-transform = Transform3D(4.105746, 0, 2.8535678, 0, 5, 0, -2.8535678, 0, 4.105746, -21.241095, 20.192251, 36.55971)
-
-[node name="Mug" parent="." unique_id=1261865399 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(2.7534182, 0, -2.9014974, 0, 4, 0, 2.9014974, 0, 2.7534182, -43.476467, 36.060455, 3.205121)
-
-[node name="Mug2" parent="." unique_id=179225744 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(0.61194324, 0, 3.9529133, 0, 4, 0, -3.9529133, 0, 0.61194324, -46.455322, 36.060455, 6.111526)
-
-[node name="Mug3" parent="." unique_id=511887024 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(3.9999936, 0, -0.0069813128, 0, 4, 0, 0.0069813128, 0, 3.9999936, -46.455322, 36.060455, 2.3235037)
-
-[node name="Mug4" parent="." unique_id=367296813 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(2.107823, 0, -3.3995702, 0, 4, 0, 3.3995702, 0, 2.107823, -40.548035, 36.060455, 7.1658287)
-
-[node name="Mug5" parent="." unique_id=1557967358 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(3.2885756, 0, 2.2771177, 0, 4, 0, -2.2771177, 0, 3.2885756, -37.69586, 36.060455, 6.0224032)
-
-[node name="Mug8" parent="." unique_id=282462035 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(3.2885756, 0, 2.2771177, 0, 4, 0, -2.2771177, 0, 3.2885756, -37.69586, 36.060455, 2.3002963)
-
-[node name="Mug6" parent="." unique_id=705025297 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(-2.4571407, 0, -3.1563356, 0, 4, 0, 3.1563356, 0, -2.4571407, -36.19272, 36.060455, 6.2360253)
-
-[node name="Mug7" parent="." unique_id=1686687355 instance=ExtResource("19_ocwuj")]
-transform = Transform3D(-0.9879959, 0, 3.8760622, 0, 4, 0, -3.8760622, 0, -0.9879959, -32.167038, 36.060455, 6.843915)
-
-[node name="Plant B" parent="." unique_id=98449132 instance=ExtResource("20_v7v86")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -12.972521, 30.229256, -46.200043)
-
-[node name="Pot" parent="." unique_id=1031725412 instance=ExtResource("21_j87t8")]
-transform = Transform3D(-3.7963562, 0, 3.2538714, 0, 5, 0, -3.2538714, 0, -3.7963562, -12.334755, 21.297913, 43.41492)
-
 [node name="Plate holder" type="Node3D" parent="." unique_id=76133568]
 
 [node name="Plate" parent="Plate holder" unique_id=1230133217 instance=ExtResource("23_ra1nx")]
@@ -790,8 +748,53 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.219746, 37.14329, -8.7550
 [node name="Glass8" parent="Glass holder" unique_id=852187747 instance=ExtResource("24_rdhyb")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -32.7157, 37.14329, -10.438309)
 
+[node name="Mug holder" type="Node3D" parent="." unique_id=819625947]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.836788, 30.135612, -46.49523)
+
+[node name="Mug" parent="Mug holder" unique_id=1261865399 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.45890304, 0, -0.4835829, 0, 0.6666667, 0, 0.4835829, 0, 0.45890304, -4.77328, 0.98747396, 8.283392)
+
+[node name="Mug2" parent="Mug holder" unique_id=179225744 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.10199054, 0, 0.6588189, 0, 0.6666667, 0, -0.6588189, 0, 0.10199054, -5.2697554, 0.98747396, 8.767794)
+
+[node name="Mug3" parent="Mug holder" unique_id=511887024 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.6666656, 0, -0.0011635522, 0, 0.6666667, 0, 0.0011635522, 0, 0.6666656, -5.2697554, 0.98747396, 8.1364565)
+
+[node name="Mug4" parent="Mug holder" unique_id=367296813 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.35130382, 0, -0.5665951, 0, 0.6666667, 0, 0.5665951, 0, 0.35130382, -4.2852077, 0.98747396, 8.94351)
+
+[node name="Mug5" parent="Mug holder" unique_id=1557967358 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.54809594, 0, 0.37951964, 0, 0.6666667, 0, -0.37951964, 0, 0.54809594, -3.8098457, 0.98747396, 8.752939)
+
+[node name="Mug8" parent="Mug holder" unique_id=282462035 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(0.54809594, 0, 0.37951964, 0, 0.6666667, 0, -0.37951964, 0, 0.54809594, -3.8098457, 0.98747396, 8.132588)
+
+[node name="Mug6" parent="Mug holder" unique_id=705025297 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(-0.40952346, 0, -0.52605593, 0, 0.6666667, 0, 0.52605593, 0, -0.40952346, -3.5593216, 0.98747396, 8.788544)
+
+[node name="Mug7" parent="Mug holder" unique_id=1686687355 instance=ExtResource("19_ocwuj")]
+transform = Transform3D(-0.164666, 0, 0.6460104, 0, 0.6666667, 0, -0.6460104, 0, -0.164666, -2.888375, 0.98747396, 8.889858)
+
 [node name="Window C" parent="." unique_id=496058383 instance=ExtResource("24_1i8y3")]
 transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -50.29504, 40.1287, 28.262737)
 
 [node name="Oven2" parent="." unique_id=23479078 instance=ExtResource("24_hqj0s")]
 transform = Transform3D(-5, 0, -9.0597484e-07, 0, 4.5, 0, 7.54979e-07, 0, -6, -16.764038, 16.057997, 36.257256)
+
+[node name="Pot" parent="." unique_id=1031725412 instance=ExtResource("24_ocwuj")]
+transform = Transform3D(-4.0192842, 0, 2.9741142, 0, 5, 0, -2.9741142, 0, -4.0192842, -12.43404, 21.405176, 42.77131)
+
+[node name="Plant B" parent="." unique_id=98449132 instance=ExtResource("24_v7v86")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -14.836788, 30.135612, -46.49523)
+
+[node name="Pan" parent="." unique_id=309342765 instance=ExtResource("24_j87t8")]
+transform = Transform3D(4.3474746, 0, 2.4697094, 0, 5, 0, -2.4697094, 0, 4.3474746, -21.214127, 19.986683, 36.457138)
+
+[node name="Clock" parent="." unique_id=692167270 instance=ExtResource("24_3287f")]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, 48.645153, 46.308647, 22.389553)
+
+[node name="Door B2" parent="." unique_id=757048912 instance=ExtResource("24_ra1nx")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 29.519985, 22.522058, 49.97176)
+
+[node name="Door B" parent="." unique_id=557648159 instance=ExtResource("24_ra1nx")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32.63184, 22.239857, -49.497772)

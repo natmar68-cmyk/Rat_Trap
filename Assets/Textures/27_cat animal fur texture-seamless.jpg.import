@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4wwtj8uxnet"
-path.s3tc="res://.godot/imported/cat_tex.png-ca4c3123d2055259d81dc9bc71d1bab9.s3tc.ctex"
+uid="uid://b34q7k1aqevy6"
+path.s3tc="res://.godot/imported/27_cat animal fur texture-seamless.jpg-a66ac8167a95f4c3c74be9d671425582.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Cat_v1_L3.123cb1b1943a-2f48-4e44-8f71-6bbe19a3ab64/cat-ps1-low-poly-rigged/textures/cat_tex.png"
-dest_files=["res://.godot/imported/cat_tex.png-ca4c3123d2055259d81dc9bc71d1bab9.s3tc.ctex"]
+source_file="res://Assets/Textures/27_cat animal fur texture-seamless.jpg"
+dest_files=["res://.godot/imported/27_cat animal fur texture-seamless.jpg-a66ac8167a95f4c3c74be9d671425582.s3tc.ctex"]
 
 [params]
 

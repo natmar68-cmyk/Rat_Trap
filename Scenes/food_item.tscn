@@ -10,6 +10,8 @@ radius = 0.8261719
 height = 2.1074219
 
 [node name="FoodItem" type="RigidBody3D" unique_id=624277446]
+collision_layer = 4
+collision_mask = 4
 freeze = true
 script = ExtResource("1_dn6ae")
 

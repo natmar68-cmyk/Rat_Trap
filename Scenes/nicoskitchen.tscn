@@ -57,7 +57,7 @@ size = Vector3(3, 7.5, 7.5)
 [node name="Hole" type="CSGPolygon3D" parent="NavigationRegion3D/Hole_maker" unique_id=1506180309]
 transform = Transform3D(1.1, 0, -1.0658141e-14, -1.0658141e-14, -4.8082526e-08, -1.1, -2.1175824e-22, 1.1, -4.808253e-08, -29.983604, -0.5586586, -19.121819)
 operation = 2
-polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
+polygon = PackedVector2Array(2.693388, -2.055006, 0, -2, 0.12980029, 0.1664238, 3.0938895, 0.22920609, 3.4789658, 0.028400421, 3.6456473, -0.5363693, 3.4699771, -1.2392159, 3.1346166, -1.7161236)
 
 [node name="Hole_room" type="CSGBox3D" parent="NavigationRegion3D/Hole_maker" unique_id=451364005]
 transform = Transform3D(1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, 2.1316282e-14, -1.0587912e-21, -2.1316282e-14, 1, -28.5, -4.241, -19.676)
@@ -161,7 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.808252, 0.52627563, -37.2
 [node name="MouseTrap" parent="." unique_id=1646424392 instance=ExtResource("4_n7mkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.193369, -0.4260202, -41.424957)
 
-[node name="Enemy" parent="." unique_id=951616777 groups=["enemy"] instance=ExtResource("7_fqfe0")]
+[node name="Enemy" parent="." unique_id=951616777 instance=ExtResource("7_fqfe0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.591457, 4.968142, -20.666063)
 
 [node name="chef" parent="." unique_id=2039077097 instance=ExtResource("7_y6vyd")]

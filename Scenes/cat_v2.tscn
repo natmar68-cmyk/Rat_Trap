@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://b4bq2ehlue3pq"]
 
 [ext_resource type="Script" uid="uid://li34n0ydaya1" path="res://Scripts/chef.gd" id="1_hvwxg"]
-[ext_resource type="PackedScene" uid="uid://n1v65pffpy8p" path="res://Assets/cat-ps1-low-poly-rigged/source/kitty.fbx" id="2_c7ays"]
-[ext_resource type="Texture2D" uid="uid://c6v1w47el0a6x" path="res://Assets/cat-ps1-low-poly-rigged/textures/cat_tex.png" id="3_btjcn"]
+[ext_resource type="PackedScene" uid="uid://cfp026ugrgohq" path="res://Assets/cat-ps1-low-poly-rigged/Cat.glb" id="2_tokl4"]
+[ext_resource type="Texture2D" uid="uid://b34q7k1aqevy6" path="res://Assets/Textures/27_cat animal fur texture-seamless.jpg" id="3_hvwxg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
-radius = 2.6333008
-height = 12.208862
+radius = 2.930664
+height = 12.322723
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0fah"]
-radius = 3.5
-height = 12.204102
+radius = 2.4575195
+height = 16.15918
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lonpr"]
-albedo_texture = ExtResource("3_btjcn")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ays"]
+albedo_texture = ExtResource("3_hvwxg")
 
 [node name="cat_v2" type="CharacterBody3D" unique_id=2039077097 groups=["enemy"]]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -24,7 +24,7 @@ sight_fov_deg = 200.0
 alert_linger = 1.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1022989235]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -2.9670066e-08, 1.8436966, -0.678772)
+transform = Transform3D(1.9106857e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -3.215858e-08, 2.5835204, -0.037997246)
 shape = SubResource("CapsuleShape3D_vr64p")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1456739691]
@@ -34,13 +34,59 @@ target_desired_distance = 2.0
 [node name="Area3D" type="Area3D" parent="." unique_id=1298763607]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1011505106]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.4941509, -1.2505177)
+transform = Transform3D(1, 0, -2.6681538e-20, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -7.1054274e-15, 2.4941509, -0.70266616)
 shape = SubResource("CapsuleShape3D_v0fah")
 
-[node name="Cat" parent="." unique_id=460442181 instance=ExtResource("2_c7ays")]
-transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, 0, -0.8841319, 0)
+[node name="Cat" parent="." unique_id=1304987929 instance=ExtResource("2_tokl4")]
+transform = Transform3D(-5, 0, -4.371139e-07, 0, 5, 0, 4.371139e-07, 0, -5, 0, 0, 0)
 
-[node name="Cylinder" parent="Cat/Armature/Skeleton3D" parent_id_path=PackedInt32Array(460442181, 267695844) index="0" unique_id=2000083229]
-material_override = SubResource("StandardMaterial3D_lonpr")
+[node name="Skeleton3D" parent="Cat/Skinned Mesh 2" parent_id_path=PackedInt32Array(1304987929, 61219483) index="0" unique_id=1298895995]
+bones/1/position = Vector3(0.004848752, 0.7209414, 0.97524434)
+bones/1/rotation = Quaternion(0.9986841, 0.008084177, -0.00040728843, -0.050642185)
+bones/2/rotation = Quaternion(-0.044533838, 0.0006832557, 0.012731481, 0.9989265)
+bones/3/rotation = Quaternion(-0.05712425, 2.3724819e-05, 3.4021666e-06, 0.9983671)
+bones/4/rotation = Quaternion(-0.13491161, 2.8429884e-07, 3.384866e-06, 0.9908577)
+bones/5/rotation = Quaternion(-0.10733797, 9.842364e-06, 2.0191492e-06, 0.9942226)
+bones/6/rotation = Quaternion(-0.06826364, 1.8788684e-06, -9.075562e-08, 0.9976674)
+bones/7/rotation = Quaternion(0.49008435, 7.82366e-05, 1.624937e-05, 0.871675)
+bones/9/rotation = Quaternion(0.7183717, 0.13637243, 0.057837296, -0.67970556)
+bones/10/rotation = Quaternion(0.0059935558, 0.0045776917, -0.05244284, 0.99859554)
+bones/11/rotation = Quaternion(-0.09647078, 9.493755e-07, 4.973302e-10, 0.9953359)
+bones/13/rotation = Quaternion(0.71837157, -0.13637306, -0.057838008, -0.6797054)
+bones/14/rotation = Quaternion(0.005993553, -0.0045777187, 0.05244278, 0.99859554)
+bones/15/rotation = Quaternion(0.45092398, -0.04703417, -0.09661937, 0.8860701)
+bones/16/rotation = Quaternion(0.6771763, 0.10050077, -0.009175698, 0.7288675)
+bones/17/rotation = Quaternion(-0.5166566, 3.8479444e-05, -0.00013414062, 0.8561927)
+bones/18/rotation = Quaternion(0.11785819, 0.014415635, -0.008991191, 0.9928852)
+bones/19/rotation = Quaternion(-0.52972335, -0.01369599, 0.00093747844, 0.8480594)
+bones/20/rotation = Quaternion(-0.036685634, 1.1094234e-06, 1.6224685e-07, 0.9993268)
+bones/21/rotation = Quaternion(0.4522924, 0.046909213, 0.09668051, 0.8853723)
+bones/22/rotation = Quaternion(0.8323494, -0.10710276, 0.03913813, 0.5423944)
+bones/23/rotation = Quaternion(-0.45286843, -4.006167e-05, 0.000117550604, 0.89157736)
+bones/24/rotation = Quaternion(0.1042595, -0.010851005, 0.003867237, 0.9944835)
+bones/25/rotation = Quaternion(-0.5297233, 0.0136959925, -0.00093748, 0.8480594)
+bones/26/rotation = Quaternion(-0.036685634, -1.1094236e-06, -1.6224682e-07, 0.9993268)
+bones/29/rotation = Quaternion(0.97783726, 1.6889821e-06, -1.7095394e-05, 0.20936677)
+bones/30/rotation = Quaternion(-0.17377064, -1.668893e-05, -1.0279097e-05, 0.9847862)
+bones/31/rotation = Quaternion(0.095098265, -2.781742e-07, -6.755185e-08, 0.9954679)
+bones/32/rotation = Quaternion(0.05901664, -1.7971613e-05, -9.232657e-06, 0.9982571)
+bones/33/rotation = Quaternion(0.05495307, 7.284357e-08, -6.080861e-07, 0.99848896)
+bones/34/rotation = Quaternion(0.967973, 0.090607665, -0.019069038, 0.2333559)
+bones/35/rotation = Quaternion(0.7326547, 0.062363338, -0.061341368, -0.6749557)
+bones/36/rotation = Quaternion(0.6419027, -8.9672925e-05, 0.00016130444, 0.7667861)
+bones/37/rotation = Quaternion(-0.5218226, 4.1807947e-05, 5.692948e-05, 0.8530541)
+bones/38/rotation = Quaternion(-0.2549549, 0.0022877809, -0.0022765717, 0.9669476)
+bones/39/rotation = Quaternion(-0.41487837, 0.00053491537, -2.1227987e-05, 0.90987676)
+bones/40/rotation = Quaternion(-0.021384988, -2.8276375e-07, 6.01841e-09, 0.99977136)
+bones/41/rotation = Quaternion(0.9679729, -0.090608925, 0.01907422, 0.23335539)
+bones/42/rotation = Quaternion(0.89028656, -0.09198128, 0.0350927, -0.44463223)
+bones/43/rotation = Quaternion(0.777249, 5.2742602e-05, -0.00020720245, 0.62919325)
+bones/44/rotation = Quaternion(0.6316296, 5.1716575e-05, 9.1379625e-05, -0.77527034)
+bones/45/rotation = Quaternion(0.09148723, 0.0030026855, -0.0036205542, 0.9957952)
+bones/46/rotation = Quaternion(-0.41487837, -0.0005349153, 2.1228012e-05, 0.90987676)
+bones/47/rotation = Quaternion(-0.021384984, 1.6358173e-07, -3.4691163e-09, 0.99977136)
+
+[node name="Skinned Mesh 0" parent="Cat/Skinned Mesh 2/Skeleton3D" index="0" unique_id=2021717725]
+material_override = SubResource("StandardMaterial3D_c7ays")
 
 [editable path="Cat"]

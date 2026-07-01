@@ -23,6 +23,8 @@ corner_radius_bottom_left = 6
 
 [node name="Player" type="CharacterBody3D" unique_id=417054637 groups=["player"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1427649674]

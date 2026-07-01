@@ -19,8 +19,11 @@ signal player_hit
 @export var roam_radius     : float = 8.0
 
 # ── Node references ───────────────────────────
-@onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
-@onready var area      : Area3D            = $Area3D
+@onready var nav_agent   : NavigationAgent3D = $NavigationAgent3D
+@onready var area        : Area3D            = $Area3D
+
+# This points exactly to where the AnimationPlayer is in your screenshot
+@onready var anim_player : AnimationPlayer   = $Chef/AnimationPlayer 
 
 # ── Internal state ────────────────────────────
 enum State { ROAM, ALERT, CHASE, ATTACK, DEAD }
@@ -31,6 +34,7 @@ var roam_target    : Vector3
 var alert_timer    : float = 0.0
 var attack_timer   : float = 0.0
 var last_known_pos : Vector3
+var is_attacking   : bool  = false
 
 const GRAVITY : float = -9.8
 
@@ -73,6 +77,7 @@ func _physics_process(delta: float) -> void:
 
 func _state_roam(_delta: float) -> void:
 	_move_toward(roam_target, move_speed)
+	_play_anim("Walking (1)") 
 
 	if nav_agent.is_navigation_finished():
 		roam_target = _random_roam_point()
@@ -85,6 +90,7 @@ func _state_alert(delta: float) -> void:
 	velocity.x = 0
 	velocity.z = 0
 	alert_timer -= delta
+	_play_anim("Picking Up") 
 
 	if player:
 		last_known_pos = player.global_position
@@ -97,6 +103,8 @@ func _state_alert(delta: float) -> void:
 
 
 func _state_chase(delta: float) -> void:
+	_play_anim("Running (1)")
+
 	if not player:
 		_enter_state(State.ROAM)
 		return
@@ -128,12 +136,20 @@ func _state_attack(delta: float) -> void:
 
 	_face_target(player.global_position)
 
-	if attack_timer <= 0.0:
+	if attack_timer <= 0.0 and not is_attacking:
+		is_attacking = true
+		
+		_play_anim("Picking Up") 
+		await get_tree().create_timer(0.4).timeout
+		
 		_do_attack()
-		attack_timer = attack_cooldown
+		await get_tree().create_timer(0.5).timeout
+		
+		is_attacking   = false
+		attack_timer   = attack_cooldown
 
 	var dist := global_position.distance_to(player.global_position)
-	if dist > attack_range:
+	if dist > attack_range and not is_attacking:
 		_enter_state(State.CHASE)
 
 
@@ -210,10 +226,10 @@ func _move_toward_nav(speed: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 		return
-	var next     := nav_agent.get_next_path_position()
-	var dir      := (next - global_position).normalized()
-	velocity.x    = dir.x * speed
-	velocity.z    = dir.z * speed
+	var next      := nav_agent.get_next_path_position()
+	var dir       := (next - global_position).normalized()
+	velocity.x     = dir.x * speed
+	velocity.z     = dir.z * speed
 	var flat_dir := Vector3(dir.x, 0, dir.z).normalized()
 	_face_direction(flat_dir)
 
@@ -237,3 +253,17 @@ func _random_roam_point() -> Vector3:
 	var radius := randf_range(2.0, roam_radius)
 	var raw    := spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
 	return NavigationServer3D.map_get_closest_point(nav_agent.get_navigation_map(), raw)
+
+
+# ── Animation helper ──────────────────────────
+
+func _play_anim(anim_name: String) -> void:
+	# 100% crash proof check: if the animation player isn't loaded, just exit.
+	if anim_player == null:
+		return
+		
+	if anim_player.has_animation(anim_name):
+		if anim_player.current_animation != anim_name:
+			anim_player.play(anim_name)
+	else:
+		push_warning("Animation not found: ", anim_name)

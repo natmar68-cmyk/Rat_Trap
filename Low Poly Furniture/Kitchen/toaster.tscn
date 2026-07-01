@@ -1,0 +1,10 @@
+
+[node name="Toaster" type="Node3D" unique_id=226324048]
+
+[node name="Toaster" type="MeshInstance3D" parent="." unique_id=421002292]
+mesh = SubResource("ArrayMesh_duf6n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Toaster" unique_id=1336403011]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Toaster/StaticBody3D" unique_id=719400094]
+shape = SubResource("ConcavePolygonShape3D_17ika")

@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameManager="*uid://g4l2x6uwav8q"
 AudioManager="*uid://em3vv4gmm0up"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/animation_combiner/plugin.cfg")
+
 [input]
 
 move_forward={

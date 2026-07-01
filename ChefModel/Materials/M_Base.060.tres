@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c61ichkkr6exv"]
+
+[ext_resource type="Texture2D" uid="uid://dpeo1ywfmxtl2" path="res://ChefModel/Materials/lospec500-32x.png" id="1_t703t"]
+
+[resource]
+resource_name = "M_Base.060"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_t703t")
+roughness = 0.5
+metadata/_gltf_primary_texture_coord = 0

@@ -5,7 +5,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cahj411q17yuh" path="res://Chef Animations/Crouching Idle.fbx" id="3_lvmq8"]
 [ext_resource type="AnimationLibrary" uid="uid://b4uh64yqwhe1" path="res://Chef Animations/Running.fbx" id="4_0c20u"]
 [ext_resource type="AnimationLibrary" uid="uid://be44vrloenn24" path="res://Chef Animations/Standing Melee Attack Downward.fbx" id="5_dc6ua"]
-[ext_resource type="PackedScene" uid="uid://vn3dwt46yw7i" path="res://Chef Animations/male_casual.fbx" id="6_lvmq8"]
+[ext_resource type="PackedScene" uid="uid://de7cthrjhsg6k" path="res://Scenes/chefCharacter.tscn" id="6_lvmq8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
 radius = 3.0
@@ -84,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.913574, 0)
 shape = SubResource("CapsuleShape3D_v0fah")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1735011560]
-root_node = NodePath("../male_casual")
+active = false
 "libraries/Crouch To Stand" = ExtResource("2_t263q")
 "libraries/Crouching Idle" = ExtResource("3_lvmq8")
 libraries/Running = ExtResource("4_0c20u")
@@ -92,9 +92,8 @@ libraries/Running = ExtResource("4_0c20u")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1247419400]
 active = false
-root_node = NodePath("../male_casual")
 tree_root = SubResource("AnimationNodeStateMachine_sqin4")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="male_casual" parent="." unique_id=651683977 instance=ExtResource("6_lvmq8")]
-transform = Transform3D(-15, 0, -1.3113416e-06, 0, 15, 0, 1.3113416e-06, 0, -15, 0, 0, 0)
+[node name="Chef" parent="." unique_id=239714253 instance=ExtResource("6_lvmq8")]
+transform = Transform3D(1.895, 0, 0, 0, 1.895, 0, 0, 0, 1.895, 0, 0, 0)

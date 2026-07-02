@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://3libhaewai3" path="res://Low Poly Furniture/Kitchen/Kitchen Roll.fbx" id="11_r0dk1"]
 [ext_resource type="PackedScene" uid="uid://cv68dr3hvr5xx" path="res://Low Poly Furniture/Kitchen/Knife Block.fbx" id="12_i6vcq"]
 [ext_resource type="PackedScene" uid="uid://d3scxghp5a7dt" path="res://Low Poly Furniture/Kitchen/Microwave.fbx" id="13_bgcuo"]
-[ext_resource type="PackedScene" uid="uid://ca0upy7hls3a6" path="res://Low Poly Furniture/Kitchen/Toaster.fbx" id="14_m1yx5"]
 [ext_resource type="PackedScene" uid="uid://2hasb76lqaf2" path="res://Low Poly Furniture/Miscellaneous/Mug.fbx" id="19_ocwuj"]
 [ext_resource type="PackedScene" uid="uid://co0r72pljl7ka" path="res://Low Poly Furniture/Miscellaneous/Plate.fbx" id="23_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://btcbp8xfqtn43" path="res://Assets/window_c.tscn" id="24_1i8y3"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b420vi1pwovnb" path="res://Low Poly Furniture/Doors/door_b.tscn" id="24_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://0tlh8msk3b54" path="res://Low Poly Furniture/Miscellaneous/Glass.fbx" id="24_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://nod1s670vrou" path="res://Low Poly Furniture/Miscellaneous/plant_b.tscn" id="24_v7v86"]
+[ext_resource type="PackedScene" uid="uid://4oj8k500mmll" path="res://Low Poly Furniture/Kitchen/toaster.tscn" id="24_wj3rr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2l700"]
 albedo_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
@@ -640,9 +640,6 @@ transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -4
 [node name="Microwave" parent="." unique_id=448187169 instance=ExtResource("13_bgcuo")]
 transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -40.807327, 23.653915, 42.35982)
 
-[node name="Toaster" parent="." unique_id=226324048 instance=ExtResource("14_m1yx5")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -42.43013, 22.202183, -23.928394)
-
 [node name="DirectionalLight3D" type="OmniLight3D" parent="." unique_id=515987948]
 transform = Transform3D(7.1054274e-15, 4.371138e-08, 1, 1, -4.371138e-08, -5.1947425e-15, 4.371138e-08, 1, -4.371138e-08, -1.9073486e-06, 55.94084, -1.9073486e-05)
 light_color = Color(0.9999998, 0.97387224, 0.70304704, 1)
@@ -798,3 +795,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 29.519985, 22.522058, 49.9717
 
 [node name="Door B" parent="." unique_id=557648159 instance=ExtResource("24_ra1nx")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 32.63184, 22.239857, -49.497772)
+
+[node name="Toaster2" parent="." unique_id=226324048 instance=ExtResource("24_wj3rr")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, -46.154907, 21.869015, -31.443623)

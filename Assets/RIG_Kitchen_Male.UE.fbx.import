@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cx38v4wa0atd7"
-path="res://.godot/imported/Cereal Box.fbx-30ef564c8f43649003da3362dd4c4ae7.scn"
+uid="uid://b1v0fv7g750b4"
+path="res://.godot/imported/RIG_Kitchen_Male.UE.fbx-98cd2efc73f86ba38aefab05ecb8fffd.scn"
 
 [deps]
 
-source_file="res://Assets/Cereal Box.fbx"
-dest_files=["res://.godot/imported/Cereal Box.fbx-30ef564c8f43649003da3362dd4c4ae7.scn"]
+source_file="res://Assets/RIG_Kitchen_Male.UE.fbx"
+dest_files=["res://.godot/imported/RIG_Kitchen_Male.UE.fbx-98cd2efc73f86ba38aefab05ecb8fffd.scn"]
 
 [params]
 
@@ -24,7 +24,7 @@ nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
-meshes/generate_lods=false
+meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2

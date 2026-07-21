@@ -9,7 +9,7 @@ signal player_hit
 @export var chase_speed: float = 1000.0
 @export var sight_range: float = 14.0
 @export var sight_fov_deg: float = 90.0
-@export var attack_range: float = 2.8
+@export var attack_range: float = 5
 @export var attack_cooldown: float = 1.2
 @export var alert_linger: float = 3.0
 @export var roam_radius: float = 10.0
@@ -138,13 +138,14 @@ func _state_chase(delta):
 	_move_toward_nav(chase_speed)
 
 	var dist = global_position.distance_to(player.global_position)
-
+	print(dist)
 	if dist <= attack_range:
 		_enter_state(State.ATTACK)
 	elif !_can_see_player():
 		alert_timer -= delta
 		if alert_timer <= 0:
 			_enter_state(State.ROAM)
+	
 
 # --------------------------------------------------
 # ATTACK
@@ -197,10 +198,11 @@ func _enter_state(new_state):
 	if state == new_state:
 		return
 
+	print("State:", new_state)
+
 	state = new_state
 
 	match state:
-
 		State.ROAM:
 			alert_timer = 0
 			_play_anim("Walking (1)")
@@ -213,11 +215,9 @@ func _enter_state(new_state):
 			_play_anim("Running (1)")
 
 		State.ATTACK:
+			print("ENTERED ATTACK")
 			attack_timer = 0
-
-		State.DEAD:
-			_die()
-
+			_play_anim("Picking Up")
 # --------------------------------------------------
 # Death
 # --------------------------------------------------

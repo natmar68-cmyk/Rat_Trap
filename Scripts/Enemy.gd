@@ -1,75 +1,106 @@
 extends CharacterBody3D
 
-# ─────────────────────────────────────────────
-#  Enemy.gd  –  Godot 4  |  self-contained AI
-#  States: ROAM → ALERT → CHASE → ATTACK → DEAD
-# ─────────────────────────────────────────────
-
-# ── Signals ───────────────────────────────────
 signal player_hit
 
-# ── Tunable parameters ────────────────────────
-@export var move_speed      : float = 10.0
-@export var chase_speed     : float = 12.0
-@export var sight_range     : float = 14.0
-@export var sight_fov_deg   : float = 90.0
-@export var attack_range    : float = 2.8
-@export var attack_cooldown : float = 1.2
-@export var alert_linger    : float = 3.0
-@export var roam_radius     : float = 10.0
+# ─────────────────────────────────────────────
+# Settings
+# ─────────────────────────────────────────────
+@export var move_speed: float = 10.0
+@export var chase_speed: float = 1000.0
+@export var sight_range: float = 14.0
+@export var sight_fov_deg: float = 90.0
+@export var attack_range: float = 2.8
+@export var attack_cooldown: float = 1.2
+@export var alert_linger: float = 3.0
+@export var roam_radius: float = 10.0
 
-# ── Node references ───────────────────────────
-@onready var nav_agent   : NavigationAgent3D = $NavigationAgent3D
-@onready var anim_player : AnimationPlayer   = $Cat/AnimationPlayer
+# ─────────────────────────────────────────────
+# Nodes
+# ─────────────────────────────────────────────
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var area: Area3D = $Area3D
 
-# ── Internal state ────────────────────────────
-enum State { ROAM, ALERT, CHASE, ATTACK, DEAD }
-var state          : State = State.ROAM
-var player         : Node3D
-var spawn_position : Vector3
-var roam_target    : Vector3
-var alert_timer    : float = 0.0
-var attack_timer   : float = 0.0
-var last_known_pos : Vector3
+# Cat model's AnimationPlayer
+@onready var anim_player: AnimationPlayer = $Cat/AnimationPlayer
 
-const GRAVITY : float = -9.8
+# ─────────────────────────────────────────────
+# Animation names (Cat_v2 model)
+# Clips are named "SKM_Cat|SKM_Cat|Cat_XXX" — centralized here so
+# a re-import/rename later only means editing this block.
+# ─────────────────────────────────────────────
+const ANIM_WALK    : String = "SKM_Cat|SKM_Cat|Cat_Walk"
+const ANIM_RUN      : String = "SKM_Cat|SKM_Cat|Cat_Run"
+const ANIM_ALERT    : String = "SKM_Cat|SKM_Cat|Cat_Idle02"   # stand-in for "Picking Up" alert pose
+const ANIM_ATTACK   : String = "SKM_Cat|SKM_Cat|Cat_Dash"     # no dedicated attack clip yet — using Dash as a stand-in
 
+# ─────────────────────────────────────────────
+# State
+# ─────────────────────────────────────────────
+enum State {
+	ROAM,
+	ALERT,
+	CHASE,
+	ATTACK,
+	DEAD
+}
 
-func _ready() -> void:
+var state: State = State.ROAM
+
+var player: Node3D
+var spawn_position: Vector3
+var roam_target: Vector3
+
+var alert_timer := 0.0
+var attack_timer := 0.0
+var last_known_pos := Vector3.ZERO
+var is_attacking := false
+
+const GRAVITY := -9.8
+
+# ─────────────────────────────────────────────
+
+func _ready():
+
 	spawn_position = global_position
-	roam_target    = _random_roam_point()
+	roam_target = _random_roam_point()
 
-	var players := get_tree().get_nodes_in_group("player")
+	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
 
-	# Set looping animations
-	_set_loop("Walk",       true)
-	_set_loop("Idle",       true)
-	_set_loop("Idle Alert", true)
-	_set_loop("Sneak",      true)
+	_set_loop(ANIM_WALK, true)
+	_set_loop(ANIM_RUN, true)
 
-	_play_anim("Idle")
+	_play_anim(ANIM_WALK)
 
+func _physics_process(delta):
 
-func _physics_process(delta: float) -> void:
 	if state == State.DEAD:
 		return
 
 	_apply_gravity(delta)
 
 	match state:
-		State.ROAM:   _state_roam(delta)
-		State.ALERT:  _state_alert(delta)
-		State.CHASE:  _state_chase(delta)
-		State.ATTACK: _state_attack(delta)
+		State.ROAM:
+			_state_roam()
+
+		State.ALERT:
+			_state_alert(delta)
+
+		State.CHASE:
+			_state_chase(delta)
+
+		State.ATTACK:
+			_state_attack(delta)
 
 	move_and_slide()
 
+# --------------------------------------------------
+# ROAM
+# --------------------------------------------------
 
-# ── State handlers ────────────────────────────
+func _state_roam():
 
-func _state_roam(_delta: float) -> void:
 	_move_toward(roam_target, move_speed)
 
 	if nav_agent.is_navigation_finished():
@@ -78,10 +109,15 @@ func _state_roam(_delta: float) -> void:
 	if _can_see_player():
 		_enter_state(State.ALERT)
 
+# --------------------------------------------------
+# ALERT
+# --------------------------------------------------
 
-func _state_alert(delta: float) -> void:
+func _state_alert(delta):
+
 	velocity.x = 0
 	velocity.z = 0
+
 	alert_timer -= delta
 
 	if player:
@@ -90,176 +126,243 @@ func _state_alert(delta: float) -> void:
 
 	if _can_see_player():
 		_enter_state(State.CHASE)
-	elif alert_timer <= 0.0:
+	elif alert_timer <= 0:
 		_enter_state(State.ROAM)
 
+# --------------------------------------------------
+# CHASE
+# --------------------------------------------------
 
-func _state_chase(delta: float) -> void:
-	if not player:
+func _state_chase(delta):
+
+	if player == null:
 		_enter_state(State.ROAM)
 		return
 
 	if _can_see_player():
 		last_known_pos = player.global_position
-		alert_timer    = alert_linger
+		alert_timer = alert_linger
 
 	nav_agent.target_position = last_known_pos
+
 	_move_toward_nav(chase_speed)
 
-	var dist := global_position.distance_to(player.global_position)
+	var dist = global_position.distance_to(player.global_position)
+
 	if dist <= attack_range:
 		_enter_state(State.ATTACK)
-	elif not _can_see_player() and alert_timer <= 0.0:
-		_enter_state(State.ROAM)
-	else:
+	elif !_can_see_player():
 		alert_timer -= delta
+		if alert_timer <= 0:
+			_enter_state(State.ROAM)
 
+# --------------------------------------------------
+# ATTACK
+# --------------------------------------------------
 
-func _state_attack(delta: float) -> void:
+func _state_attack(delta):
+
 	velocity.x = 0
 	velocity.z = 0
+
 	attack_timer -= delta
 
-	if not player:
+	if player == null:
 		_enter_state(State.ROAM)
 		return
 
 	_face_target(player.global_position)
 
-	if attack_timer <= 0.0:
+	if attack_timer <= 0 and !is_attacking:
+
+		is_attacking = true
+
+		_play_anim(ANIM_ATTACK)
+
+		await anim_player.animation_finished
+
 		_do_attack()
+
 		attack_timer = attack_cooldown
+		is_attacking = false
 
-	var dist := global_position.distance_to(player.global_position)
-	if dist > attack_range:
-		_enter_state(State.CHASE)
+		if global_position.distance_to(player.global_position) <= attack_range:
+			_play_anim(ANIM_ATTACK)
+		else:
+			_enter_state(State.CHASE)
 
+# --------------------------------------------------
+# Attack
+# --------------------------------------------------
 
-# ── Attack ────────────────────────────────────
-
-func _do_attack() -> void:
+func _do_attack():
 	emit_signal("player_hit")
 
+# --------------------------------------------------
+# State Changes
+# --------------------------------------------------
 
-# ── Transitions ───────────────────────────────
+func _enter_state(new_state):
 
-func _enter_state(new_state: State) -> void:
+	if state == new_state:
+		return
+
 	state = new_state
-	match new_state:
+
+	match state:
+
 		State.ROAM:
-			alert_timer = 0.0
-			_play_anim("Walk")
+			alert_timer = 0
+			_play_anim(ANIM_WALK)
+
 		State.ALERT:
 			alert_timer = alert_linger
-			_play_anim("Idle Alert")
+			_play_anim(ANIM_ALERT)
+
 		State.CHASE:
-			_play_anim("Walk")
+			_play_anim(ANIM_RUN)
+
 		State.ATTACK:
-			attack_timer = 0.0
-			_play_anim("Bite")
+			attack_timer = 0
+
 		State.DEAD:
-			_play_anim("Death")
 			_die()
 
+# --------------------------------------------------
+# Death
+# --------------------------------------------------
 
-func _die() -> void:
+func _die():
+
 	set_physics_process(false)
+
 	$CollisionShape3D.disabled = true
-	await get_tree().create_timer(2.5).timeout
+
 	queue_free()
 
+# --------------------------------------------------
+# Vision
+# --------------------------------------------------
 
-# ── Perception ────────────────────────────────
+func _can_see_player():
 
-func _can_see_player() -> bool:
-	if not player or not is_instance_valid(player):
+	if player == null:
 		return false
 
-	var to_player := player.global_position - global_position
-	var dist      := to_player.length()
+	var to_player = player.global_position - global_position
 
-	if dist > sight_range:
+	if to_player.length() > sight_range:
 		return false
 
-	var forward   := -global_transform.basis.z
-	var angle_deg := rad_to_deg(forward.angle_to(to_player.normalized()))
-	if angle_deg > sight_fov_deg * 0.5:
-		return false
+	var forward = -global_transform.basis.z
 
-	var space  := get_world_3d().direct_space_state
-	var origin := global_position + Vector3.UP * 1.0
-	var target := player.global_position + Vector3.UP * 1.0
-	var query  := PhysicsRayQueryParameters3D.create(origin, target)
-	query.exclude = [self]
-	var result := space.intersect_ray(query)
-	if result and result.collider != player:
+	var angle = rad_to_deg(forward.angle_to(to_player.normalized()))
+
+	if angle > sight_fov_deg * 0.5:
 		return false
 
 	return true
 
+# --------------------------------------------------
+# Gravity
+# --------------------------------------------------
 
-# ── Movement ──────────────────────────────────
+func _apply_gravity(delta):
 
-func _apply_gravity(delta: float) -> void:
-	if not is_on_floor():
+	if !is_on_floor():
 		velocity.y += GRAVITY * delta
 	else:
-		velocity.y = 0.0
+		velocity.y = 0
 
+# --------------------------------------------------
+# Movement
+# --------------------------------------------------
 
-func _move_toward(world_pos: Vector3, speed: float) -> void:
-	nav_agent.target_position = world_pos
+func _move_toward(target, speed):
+
+	nav_agent.target_position = target
 	_move_toward_nav(speed)
 
+func _move_toward_nav(speed):
 
-func _move_toward_nav(speed: float) -> void:
 	if nav_agent.is_navigation_finished():
+
 		velocity.x = 0
 		velocity.z = 0
 		return
-	var next     := nav_agent.get_next_path_position()
-	var dir      := (next - global_position).normalized()
-	velocity.x    = dir.x * speed
-	velocity.z    = dir.z * speed
-	var flat_dir := Vector3(dir.x, 0, dir.z).normalized()
-	_face_direction(flat_dir)
 
+	var next = nav_agent.get_next_path_position()
 
-func _face_target(world_pos: Vector3) -> void:
-	var dir := (world_pos - global_position)
+	var dir = (next - global_position).normalized()
+
+	velocity.x = dir.x * speed
+	velocity.z = dir.z * speed
+
+	_face_direction(Vector3(dir.x,0,dir.z))
+
+func _face_target(target):
+
+	var dir = target - global_position
 	dir.y = 0
+
 	if dir.length_squared() > 0.001:
 		_face_direction(dir.normalized())
 
+func _face_direction(dir):
 
-func _face_direction(dir: Vector3) -> void:
 	if dir.length_squared() < 0.001:
 		return
-	var target_basis := Basis.looking_at(dir, Vector3.UP).orthonormalized()
-	global_transform.basis = global_transform.basis.orthonormalized().slerp(target_basis, 0.15)
 
+	var basis = Basis.looking_at(dir, Vector3.UP)
 
-func _random_roam_point() -> Vector3:
-	var angle  := randf() * TAU
-	var radius := randf_range(2.0, roam_radius)
-	return spawn_position + Vector3(cos(angle) * radius, 0.0, sin(angle) * radius)
+	global_transform.basis = global_transform.basis.slerp(basis,0.15)
 
+# --------------------------------------------------
+# Roaming
+# --------------------------------------------------
 
-# ── Animation helpers ─────────────────────────
+func _random_roam_point():
 
-func _play_anim(anim_name: String) -> void:
-	if not anim_player:
+	var angle = randf() * TAU
+	var radius = randf_range(2,roam_radius)
+
+	var point = spawn_position + Vector3(
+		cos(angle) * radius,
+		0,
+		sin(angle) * radius
+	)
+
+	return NavigationServer3D.map_get_closest_point(
+		nav_agent.get_navigation_map(),
+		point
+	)
+
+# --------------------------------------------------
+# Animation
+# --------------------------------------------------
+
+func _play_anim(name:String):
+
+	if anim_player == null:
 		return
-	if anim_player.current_animation == anim_name:
+
+	if !anim_player.has_animation(name):
+		push_warning("Animation '%s' doesn't exist." % name)
 		return
-	if anim_player.has_animation(anim_name):
-		anim_player.play(anim_name)
+
+	if anim_player.current_animation == name:
+		return
+
+	anim_player.play(name)
+
+func _set_loop(name:String, loop:bool):
+
+	if !anim_player.has_animation(name):
+		return
+
+	var anim = anim_player.get_animation(name)
+
+	if loop:
+		anim.loop_mode = Animation.LOOP_LINEAR
 	else:
-		push_warning("Enemy: animation '%s' not found." % anim_name)
-
-
-func _set_loop(anim_name: String, should_loop: bool) -> void:
-	if not anim_player or not anim_player.has_animation(anim_name):
-		return
-	var anim := anim_player.get_animation(anim_name)
-	anim.loop_mode = Animation.LOOP_LINEAR if should_loop else Animation.LOOP_NONE
+		anim.loop_mode = Animation.LOOP_NONE

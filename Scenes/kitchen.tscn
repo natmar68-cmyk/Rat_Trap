@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://3libhaewai3" path="res://Low Poly Furniture/Kitchen/Kitchen Roll.fbx" id="11_r0dk1"]
 [ext_resource type="PackedScene" uid="uid://cv68dr3hvr5xx" path="res://Low Poly Furniture/Kitchen/Knife Block.fbx" id="12_i6vcq"]
 [ext_resource type="PackedScene" uid="uid://d3scxghp5a7dt" path="res://Low Poly Furniture/Kitchen/Microwave.fbx" id="13_bgcuo"]
+[ext_resource type="PackedScene" uid="uid://bghji45twr6xd" path="res://Low Poly Furniture/Miscellaneous/plate.tscn" id="14_1i8y3"]
 [ext_resource type="PackedScene" uid="uid://2hasb76lqaf2" path="res://Low Poly Furniture/Miscellaneous/Mug.fbx" id="19_ocwuj"]
-[ext_resource type="PackedScene" uid="uid://co0r72pljl7ka" path="res://Low Poly Furniture/Miscellaneous/Plate.fbx" id="23_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://btcbp8xfqtn43" path="res://Assets/window_c.tscn" id="24_1i8y3"]
 [ext_resource type="PackedScene" uid="uid://on5mwf7puxng" path="res://Low Poly Furniture/Miscellaneous/clock.tscn" id="24_3287f"]
 [ext_resource type="PackedScene" uid="uid://c6uki3nk3ybs0" path="res://Low Poly Furniture/Kitchen/oven.tscn" id="24_hqj0s"]
@@ -108,10 +108,10 @@ use_collision = true
 size = Vector3(20, 100, 20)
 
 [node name="Counter -x room" type="CSGBox3D" parent="Hole_maker" unique_id=1856863909]
-transform = Transform3D(0.98, 1.030287e-12, -1.4823077e-20, -1.030287e-12, 0.98, 1.3038459e-12, -4.5104504e-20, -1.030287e-12, 0.9800172, -20.380379, 14.126244, -39.802692)
+transform = Transform3D(0.98, 1.0622614e-12, -1.5034835e-20, -1.0622614e-12, 0.98, 1.3429258e-12, -4.6586812e-20, -1.0622614e-12, 0.9800177, -20.434692, 14.126236, -39.8027)
 operation = 2
 use_collision = true
-size = Vector3(20, 27.025967, 20)
+size = Vector3(20.11084, 27.025967, 20)
 
 [node name="Counter -x room2" type="CSGBox3D" parent="Hole_maker" unique_id=181391492]
 transform = Transform3D(0.98, 8.6686214e-13, -1.2493736e-20, -8.6686214e-13, 0.98, 1.0942358e-12, -3.7904724e-20, -8.6686214e-13, 0.98001444, -20.380379, 41.09602, -39.802708)
@@ -126,8 +126,8 @@ use_collision = true
 size = Vector3(20, 25.55706, 20)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Hole_maker" unique_id=1726417403]
-transform = Transform3D(1.9106857e-15, 1.0000001, 4.37121e-08, 4.3712095e-08, -4.3712095e-08, 1, 1.0000001, 1.7691002e-22, -4.37121e-08, -28.929901, -1.8583374, -28.883593)
-size = Vector3(11.307404, 3.7560349, 3.7948647)
+transform = Transform3D(1.9106857e-15, 1.0000001, 4.3712124e-08, 4.371212e-08, -4.371212e-08, 1, 1.0000001, 1.694137e-22, -4.3712124e-08, -28.836622, -1.8583374, -28.883596)
+size = Vector3(11.307404, 3.9425926, 3.7948647)
 
 [node name="Cupboard -z" type="CSGBox3D" parent="Hole_maker" unique_id=1573001966]
 transform = Transform3D(1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 7.1054274e-15, -4.2351647e-22, -7.1054274e-15, 1, 12.605219, 11.738842, -39.802654)
@@ -180,7 +180,7 @@ operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
 [node name="Hole6" type="CSGPolygon3D" parent="Hole_maker" unique_id=603192084]
-transform = Transform3D(1.1, -1.660954e-07, 1.8119497e-06, -1.6609539e-07, -1.1, -1.0490769e-06, 1.660954e-07, 9.616536e-08, -12, -30.312864, -2.750183, -34.319138)
+transform = Transform3D(1.3, -1.6609545e-07, 1.8119497e-06, -1.9629454e-07, -1.1, -1.0490769e-06, 1.962946e-07, 9.6165394e-08, -12, -30.302992, -2.750183, -34.319138)
 operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
@@ -190,7 +190,7 @@ operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
 [node name="Hole7" type="CSGPolygon3D" parent="Hole_maker" unique_id=393524577]
-transform = Transform3D(1.1, 1.9233018e-07, -1.563194e-13, -3.1974423e-14, -4.808252e-08, -3, -1.923303e-07, 1.1, -1.3113416e-07, -30.171309, -1.6998672, -30.92751)
+transform = Transform3D(1.3, 1.923303e-07, -5.684342e-14, -7.1054274e-15, -4.808252e-08, -3, -2.2729947e-07, 1.1, -1.3113416e-07, -30.284966, -1.6998672, -30.927513)
 operation = 2
 polygon = PackedVector2Array(2, -2, 0, -2, 0, 0, 2, 0, 2.35, -0.225, 2.575, -0.65, 2.58, -1.25, 2.4, -1.75)
 
@@ -352,8 +352,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.82239, -2.6597052, -43.32
 [node name="MeshInstance3D" type="MeshInstance3D" parent="climbing walls/StaticBody3D9" unique_id=446970239]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="climbing walls/StaticBody3D9" unique_id=559342103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -6.6482353)
-size = Vector3(3.268055, 8.093866, 1.9727783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93056107, 5.9310646, -6.41798)
+size = Vector3(3.268055, 8.093866, 1.5122681)
 material = SubResource("StandardMaterial3D_ykbxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="climbing walls/StaticBody3D9" unique_id=1721426028]
@@ -653,59 +653,8 @@ omni_attenuation = 0.496
 
 [node name="Plate holder" type="Node3D" parent="." unique_id=76133568]
 
-[node name="Plate" parent="Plate holder" unique_id=1230133217 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -45.350624, 35.43794, -2.7446873)
-
-[node name="Plate2" parent="Plate holder" unique_id=906372133 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -45.350624, 35.96949, -2.7446873)
-
-[node name="Plate3" parent="Plate holder" unique_id=338724106 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -45.350624, 36.508472, -2.7446873)
-
-[node name="Plate4" parent="Plate holder" unique_id=1368402194 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -45.350624, 36.922256, -2.7446873)
-
-[node name="Plate5" parent="Plate holder" unique_id=282615593 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.595467, 35.27649, -2.2248797)
-
-[node name="Plate6" parent="Plate holder" unique_id=1049199595 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.595467, 35.812317, -2.2248797)
-
-[node name="Plate7" parent="Plate holder" unique_id=2053210080 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.595467, 36.32072, -2.2248797)
-
-[node name="Plate8" parent="Plate holder" unique_id=871308725 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.595467, 36.79675, -2.2248797)
-
-[node name="Plate9" parent="Plate holder" unique_id=555129439 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -37.595467, 37.276157, -2.2248797)
-
-[node name="Plate10" parent="Plate holder" unique_id=940517777 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -46.54202, 42.78948, -2.2248797)
-
-[node name="Plate11" parent="Plate holder" unique_id=672552889 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -46.54202, 43.325306, -2.2248797)
-
-[node name="Plate12" parent="Plate holder" unique_id=393490776 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -46.54202, 43.83371, -2.2248797)
-
-[node name="Plate13" parent="Plate holder" unique_id=1250546326 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -46.54202, 44.30974, -2.2248797)
-
-[node name="Plate14" parent="Plate holder" unique_id=940066710 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -46.54202, 44.789146, -2.2248797)
-
-[node name="Plate15" parent="Plate holder" unique_id=1741582554 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -39.596725, 42.78948, -2.2248797)
-
-[node name="Plate16" parent="Plate holder" unique_id=287672224 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -39.596725, 43.325306, -2.2248797)
-
-[node name="Plate17" parent="Plate holder" unique_id=1572778174 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -39.596725, 43.83371, -2.2248797)
-
-[node name="Plate18" parent="Plate holder" unique_id=836623218 instance=ExtResource("23_ra1nx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -39.596725, 44.30974, -2.2248797)
+[node name="Plate" parent="Plate holder" unique_id=235672050 instance=ExtResource("14_1i8y3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -45.21516, 35.144337, -3.5834787)
 
 [node name="Glass holder" type="Node3D" parent="." unique_id=1930867649]
 

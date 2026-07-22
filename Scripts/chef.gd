@@ -67,7 +67,8 @@ func _physics_process(delta):
 
 	if state == State.DEAD:
 		return
-
+	
+	
 	_apply_gravity(delta)
 
 	match state:
@@ -187,8 +188,19 @@ func _state_attack(delta):
 # --------------------------------------------------
 
 func _do_attack():
-	emit_signal("player_hit")
 
+	player.capture()
+
+	var hold_point = $Chef/Chef/Armature/Skeleton3D/PlayerHold
+
+	player.reparent(hold_point)
+
+	player.position = Vector3.ZERO
+	player.rotation = Vector3.ZERO
+
+	await get_tree().create_timer(2.0).timeout
+
+	emit_signal("player_hit")
 # --------------------------------------------------
 # State Changes
 # --------------------------------------------------

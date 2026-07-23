@@ -22,6 +22,7 @@ signal player_hit
 
 # Correct path from your screenshots
 @onready var anim_player: AnimationPlayer = $Chef/Chef/AnimationPlayer
+@onready var hold_point: BoneAttachment3D = $Chef/Chef/Armature/Skeleton3D/PlayerHold
 
 # ─────────────────────────────────────────────
 # State
@@ -111,9 +112,12 @@ func _state_alert(delta):
 
 	alert_timer -= delta
 
-	if player:
-		last_known_pos = player.global_position
-		_face_target(last_known_pos)
+	if player == null or (player.has_method("captured") and player.captured):
+		_enter_state(State.ROAM)
+		return
+
+	last_known_pos = player.global_position
+	_face_target(last_known_pos)
 
 	if _can_see_player():
 		_enter_state(State.CHASE)
@@ -126,7 +130,7 @@ func _state_alert(delta):
 
 func _state_chase(delta):
 
-	if player == null:
+	if player == null or (player.has_method("captured") and player.captured):
 		_enter_state(State.ROAM)
 		return
 
@@ -163,6 +167,9 @@ func _state_attack(delta):
 		_enter_state(State.ROAM)
 		return
 
+	if player.captured:
+		return
+
 	_face_target(player.global_position)
 
 	if attack_timer <= 0 and !is_attacking:
@@ -170,6 +177,19 @@ func _state_attack(delta):
 		is_attacking = true
 
 		_play_anim("Picking Up")
+
+# Wait until the chef's hand reaches the player before attaching
+		await get_tree().create_timer(2.25).timeout
+
+		if player == null or player.captured or global_position.distance_to(player.global_position) > attack_range:
+			is_attacking = false
+			if player == null:
+				_enter_state(State.ROAM)
+			else:
+				_enter_state(State.CHASE)
+			return
+
+		_attach_player()
 
 		await anim_player.animation_finished
 
@@ -190,8 +210,6 @@ func _state_attack(delta):
 func _do_attack():
 
 	player.capture()
-
-	var hold_point = $Chef/Chef/Armature/Skeleton3D/PlayerHold
 
 	player.reparent(hold_point)
 
@@ -248,7 +266,7 @@ func _die():
 
 func _can_see_player():
 
-	if player == null:
+	if player == null or (player.has_method("captured") and player.captured):
 		return false
 
 	var to_player = player.global_position - global_position
@@ -368,3 +386,12 @@ func _set_loop(name:String, loop:bool):
 		anim.loop_mode = Animation.LOOP_LINEAR
 	else:
 		anim.loop_mode = Animation.LOOP_NONE
+
+func _attach_player():
+
+	player.capture()
+
+	player.reparent(hold_point)
+
+	player.position = Vector3.ZERO
+	player.rotation = Vector3.ZERO

@@ -40,4 +40,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.913574, 0)
 shape = SubResource("CapsuleShape3D_v0fah")
 
 [node name="Chef" parent="." unique_id=239714253 instance=ExtResource("6_lvmq8")]
-transform = Transform3D(1.895, 0, 0, 0, 1.895, 0, 0, 0, 1.895, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Chef/Chef/Armature" parent_id_path=PackedInt32Array(239714253, 1531838028, 1505954538) index="0" unique_id=1470443813]
+bones/0/position = Vector3(-28.78205, -6.6885076, -785.10645)
+bones/0/rotation = Quaternion(-0.71394295, 0.016077416, -0.0024746063, 0.7000149)
+bones/1/rotation = Quaternion(-0.018803678, -0.03979387, 0.059178077, 0.9972767)
+bones/2/rotation = Quaternion(0.027796568, -0.0031274485, -0.013466972, 0.99951804)
+bones/3/rotation = Quaternion(0.027767317, -0.0035941934, -0.013629482, 0.99951506)
+bones/4/rotation = Quaternion(0.0756562, -0.013748883, -0.012853841, 0.9969564)
+bones/5/rotation = Quaternion(0.048099868, -0.08776637, -0.0049723084, 0.99496675)
+bones/7/rotation = Quaternion(-0.5390573, -0.4378417, 0.6010446, -0.3955469)
+bones/8/rotation = Quaternion(0.3757274, 0.38803455, 0.15717705, 0.8267729)
+bones/9/rotation = Quaternion(0.001524217, 0.0039719264, 0.22359642, 0.97467256)
+bones/10/rotation = Quaternion(0.116379865, 0.17992522, 0.18513682, 0.9590658)
+bones/11/rotation = Quaternion(-0.0041270615, -0.0024595894, 0.21007052, 0.9776744)
+bones/13/rotation = Quaternion(0.040871162, 0.000935082, 0.046232753, 0.99809384)
+bones/15/rotation = Quaternion(0.42622536, 0.010250268, -0.026142899, 0.9041812)
+bones/16/rotation = Quaternion(0.50160664, 0.008124778, -0.07243231, 0.86201996)
+bones/17/rotation = Quaternion(-0.13699077, -0.0034904063, -0.022052689, 0.9903207)
+bones/19/rotation = Quaternion(0.6198549, -0.3608287, 0.6042523, 0.34707594)
+bones/20/rotation = Quaternion(0.3299107, 0.023522168, 0.12757228, 0.93505675)
+bones/21/rotation = Quaternion(0.06719379, -0.016593559, -0.7111689, 0.69960594)
+bones/22/rotation = Quaternion(-0.06846177, 0.18783715, -0.26401517, 0.94357103)
+bones/23/rotation = Quaternion(0.17503323, -0.1719459, -0.15388736, 0.95713985)
+bones/24/rotation = Quaternion(-0.014613158, 0.050885253, 0.15915148, 0.9858337)
+bones/25/rotation = Quaternion(-0.23198979, 0.14252445, 0.2689131, 0.92387944)
+bones/27/rotation = Quaternion(0.48401615, 0.0147945685, 0.06920249, 0.87219304)
+bones/28/rotation = Quaternion(0.5052154, -0.0011676138, 0.13664976, 0.85210496)
+bones/29/rotation = Quaternion(0.1752751, -0.0006376859, 0.06288347, 0.982509)
+bones/31/rotation = Quaternion(0.14048612, 0.11629523, 0.9821974, -0.04502795)
+bones/32/rotation = Quaternion(-0.23054287, -0.000485185, 0.010826295, 0.97300184)
+bones/33/rotation = Quaternion(0.61991054, 0.010915271, -0.053423207, 0.78277564)
+bones/34/rotation = Quaternion(0.21926475, 0.049820825, -0.011052065, 0.97432995)
+bones/36/rotation = Quaternion(-0.12139106, 0.120891355, 0.98482335, 0.027793208)
+bones/37/rotation = Quaternion(-0.25252557, -0.0318794, -0.008522071, 0.9670274)
+bones/38/rotation = Quaternion(0.6402654, 0.0067356704, 0.0050627175, 0.7681076)
+bones/39/rotation = Quaternion(0.21751437, -0.05174276, 0.011455749, 0.9746174)
+
+[node name="PlayerHold" parent="Chef/Chef/Armature/Skeleton3D" index="1" unique_id=1612890627]
+transform = Transform3D(-0.11246191, -0.23325448, 0.9658906, -0.285711, 0.9385983, 0.19339724, -0.9516941, -0.25421575, -0.17219974, -248.49574, 76.925064, -703.8743)
+
+[editable path="Chef"]
+[editable path="Chef/Chef"]

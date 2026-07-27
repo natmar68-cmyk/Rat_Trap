@@ -515,10 +515,16 @@ script = ExtResource("6_jbuf1")
 
 [node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1437007457]
 offset_left = 883.0
-offset_top = 49.0
+offset_top = 33.0
 offset_right = 923.0
-offset_bottom = 72.0
+offset_bottom = 56.0
 metadata/_edit_use_anchors_ = true
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1079385167]
+offset_left = 56.0
+offset_top = 36.0
+offset_right = 284.0
+offset_bottom = 141.0
 
 [node name="RatHoleEntrance" type="Area3D" parent="." unique_id=1914938287]
 script = ExtResource("7_cetdd")

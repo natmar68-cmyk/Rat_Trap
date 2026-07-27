@@ -7,7 +7,7 @@
 [node name="Chef" parent="." unique_id=1531838028 instance=ExtResource("1_igjop")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Chef/Armature" parent_id_path=PackedInt32Array(1531838028, 731695320) index="0" unique_id=2088592635]
+[node name="Skeleton3D" parent="Chef/Armature" parent_id_path=PackedInt32Array(1531838028, 1505954538) index="0" unique_id=1470443813]
 bones/0/position = Vector3(1.6844091, -5.203429, -784.20795)
 bones/0/rotation = Quaternion(-0.7391148, -0.0044121076, -0.0048598484, 0.67354757)
 bones/1/position = Vector3(-4.2608008e-07, 53.800644, -6.2308993)
@@ -84,7 +84,7 @@ bones/39/position = Vector3(-2.8469856e-06, 129.37672, 9.229501e-06)
 bones/39/rotation = Quaternion(0.2168446, -0.05170279, 0.011501656, 0.9747682)
 bones/40/position = Vector3(-7.87526e-06, 46.486023, 4.768362e-07)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Chef/Armature/Skeleton3D" index="1" unique_id=1612890627]
+[node name="PlayerHold" type="BoneAttachment3D" parent="Chef/Armature/Skeleton3D" index="1" unique_id=1612890627]
 transform = Transform3D(0.7771609, 0.4394624, 0.45043713, 0.078046784, 0.64293814, -0.7619316, -0.6244433, 0.62729883, 0.46536803, -149.40489, 94.486374, -594.1566)
 bone_name = "mixamorig_RightHand"
 bone_idx = 22

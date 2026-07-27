@@ -6,13 +6,14 @@ signal player_hit
 # Settings
 # ─────────────────────────────────────────────
 @export var move_speed: float = 10.0
-@export var chase_speed: float = 1000.0
-@export var sight_range: float = 14.0
-@export var sight_fov_deg: float = 90.0
-@export var attack_range: float = 2.8
-@export var attack_cooldown: float = 1.2
+@export var chase_speed: float = 15.0
+@export var sight_range: float = 40.0
+@export var sight_fov_deg: float = 120.0
+@export var attack_cooldown: float = 0.2
 @export var alert_linger: float = 3.0
-@export var roam_radius: float = 10.0
+@export var roam_radius: float = 20.0
+@export var eye_height: float = 1.0
+@export var obstruction_mask: int = 1   # set to whatever layer your walls/level geometry use
 
 # ─────────────────────────────────────────────
 # Nodes
@@ -27,9 +28,9 @@ signal player_hit
 # Animation names (must match exactly, including the pipes)
 # ─────────────────────────────────────────────
 const ANIM_WALK_SLOW := "SKM_Cat|SKM_Cat|Cat_WalkSlow"
-const ANIM_TROT := "SKM_Cat|SKM_Cat|Cat_Trot"
-const ANIM_IDLE := "SKM_Cat|AA_SKM_Cat|Cat_Idle01"
-const ANIM_ATTACK := "SKM_Cat|SKM_Cat|Cat_Dash"   # placeholder - swap for your real attack clip
+const ANIM_RUN := "SKM_Cat|SKM_Cat|Cat_Run"
+const ANIM_IDLE := "SKM_Cat|AA_SKM_Cat|Cat_Ilde01"   # matches the typo in your actual clip name
+const ANIM_ATTACK := "SKM_Cat|SKM_Cat|Cat_Dash"      # placeholder - swap for your real attack clip
 const ANIM_DEATH := "SKM_Cat|SKM_Cat|Cat_Death"
 
 # ─────────────────────────────────────────────
@@ -52,7 +53,7 @@ var roam_target: Vector3
 var alert_timer := 0.0
 var attack_timer := 0.0
 var last_known_pos := Vector3.ZERO
-var is_attacking := false
+var player_in_attack_range := false
 
 const GRAVITY := -9.8
 
@@ -66,16 +67,22 @@ func _ready():
 	if players.size() > 0:
 		player = players[0]
 
+	area.body_entered.connect(_on_area_body_entered)
+	area.body_exited.connect(_on_area_body_exited)
+
 	_set_loop(ANIM_WALK_SLOW, true)
-	_set_loop(ANIM_TROT, true)
+	_set_loop(ANIM_RUN, true)
 
 	_play_anim(ANIM_WALK_SLOW)
 
 	call_deferred("_init_nav")
 
 func _init_nav():
-	await get_tree().physics_frame
-	await get_tree().physics_frame
+	var map_rid = nav_agent.get_navigation_map()
+
+	while NavigationServer3D.map_get_iteration_id(map_rid) == 0:
+		await get_tree().physics_frame
+
 	roam_target = _random_roam_point()
 
 func _physics_process(delta):
@@ -99,6 +106,22 @@ func _physics_process(delta):
 			_state_attack(delta)
 
 	move_and_slide()
+
+# --------------------------------------------------
+# Area3D hitbox
+# --------------------------------------------------
+
+func _on_area_body_entered(body):
+	if body == player:
+		player_in_attack_range = true
+		# Instant hit on contact - don't wait for the state machine or animation
+		_do_attack()
+		attack_timer = attack_cooldown
+		_enter_state(State.ATTACK)
+
+func _on_area_body_exited(body):
+	if body == player:
+		player_in_attack_range = false
 
 # --------------------------------------------------
 # ROAM
@@ -152,9 +175,7 @@ func _state_chase(delta):
 
 	_move_toward_nav(chase_speed)
 
-	var dist = global_position.distance_to(player.global_position)
-
-	if dist <= attack_range:
+	if player_in_attack_range:
 		_enter_state(State.ATTACK)
 	elif !_can_see_player():
 		alert_timer -= delta
@@ -170,31 +191,22 @@ func _state_attack(delta):
 	velocity.x = 0
 	velocity.z = 0
 
-	attack_timer -= delta
-
 	if player == null:
 		_enter_state(State.ROAM)
 		return
 
 	_face_target(player.global_position)
 
-	if attack_timer <= 0 and !is_attacking:
+	if !player_in_attack_range:
+		_enter_state(State.CHASE)
+		return
 
-		is_attacking = true
-
-		_play_anim(ANIM_ATTACK)
-
-		await anim_player.animation_finished
-
+	# Repeat hits on cooldown for as long as the player stays in the area
+	attack_timer -= delta
+	if attack_timer <= 0:
 		_do_attack()
-
+		_play_anim(ANIM_ATTACK)
 		attack_timer = attack_cooldown
-		is_attacking = false
-
-		if global_position.distance_to(player.global_position) <= attack_range:
-			_play_anim(ANIM_ATTACK)
-		else:
-			_enter_state(State.CHASE)
 
 # --------------------------------------------------
 # Attack
@@ -225,10 +237,10 @@ func _enter_state(new_state):
 			_play_anim(ANIM_IDLE)
 
 		State.CHASE:
-			_play_anim(ANIM_TROT)
+			_play_anim(ANIM_RUN)
 
 		State.ATTACK:
-			attack_timer = 0
+			_play_anim(ANIM_ATTACK)
 
 		State.DEAD:
 			_die()
@@ -257,15 +269,28 @@ func _can_see_player():
 		return false
 
 	var to_player = player.global_position - global_position
+	var distance = to_player.length()
 
-	if to_player.length() > sight_range:
+	if distance > sight_range:
 		return false
 
 	var forward = -global_transform.basis.z
-
 	var angle = rad_to_deg(forward.angle_to(to_player.normalized()))
 
 	if angle > sight_fov_deg * 0.5:
+		return false
+
+	var space_state = get_world_3d().direct_space_state
+	var eye_pos = global_position + Vector3(0, eye_height, 0)
+	var target_pos = player.global_position + Vector3(0, eye_height, 0)
+
+	var query = PhysicsRayQueryParameters3D.create(eye_pos, target_pos)
+	query.exclude = [self]
+	query.collision_mask = obstruction_mask
+
+	var result = space_state.intersect_ray(query)
+
+	if result and result.collider != player:
 		return false
 
 	return true

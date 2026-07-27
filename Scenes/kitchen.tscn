@@ -10,12 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
-[ext_resource type="PackedScene" uid="uid://cl1ul74rj76xc" path="res://Low Poly Furniture/Kitchen/Blender.fbx" id="8_5ukof"]
-[ext_resource type="PackedScene" uid="uid://btljjkesymgie" path="res://Low Poly Furniture/Kitchen/Fridge A.fbx" id="9_iw6an"]
 [ext_resource type="PackedScene" uid="uid://b5lycua4v472j" path="res://Low Poly Furniture/Kitchen/Kettle.fbx" id="10_2l700"]
-[ext_resource type="PackedScene" uid="uid://3libhaewai3" path="res://Low Poly Furniture/Kitchen/Kitchen Roll.fbx" id="11_r0dk1"]
-[ext_resource type="PackedScene" uid="uid://cv68dr3hvr5xx" path="res://Low Poly Furniture/Kitchen/Knife Block.fbx" id="12_i6vcq"]
-[ext_resource type="PackedScene" uid="uid://d3scxghp5a7dt" path="res://Low Poly Furniture/Kitchen/Microwave.fbx" id="13_bgcuo"]
 [ext_resource type="PackedScene" uid="uid://bghji45twr6xd" path="res://Low Poly Furniture/Miscellaneous/plate.tscn" id="14_1i8y3"]
 [ext_resource type="PackedScene" uid="uid://cvltafsywahli" path="res://Low Poly Furniture/Miscellaneous/glass.tscn" id="15_hqj0s"]
 [ext_resource type="PackedScene" uid="uid://ly6fhr5v1yap" path="res://Low Poly Furniture/Miscellaneous/mug.tscn" id="16_ocwuj"]
@@ -30,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://dq18r17lc8opc" path="res://Low Poly Furniture/Miscellaneous/light_switch.tscn" id="25_v7v86"]
 [ext_resource type="PackedScene" uid="uid://dgdkvg1p67lfs" path="res://Low Poly Furniture/Miscellaneous/Bowl.fbx" id="26_j87t8"]
 [ext_resource type="PackedScene" uid="uid://tx4fgbixkkg0" path="res://Low Poly Furniture/Miscellaneous/bowl.tscn" id="27_v7v86"]
+[ext_resource type="PackedScene" uid="uid://d4l1hl66hn7vh" path="res://Low Poly Furniture/Kitchen/fridge.tscn" id="29_ra1nx"]
+[ext_resource type="PackedScene" uid="uid://cg0uigvxr6ahr" path="res://Low Poly Furniture/Kitchen/microwave.tscn" id="30_csig0"]
+[ext_resource type="PackedScene" uid="uid://c0s88gay5k58h" path="res://Low Poly Furniture/Kitchen/knife_block.tscn" id="30_ra1nx"]
+[ext_resource type="PackedScene" uid="uid://csbtjpuntc8lc" path="res://Low Poly Furniture/Kitchen/kitchen_roll.tscn" id="30_rdhyb"]
+[ext_resource type="PackedScene" uid="uid://didydh1gm8fme" path="res://Low Poly Furniture/Kitchen/blender.tscn" id="30_wj3rr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
@@ -40,6 +40,10 @@ albedo_texture = ExtResource("2_ra1nx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csig0"]
 albedo_texture = ExtResource("3_rdhyb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+metallic = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ukof"]
 albedo_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
@@ -135,38 +139,38 @@ use_collision = true
 size = Vector3(18.945313, 100, 20)
 
 [node name="Counter -x2" type="CSGBox3D" parent="Hole_maker" unique_id=1868049056]
-transform = Transform3D(1, 9.379164e-13, -4.1081098e-20, -9.379164e-13, 1, 9.379164e-13, -4.1081098e-20, -9.379164e-13, 1, -11.10116, 11.534981, -38.58998)
+transform = Transform3D(1, 9.592327e-13, -4.192813e-20, -9.592327e-13, 1, 9.592327e-13, -4.192813e-20, -9.592327e-13, 1, -11.101164, 11.534973, -39.517998)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 23.599121, 22.440308)
+size = Vector3(1.4960022, 23.599121, 24.296326)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x6" type="CSGBox3D" parent="Hole_maker" unique_id=872068620]
-transform = Transform3D(1, 9.414691e-13, -4.1292856e-20, -9.414691e-13, 1, 9.414691e-13, -4.1292856e-20, -9.414691e-13, 1, -11.10116, 34.931946, -38.589985)
+transform = Transform3D(1, 9.698908e-13, -4.2351647e-20, -9.698908e-13, 1, 9.698908e-13, -4.2351647e-20, -9.698908e-13, 1, -11.101162, 34.93194, -39.21063)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 23.599121, 22.440308)
+size = Vector3(1.4960022, 23.599121, 23.68158)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x7" type="CSGBox3D" parent="Hole_maker" unique_id=252292152]
-transform = Transform3D(1, 9.450218e-13, -4.1292856e-20, -9.450218e-13, 1, 9.450218e-13, -4.1292856e-20, -9.450218e-13, 1, -11.101162, 57.78225, -38.58999)
+transform = Transform3D(1, 9.698908e-13, -4.2351647e-20, -9.698908e-13, 1, 9.698908e-13, -4.2351647e-20, -9.698908e-13, 1, -11.101166, 57.78224, -38.95501)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 23.599121, 22.440308)
+size = Vector3(1.4960022, 23.599121, 23.17035)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x8" type="CSGBox3D" parent="Hole_maker" unique_id=2019963674]
-transform = Transform3D(1, 9.485746e-13, -4.1504614e-20, -9.485746e-13, 1, 9.485746e-13, -4.1504614e-20, -9.485746e-13, 1, -11.101162, 81.38745, -38.58999)
+transform = Transform3D(1, 9.80549e-13, -4.2986922e-20, -9.80549e-13, 1, 9.80549e-13, -4.2986922e-20, -9.80549e-13, 1, -11.101164, 81.38745, -38.952324)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 23.599121, 22.440308)
+size = Vector3(1.4960022, 23.599121, 23.164978)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x3" type="CSGBox3D" parent="Hole_maker" unique_id=1339158906]
-transform = Transform3D(1, 1.4601653e-12, -6.395099e-20, -1.4601653e-12, 1, 1.4601653e-12, -6.395099e-20, -1.4601653e-12, 1, -11.10116, 88.65802, -36.984802)
+transform = Transform3D(1, 1.6591173e-12, -7.2633075e-20, -1.6591173e-12, 1, 1.6591173e-12, -7.2633075e-20, -1.6591173e-12, 1, -11.10116, 88.65802, -38.000473)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 22.154785, 22.440308)
+size = Vector3(1.4960022, 22.154785, 24.47165)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x4" type="CSGBox3D" parent="Hole_maker" unique_id=741497353]
@@ -370,6 +374,106 @@ size = Vector3(25.023794, 0.025, 0.234)
 transform = Transform3D(-4.3711378e-08, -0.99999994, -6.500978e-20, 0.99999994, -4.3711378e-08, 1.4850343e-12, -1.4850343e-12, 1.7660637e-19, 1, -11.861343, 67.37129, -29.900005)
 operation = 2
 size = Vector3(25.023794, 0.025, 0.234)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Hole_maker" unique_id=1283683449]
+transform = Transform3D(5, 2.927436e-12, 1.2620791e-19, -2.9558578e-12, 5, 2.9558578e-12, -1.2959604e-19, -2.927436e-12, 5, -19.288551, 15.043343, -29.429726)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D14" unique_id=1802057722]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker" unique_id=1937099018]
+transform = Transform3D(5, 2.927436e-12, 1.2536088e-19, -2.9700686e-12, 5, 2.9700686e-12, -1.3044307e-19, -2.927436e-12, 5, -19.288551, 12.600674, -29.429728)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D15" unique_id=2430490]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Hole_maker" unique_id=238431065]
+transform = Transform3D(5, 2.927436e-12, 1.2451384e-19, -2.9842795e-12, 5, 2.9842795e-12, -1.3129011e-19, -2.927436e-12, 5, -19.288551, 39.92999, -29.429731)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D16" unique_id=2139606520]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Hole_maker" unique_id=134743234]
+transform = Transform3D(5, 2.927436e-12, 1.2366681e-19, -2.9984903e-12, 5, 2.9984903e-12, -1.3213714e-19, -2.927436e-12, 5, -19.288551, 42.77126, -29.429733)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D17" unique_id=1742959209]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Hole_maker" unique_id=1772402732]
+transform = Transform3D(5, 2.927436e-12, 1.2197274e-19, -3.026912e-12, 5, 3.026912e-12, -1.338312e-19, -2.927436e-12, 5, -19.288553, 66.46655, -29.429735)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D18" unique_id=1907138074]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Hole_maker" unique_id=1379593925]
+transform = Transform3D(5, 2.927436e-12, 1.2112571e-19, -3.041123e-12, 5, 3.041123e-12, -1.3467824e-19, -2.927436e-12, 5, -19.288555, 69.79934, -29.429735)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D19" unique_id=313904264]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Hole_maker" unique_id=164645347]
+transform = Transform3D(5, 2.927436e-12, 1.1434945e-19, -3.1548097e-12, 5, 3.1548097e-12, -1.414545e-19, -2.927436e-12, 5, 12.181665, 48.48261, -30.035969)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D20" unique_id=2037441456]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Hole_maker" unique_id=1963842725]
+transform = Transform3D(5, 2.927436e-12, 1.1350241e-19, -3.1690206e-12, 5, 3.1690206e-12, -1.4230154e-19, -2.927436e-12, 5, 12.181665, 45.598484, -30.03597)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D21" unique_id=188296206]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Hole_maker" unique_id=1378783930]
+transform = Transform3D(5, 2.927436e-12, 1.1180835e-19, -3.1974423e-12, 5, 3.1974423e-12, -1.439956e-19, -2.927436e-12, 5, 12.181665, 13.257343, -29.35387)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D22" unique_id=1510354358]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Hole_maker" unique_id=976684064]
+transform = Transform3D(5, 2.927436e-12, 1.1096132e-19, -3.2116532e-12, 5, 3.2116532e-12, -1.4484263e-19, -2.927436e-12, 5, 12.181665, 10.225391, -29.379087)
+size = Vector3(0.55908203, 0.119628906, 0.1821289)
+material = SubResource("StandardMaterial3D_yf5fn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Hole_maker/CSGBox3D23" unique_id=180762856]
+transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
+operation = 2
+size = Vector3(0.47540283, 0.12573242, 0.12976074)
 
 [node name="Counter +y" type="CSGBox3D" parent="." unique_id=1114300356]
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 2.3682775, 8.567574, 39.808304)
@@ -672,7 +776,7 @@ transform = Transform3D(4.3711136e-08, -3.821338e-15, 0.99999994, -8.742252e-08,
 transform = Transform3D(1, -2.842171e-14, -1.4210855e-14, -2.842171e-14, -1, 8.742278e-08, -1.4210855e-14, -8.742278e-08, -1, 0, 0.3673973, 0)
 
 [node name="FoodItem19" parent="Food_Holder" unique_id=1041630382 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -6.3948846e-14, -3.1974423e-14, -6.3948846e-14, -1, 8.742278e-08, -3.1974423e-14, -8.742278e-08, -1, -3.9807968, 5.5390663, 40.08613)
+transform = Transform3D(1, -7.1054274e-14, -3.5527137e-14, -7.1054274e-14, -1, 8.742278e-08, -3.5527137e-14, -8.742278e-08, -1, -3.9807968, 3.1235085, 40.086132)
 
 [node name="FoodItem21" parent="Food_Holder" unique_id=273828209 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -1.2789769e-13, -6.3948846e-14, -1.2789769e-13, -1, 8.742278e-08, -6.3948846e-14, -8.742278e-08, -1, -3.9807663, 13.294327, 81.400665)
@@ -760,23 +864,8 @@ transform = Transform3D(-1.8487337, 0, 4.645663, 0, 5, 0, -4.645663, 0, -1.84873
 [node name="MouseTrap6" parent="Mouse_Trap holder" unique_id=654612880 instance=ExtResource("3_lvc4q")]
 transform = Transform3D(3.9826493, 0, 3.0229955, 0, 5, 0, -3.0229955, 0, 3.9826493, -38.976524, -0.50507754, 10.652435)
 
-[node name="Blender" parent="." unique_id=1252352794 instance=ExtResource("8_5ukof")]
-transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -44.459026, 25.52001, 17.011362)
-
-[node name="Fridge A" parent="." unique_id=1907518275 instance=ExtResource("9_iw6an")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.0667048, 28.87516, -38.409157)
-
 [node name="Kettle" parent="." unique_id=861399864 instance=ExtResource("10_2l700")]
 transform = Transform3D(-3.5, 0, -3.059797e-07, 0, 3.5, 0, 3.059797e-07, 0, -3.5, 1.2268753, 24.901117, 45.213852)
-
-[node name="Kitchen Roll" parent="." unique_id=133539893 instance=ExtResource("11_r0dk1")]
-transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, -47.361813, 22.43404, -14.170628)
-
-[node name="Knife Block" parent="." unique_id=102029376 instance=ExtResource("12_i6vcq")]
-transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -45.6394, 22.642694, -44.525448)
-
-[node name="Microwave" parent="." unique_id=448187169 instance=ExtResource("13_bgcuo")]
-transform = Transform3D(-5, 0, -7.54979e-07, 0, 5, 0, 7.54979e-07, 0, -5, -40.807327, 23.653915, 42.35982)
 
 [node name="DirectionalLight3D" type="OmniLight3D" parent="." unique_id=515987948]
 transform = Transform3D(7.1054274e-15, 4.371138e-08, 1, 1, -4.371138e-08, -5.1947425e-15, 4.371138e-08, 1, -4.371138e-08, -1.9073486e-06, 55.94084, -1.9073486e-05)
@@ -785,7 +874,6 @@ light_energy = 0.3
 light_size = 500.0
 light_specular = 16.0
 light_cull_mask = 4294967293
-shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.496
@@ -958,3 +1046,18 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.219925, 44.413452, -2.067
 
 [node name="Bowl4" parent="." unique_id=255913922 instance=ExtResource("27_v7v86")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.219925, 44.42708, 5.158492)
+
+[node name="Knife Block" parent="." unique_id=1155106054 instance=ExtResource("30_ra1nx")]
+transform = Transform3D(-1.7484555e-07, 0, 4, 0, 4, 0, -4, 0, -1.7484555e-07, -45.242104, 22.758532, -44.129578)
+
+[node name="Kitchen Roll" parent="." unique_id=1658652705 instance=ExtResource("30_rdhyb")]
+transform = Transform3D(2.793661, 0, 2.862771, 0, 4, 0, -2.862771, 0, 2.793661, -44.903645, 22.30771, -16.009447)
+
+[node name="Blender" parent="." unique_id=2100840911 instance=ExtResource("30_wj3rr")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -45.051258, 24.892782, 11.78107)
+
+[node name="Fridge A" parent="." unique_id=1669534024 instance=ExtResource("29_ra1nx")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.6154175, 29.873919, -37.91425)
+
+[node name="Microwave" parent="." unique_id=1255079473 instance=ExtResource("30_csig0")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -41.150375, 23.65791, 41.31429)

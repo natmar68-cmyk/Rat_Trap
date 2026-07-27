@@ -35,6 +35,7 @@ var is_first_person     := true
 var target_head_pitch   := 0.0
 var override_head_pitch := false
 
+var captured := false
 # ── Node refs ──────────────────────────────────────────────────────────────────
 
 @onready var head         : Node3D      = $Head
@@ -135,6 +136,8 @@ func _handle_interact() -> void:
 # ── Physics process ────────────────────────────────────────────────────────────
 
 func _physics_process(delta: float) -> void:
+	if captured:
+		return
 	if is_climbing:
 		_process_climbing(delta)
 	else:
@@ -356,3 +359,15 @@ func _connect_enemies() -> void:
 func _on_player_hit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/death_screen.tscn")
+	
+func capture():
+	captured = true
+
+	velocity = Vector3.ZERO
+
+	# Disable collisions
+	set_collision_layer(0)
+	set_collision_mask(0)
+
+	# Stop processing movement
+	set_physics_process(false)

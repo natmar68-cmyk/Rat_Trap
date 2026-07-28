@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
-[ext_resource type="PackedScene" uid="uid://b5lycua4v472j" path="res://Low Poly Furniture/Kitchen/Kettle.fbx" id="10_2l700"]
 [ext_resource type="PackedScene" uid="uid://bghji45twr6xd" path="res://Low Poly Furniture/Miscellaneous/plate.tscn" id="14_1i8y3"]
 [ext_resource type="PackedScene" uid="uid://cvltafsywahli" path="res://Low Poly Furniture/Miscellaneous/glass.tscn" id="15_hqj0s"]
 [ext_resource type="PackedScene" uid="uid://ly6fhr5v1yap" path="res://Low Poly Furniture/Miscellaneous/mug.tscn" id="16_ocwuj"]
@@ -27,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://tx4fgbixkkg0" path="res://Low Poly Furniture/Miscellaneous/bowl.tscn" id="27_v7v86"]
 [ext_resource type="PackedScene" uid="uid://d4l1hl66hn7vh" path="res://Low Poly Furniture/Kitchen/fridge.tscn" id="29_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://cg0uigvxr6ahr" path="res://Low Poly Furniture/Kitchen/microwave.tscn" id="30_csig0"]
+[ext_resource type="PackedScene" uid="uid://doredw54wf26n" path="res://Low Poly Furniture/Kitchen/kettle.tscn" id="30_op5ol"]
 [ext_resource type="PackedScene" uid="uid://c0s88gay5k58h" path="res://Low Poly Furniture/Kitchen/knife_block.tscn" id="30_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://csbtjpuntc8lc" path="res://Low Poly Furniture/Kitchen/kitchen_roll.tscn" id="30_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://didydh1gm8fme" path="res://Low Poly Furniture/Kitchen/blender.tscn" id="30_wj3rr"]
@@ -864,9 +864,6 @@ transform = Transform3D(-1.8487337, 0, 4.645663, 0, 5, 0, -4.645663, 0, -1.84873
 [node name="MouseTrap6" parent="Mouse_Trap holder" unique_id=654612880 instance=ExtResource("3_lvc4q")]
 transform = Transform3D(3.9826493, 0, 3.0229955, 0, 5, 0, -3.0229955, 0, 3.9826493, -38.976524, -0.50507754, 10.652435)
 
-[node name="Kettle" parent="." unique_id=861399864 instance=ExtResource("10_2l700")]
-transform = Transform3D(-3.5, 0, -3.059797e-07, 0, 3.5, 0, 3.059797e-07, 0, -3.5, 1.2268753, 24.901117, 45.213852)
-
 [node name="DirectionalLight3D" type="OmniLight3D" parent="." unique_id=515987948]
 transform = Transform3D(7.1054274e-15, 4.371138e-08, 1, 1, -4.371138e-08, -5.1947425e-15, 4.371138e-08, 1, -4.371138e-08, -1.9073486e-06, 55.94084, -1.9073486e-05)
 light_color = Color(0.9999998, 0.97387224, 0.70304704, 1)
@@ -1061,3 +1058,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.6154175, 29.873919, -37.914
 
 [node name="Microwave" parent="." unique_id=1255079473 instance=ExtResource("30_csig0")]
 transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -41.150375, 23.65791, 41.31429)
+
+[node name="Kettle" parent="." unique_id=183150255 instance=ExtResource("30_op5ol")]
+transform = Transform3D(-2.5, 0, -3.774895e-07, 0, 2.5, 0, 3.774895e-07, 0, -2.5, 4.216812, 22.868841, 45.212948)

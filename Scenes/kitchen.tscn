@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_lvc4q"]
 [ext_resource type="Texture2D" uid="uid://yr07ce1vp6si" path="res://Assets/white-marble-unity/white-marble-unity/white-marble_albedo.png" id="3_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
+[ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="5_hqj0s"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
 [ext_resource type="PackedScene" uid="uid://bghji45twr6xd" path="res://Low Poly Furniture/Miscellaneous/plate.tscn" id="14_1i8y3"]
@@ -95,6 +96,14 @@ albedo_texture = ExtResource("1_23qos")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pjjr"]
 albedo_texture = ExtResource("1_23qos")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qvrs"]
+font = ExtResource("5_hqj0s")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_75g51"]
+font = ExtResource("5_hqj0s")
+font_size = 28
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o8uib"]
 size = Vector3(0.5986328, 2.7465572, 0.8955078)
@@ -758,13 +767,22 @@ cone = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=808849564]
 script = ExtResource("6_jbuf1")
+popup_font = ExtResource("5_hqj0s")
 
 [node name="FoodLabel" type="Label" parent="CanvasLayer" unique_id=1437007457]
-offset_left = 883.0
-offset_top = 49.0
-offset_right = 923.0
-offset_bottom = 72.0
+offset_left = 853.0
+offset_top = 70.0
+offset_right = 893.0
+offset_bottom = 93.0
+label_settings = SubResource("LabelSettings_1qvrs")
 metadata/_edit_use_anchors_ = true
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1079385167]
+offset_left = 79.0
+offset_top = 75.0
+offset_right = 307.0
+offset_bottom = 180.0
+label_settings = SubResource("LabelSettings_75g51")
 
 [node name="RatHoleEntrance" type="Area3D" parent="." unique_id=1914938287]
 script = ExtResource("7_cetdd")

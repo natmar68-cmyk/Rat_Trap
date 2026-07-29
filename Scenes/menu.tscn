@@ -135,7 +135,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_kmwmt")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_rc6uw")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dldpb")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_d77ms")
-text = "Controls"
+text = "Ctrl & objective"
 script = ExtResource("2_cayip")
 
 [node name="Quit" type="Button" parent="." unique_id=961115492]

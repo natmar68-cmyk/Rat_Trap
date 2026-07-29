@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c0s88gay5k58h" path="res://Low Poly Furniture/Kitchen/knife_block.tscn" id="30_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://csbtjpuntc8lc" path="res://Low Poly Furniture/Kitchen/kitchen_roll.tscn" id="30_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://didydh1gm8fme" path="res://Low Poly Furniture/Kitchen/blender.tscn" id="30_wj3rr"]
+[ext_resource type="PackedScene" uid="uid://dwjc56bj2awpb" path="res://Assets/Mouse_trap.tscn" id="31_rdhyb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
@@ -97,6 +98,9 @@ albedo_texture = ExtResource("1_23qos")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o8uib"]
 size = Vector3(0.5986328, 2.7465572, 0.8955078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1.3206787, 0.14624023, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -1061,3 +1065,12 @@ transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -41.
 
 [node name="Kettle" parent="." unique_id=183150255 instance=ExtResource("30_op5ol")]
 transform = Transform3D(-2.5, 0, -3.774895e-07, 0, 2.5, 0, 3.774895e-07, 0, -2.5, 4.216812, 22.868841, 45.212948)
+
+[node name="Mouse_Trap" parent="." unique_id=1358032474 instance=ExtResource("31_rdhyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.866132, -0.35866794, 21.443579)
+
+[node name="TrapTrigger" type="Area3D" parent="Mouse_Trap" unique_id=922122921]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap/TrapTrigger" unique_id=1756774806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, -0.041574538, 0.21196365)
+shape = SubResource("BoxShape3D_g4v7s")

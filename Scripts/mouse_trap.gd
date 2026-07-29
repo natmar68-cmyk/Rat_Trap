@@ -1,7 +1,12 @@
-extends Area3D
+extends Node3D
+
+@onready var trigger: Area3D = $TrapTrigger  # the Area3D you add as a child
 
 func _ready():
-	body_entered.connect(_on_body_entered)
+	if trigger:
+		trigger.body_entered.connect(_on_body_entered)
+	else:
+		push_warning("No TrapTrigger Area3D found under this node")
 
 func _on_body_entered(body):
 	print("Trap hit by: ", body.name)

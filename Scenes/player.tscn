@@ -28,7 +28,7 @@ collision_mask = 5
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1427649674]
-transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.9999963, 0, 0.9999963, 0.002740217, 0, -0.25694665, 0.021741241)
+transform = Transform3D(1, 0, 0, 0, 0.002740217, -0.9999963, 0, 0.9999963, 0.002740217, 0, 0.8944919, 0.021741241)
 shape = SubResource("CapsuleShape3D_v0iea")
 
 [node name="Head" type="Node3D" parent="." unique_id=1822367765]
@@ -82,5 +82,4 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Rat" parent="." unique_id=1237194992 groups=["player"] instance=ExtResource("2_cvnsp")]
-transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, -0.8648928, 0)
+[node name="Rat" parent="." unique_id=903868128 instance=ExtResource("2_cvnsp")]

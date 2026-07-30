@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://csbtjpuntc8lc" path="res://Low Poly Furniture/Kitchen/kitchen_roll.tscn" id="30_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://didydh1gm8fme" path="res://Low Poly Furniture/Kitchen/blender.tscn" id="30_wj3rr"]
 [ext_resource type="PackedScene" uid="uid://dwjc56bj2awpb" path="res://Assets/Mouse_trap.tscn" id="31_rdhyb"]
+[ext_resource type="PackedScene" uid="uid://b4bq2ehlue3pq" path="res://Scenes/cat_v2.tscn" id="33_op5ol"]
+[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="34_il1tg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
@@ -1200,3 +1202,9 @@ shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Bowl" parent="." unique_id=91248876 instance=ExtResource("27_v7v86")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.19214535, 20.178604, -2.7671356)
+
+[node name="cat_v2" parent="." unique_id=2039077097 instance=ExtResource("33_op5ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.636192, -0.6283427, -10.436145)
+
+[node name="chef" parent="." unique_id=1560247730 instance=ExtResource("34_il1tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.910423, -0.61863536, 2.8273876)

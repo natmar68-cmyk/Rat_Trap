@@ -978,18 +978,6 @@ transform = Transform3D(1, -1.3500312e-13, -6.750156e-14, -1.3500312e-13, -1, 8.
 
 [node name="Mouse_Trap holder" type="Node3D" parent="." unique_id=1892470537]
 
-[node name="MouseTrap2" parent="Mouse_Trap holder" unique_id=430545207 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(2.33965, 0, 4.4188275, 0, 5, 0, -4.4188275, 0, 2.33965, -18.872822, -0.50507754, -29.239765)
-
-[node name="MouseTrap3" parent="Mouse_Trap holder" unique_id=1554057990 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 34.08392, -0.50507754, 10.652435)
-
-[node name="MouseTrap5" parent="Mouse_Trap holder" unique_id=1668411018 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(3.233949, 0, -3.8133419, 0, 5, 0, 3.8133419, 0, 3.233949, 34.08392, -0.50507754, -16.176552)
-
-[node name="MouseTrap4" parent="Mouse_Trap holder" unique_id=1469813759 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(-1.8487337, 0, 4.645663, 0, 5, 0, -4.645663, 0, -1.8487337, -18.872822, -0.50507754, 10.652435)
-
 [node name="MouseTrap6" parent="Mouse_Trap holder" unique_id=654612880 instance=ExtResource("3_lvc4q")]
 transform = Transform3D(3.9826493, 0, 3.0229955, 0, 5, 0, -3.0229955, 0, 3.9826493, -38.976524, -0.50507754, 10.652435)
 
@@ -1000,7 +988,6 @@ light_energy = 0.3
 light_size = 500.0
 light_specular = 16.0
 light_cull_mask = 4294967293
-shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.496
@@ -1190,11 +1177,38 @@ transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -41.
 transform = Transform3D(-2.5, 0, -3.774895e-07, 0, 2.5, 0, 3.774895e-07, 0, -2.5, 4.216812, 22.868841, 45.212948)
 
 [node name="Mouse_Trap" parent="." unique_id=1358032474 instance=ExtResource("31_rdhyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.866132, -0.35866794, 21.443579)
+transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -6.866132, -0.5322243, 21.443579)
 
 [node name="TrapTrigger" type="Area3D" parent="Mouse_Trap" unique_id=922122921]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap/TrapTrigger" unique_id=1756774806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Mouse_Trap2" parent="." unique_id=1455815153 instance=ExtResource("31_rdhyb")]
+transform = Transform3D(-0.73372984, 0, 0.6794412, 0, 1, 0, -0.6794412, 0, -0.73372984, -19.88367, -0.5322243, 3.7928963)
+
+[node name="TrapTrigger" type="Area3D" parent="Mouse_Trap2" unique_id=1791444252]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap2/TrapTrigger" unique_id=1797762559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Mouse_Trap3" parent="." unique_id=1939506168 instance=ExtResource("31_rdhyb")]
+transform = Transform3D(0.5431744, 0, -0.8396198, 0, 1, 0, 0.8396198, 0, 0.5431744, -2.2774773, -0.5322243, -22.241665)
+
+[node name="TrapTrigger" type="Area3D" parent="Mouse_Trap3" unique_id=177298058]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap3/TrapTrigger" unique_id=427049332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Mouse_Trap4" parent="." unique_id=287332595 instance=ExtResource("31_rdhyb")]
+transform = Transform3D(-0.07671896, 0, 0.99705267, 0, 1, 0, -0.99705267, 0, -0.07671896, -18.412468, -0.5322243, -27.339632)
+
+[node name="TrapTrigger" type="Area3D" parent="Mouse_Trap4" unique_id=418962791]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap4/TrapTrigger" unique_id=875224168]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
 shape = SubResource("BoxShape3D_g4v7s")
 

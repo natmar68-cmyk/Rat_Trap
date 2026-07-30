@@ -4,19 +4,22 @@ extends CanvasLayer
 @onready var timer_label: Label = $TimerLabel
 
 @export var starting_time: float = 60.0
-@export var time_bonus_on_delivery: float = 5.0
+@export var time_bonus_per_item: float = 5.0
 @export var popup_font: Font   # drag a .ttf/.otf here in the Inspector to use a custom font
 
 signal time_expired
 
 var time_left: float = 0.0
 var is_running: bool = true
+var _last_delivered_count: int = 0
 
 func _ready():
 	GameManager.carried_changed.connect(_on_carried_changed)
 	GameManager.delivered_changed.connect(_on_delivered_changed)
 	time_expired.connect(_on_time_expired)
 	food_label.text = "Carrying: 0 | Delivered: 0"
+
+	_last_delivered_count = GameManager.food_delivered
 
 	time_left = starting_time
 	_update_timer_label()
@@ -41,9 +44,17 @@ func _on_carried_changed(new_count):
 
 func _on_delivered_changed(new_count):
 	food_label.text = "Carrying: " + str(GameManager.food_carried) + " | Delivered: " + str(new_count)
-	time_left += time_bonus_on_delivery
+
+	var items_delivered = new_count - _last_delivered_count
+	_last_delivered_count = new_count
+
+	if items_delivered <= 0:
+		return
+
+	var bonus = items_delivered * time_bonus_per_item
+	time_left += bonus
 	_update_timer_label()
-	_show_time_bonus_popup(time_bonus_on_delivery)
+	_show_time_bonus_popup(bonus)
 
 func _on_time_expired():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -70,8 +81,8 @@ func _show_time_bonus_popup(amount: float) -> void:
 	popup.z_index = 10
 	add_child(popup)
 
-	popup.position = timer_label.position + Vector2(timer_label.size.x - 10, 4)
-	popup.scale = Vector2(0.2, 0.4)
+	popup.position = timer_label.position + Vector2(timer_label.size.x + 4, 4)
+	popup.scale = Vector2(0.4, 0.4)
 	popup.modulate.a = 1.0
 
 	var pop_tween := create_tween()

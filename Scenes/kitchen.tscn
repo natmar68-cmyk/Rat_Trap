@@ -5,11 +5,11 @@
 [ext_resource type="Material" uid="uid://dg3l43ek41ic6" path="res://new_standard_material_3d.tres" id="1_j87t8"]
 [ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="1_pb1w8"]
 [ext_resource type="Texture2D" uid="uid://c7ta1dt0hdalp" path="res://Assets/white-marble-unity/white-marble-unity/white-marble_normal-ogl.png" id="2_ra1nx"]
-[ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_lvc4q"]
 [ext_resource type="Texture2D" uid="uid://yr07ce1vp6si" path="res://Assets/white-marble-unity/white-marble-unity/white-marble_albedo.png" id="3_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
 [ext_resource type="Texture2D" uid="uid://ca7jirtbyknx6" path="res://horizontal-shot-red-white-old-stone-wall-with-texture-some-plaster-it.jpg" id="4_csig0"]
 [ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="5_hqj0s"]
+[ext_resource type="PackedScene" uid="uid://7efg62r7q748" path="res://Ason Rice.tscn" id="5_il1tg"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
 [ext_resource type="PackedScene" uid="uid://b4l0s4087660d" path="res://Scenes/beans.tscn" id="12_op5ol"]
@@ -208,10 +208,10 @@ size = Vector3(1.4960022, 22.154785, 24.47165)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x4" type="CSGBox3D" parent="Kitchen_blocks/Hole_maker" unique_id=741497353]
-transform = Transform3D(1, 1.8758328e-12, -8.195044e-20, -1.8758328e-12, 1, 1.8758328e-12, -8.195044e-20, -1.8758328e-12, 1, -11.10116, 88.749695, 3.0931754)
+transform = Transform3D(1, 2.0392577e-12, -8.915022e-20, -2.0392577e-12, 1, 2.0392577e-12, -8.915022e-20, -2.0392577e-12, 1, -11.10116, 88.749695, 2.473081)
 material_override = SubResource("StandardMaterial3D_wj3rr")
 use_collision = true
-size = Vector3(1.4960022, 21.971436, 21.872498)
+size = Vector3(1.4960022, 21.971436, 20.632309)
 material = SubResource("StandardMaterial3D_csig0")
 
 [node name="Counter -x5" type="CSGBox3D" parent="Kitchen_blocks/Hole_maker" unique_id=1627430581]
@@ -228,7 +228,7 @@ use_collision = true
 size = Vector3(18.94519, 27.025967, 20)
 
 [node name="Counter -x room2" type="CSGBox3D" parent="Kitchen_blocks/Hole_maker" unique_id=181391492]
-transform = Transform3D(0.98, 9.876544e-13, -1.4187802e-20, -9.876544e-13, 0.98, 1.2470025e-12, -4.319868e-20, -9.876544e-13, 0.98001647, -20.959923, 41.096016, -39.802715)
+transform = Transform3D(0.98, 9.912071e-13, -1.3976044e-20, -9.912071e-13, 0.98, 1.2541079e-12, -4.341044e-20, -9.912071e-13, 0.9800165, -20.960926, 41.09588, -39.80264)
 operation = 2
 use_collision = true
 size = Vector3(18.81726, 26.935966, 20)
@@ -549,6 +549,15 @@ material = SubResource("StandardMaterial3D_yf5fn")
 transform = Transform3D(1, 4.7606363e-13, -1.799945e-20, -4.7606363e-13, 1, 4.7606363e-13, -1.5458351e-20, -4.7606363e-13, 1, -0.0012054443, 0.003036499, -0.026580215)
 operation = 2
 size = Vector3(0.47540283, 0.12573242, 0.12976074)
+
+[node name="Node3D" parent="Kitchen_blocks/Hole_maker/CSGBox3D18" unique_id=421073880 instance=ExtResource("5_il1tg")]
+transform = Transform3D(-3.4969112e-08, 0.8, 3.496911e-08, -1.4210855e-14, -3.4969105e-08, 0.8, 0.8, 3.4969112e-08, 3.5527137e-15, -2.0500581, -10.265587, -3.1877441)
+
+[node name="Node3D2" parent="Kitchen_blocks/Hole_maker/CSGBox3D18" unique_id=80734006 instance=ExtResource("5_il1tg")]
+transform = Transform3D(-2.246061e-08, 0.6569194, 0.4565708, 3.9914674e-08, -0.45657086, 0.6569194, 0.8, 4.1223363e-08, -1.9957351e-08, -1.8529142, -9.277862, -3.1877441)
+
+[node name="Node3D3" parent="Kitchen_blocks/Hole_maker/CSGBox3D18" unique_id=1661507240 instance=ExtResource("5_il1tg")]
+transform = Transform3D(-3.4969112e-08, 0.8, 3.496911e-08, -2.842171e-14, -3.4969105e-08, 0.8, 0.8, 3.4969112e-08, 3.5527137e-15, -2.0500588, -8.738279, -3.1877441)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Kitchen_blocks/Hole_maker" unique_id=1379593925]
 transform = Transform3D(5, 2.927436e-12, 1.2112571e-19, -3.041123e-12, 5, 3.041123e-12, -1.3467824e-19, -2.927436e-12, 5, -19.288555, 69.79934, -29.429735)
@@ -1018,9 +1027,6 @@ transform = Transform3D(-0.16160376, -1.41278775e-08, -0.98685575, 8.7422805e-08
 [node name="FoodItem12" parent="Food_Holder" unique_id=1175226204 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -1.9184654e-13, -9.592327e-14, -1.9184654e-13, -1, 8.742278e-08, -9.592327e-14, -8.742278e-08, -1, 51.440525, 41.992104, -4.586956)
 
-[node name="FoodItem13" parent="Food_Holder" unique_id=1595154171 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -2.2026825e-13, -1.10134124e-13, -2.2026825e-13, -1, 8.742278e-08, -1.10134124e-13, -8.742278e-08, -1, 51.44053, 50.16464, -5.5294876)
-
 [node name="FoodItem14" parent="Food_Holder" unique_id=551353023 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -2.2737368e-13, -1.1368684e-13, -2.2737368e-13, -1, 8.742278e-08, -1.1368684e-13, -8.742278e-08, -1, 30.699034, 50.16464, -5.529484)
 
@@ -1070,9 +1076,6 @@ transform = Transform3D(-3.8488722, -3.364791e-07, 1.0891205, 3.496911e-07, -4, 
 transform = Transform3D(-1.3746386, 3.756378, -1.641965e-07, 2.842171e-14, -1.7484565e-07, -4, -3.7563772, -1.374639, 6.0087366e-08, -10.87701, 49.14638, -2.5621262)
 
 [node name="Mouse_Trap holder" type="Node3D" parent="." unique_id=1892470537]
-
-[node name="MouseTrap6" parent="Mouse_Trap holder" unique_id=654612880 instance=ExtResource("3_lvc4q")]
-transform = Transform3D(3.9826493, 0, 3.0229955, 0, 5, 0, -3.0229955, 0, 3.9826493, -38.976524, -0.50507754, 10.652435)
 
 [node name="Mouse_Trap" parent="Mouse_Trap holder" unique_id=1358032474 instance=ExtResource("31_rdhyb")]
 transform = Transform3D(0.9211854, 0, 0.38912395, 0, 1, 0, -0.38912395, 0, 0.9211854, -6.866132, -0.5322243, 21.443579)
@@ -1296,3 +1299,21 @@ omni_attenuation = 0.496
 
 [node name="Sketchfab_Scene" parent="." unique_id=820238195 instance=ExtResource("33_csig0")]
 transform = Transform3D(-2.5, 0, -3.774895e-07, 0, 2.5, 0, 3.774895e-07, 0, -2.5, -36.97977, 12.985725, -4.8942275)
+
+[node name="Pot" parent="." unique_id=1745894318 instance=ExtResource("24_ocwuj")]
+transform = Transform3D(2.7158723, 0, 4.198099, 0, 5, 0, -4.198099, 0, 2.7158723, -44.399857, 1.2318722, 23.561434)
+
+[node name="Pot3" parent="." unique_id=1432013183 instance=ExtResource("24_ocwuj")]
+transform = Transform3D(-3.9678712, 0, -4.5006666, 0, 6, 0, 4.5006666, 0, -3.9678712, -38.924103, 1.3804754, 23.409864)
+
+[node name="Pot4" parent="." unique_id=1034123038 instance=ExtResource("24_ocwuj")]
+transform = Transform3D(-0.86521006, 0, -6.9463234, 0, 7, 0, 6.9463234, 0, -0.86521006, -44.27267, 1.6194774, 11.752572)
+
+[node name="Pot2" parent="." unique_id=1708377252 instance=ExtResource("24_ocwuj")]
+transform = Transform3D(-1.2393131, 0, -2.732051, 0, 3, 0, 2.732051, 0, -1.2393131, -43.258446, 0.36347663, 17.192888)
+
+[node name="Pan" parent="." unique_id=2096615638 instance=ExtResource("24_j87t8")]
+transform = Transform3D(3.380946, 0, -7.2504625, 0, 8, 0, 7.2504625, 0, 3.380946, -36.38986, 0.06969464, 14.461523)
+
+[node name="Pan3" parent="." unique_id=1648511249 instance=ExtResource("24_j87t8")]
+transform = Transform3D(-3.4334896, 0.23407184, -4.914912, 0.40809178, 5.9861064, 0, 4.903531, -0.33428922, -3.441459, -36.712364, 0.7425792, 14.502723)

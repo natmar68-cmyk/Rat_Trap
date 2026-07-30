@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="3_lvc4q"]
 [ext_resource type="Texture2D" uid="uid://yr07ce1vp6si" path="res://Assets/white-marble-unity/white-marble-unity/white-marble_albedo.png" id="3_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://cmbqmtq5mmtb2" path="res://Scenes/cereal_box.tscn" id="4_6pjjr"]
+[ext_resource type="Texture2D" uid="uid://ca7jirtbyknx6" path="res://horizontal-shot-red-white-old-stone-wall-with-texture-some-plaster-it.jpg" id="4_csig0"]
 [ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="5_hqj0s"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="6_jbuf1"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="7_cetdd"]
@@ -43,9 +44,15 @@ albedo_texture = ExtResource("2_ra1nx")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csig0"]
 albedo_texture = ExtResource("3_rdhyb")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_op5ol"]
+albedo_texture = ExtResource("4_csig0")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
 metallic = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_il1tg"]
+albedo_texture = ExtResource("4_csig0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ukof"]
 albedo_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
@@ -219,8 +226,8 @@ use_collision = true
 size = Vector3(18.980469, 25.55706, 20)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Hole_maker" unique_id=1726417403]
-transform = Transform3D(1.9106857e-15, 1.0000001, 4.3712124e-08, 4.371212e-08, -4.371212e-08, 1, 1.0000001, 1.694137e-22, -4.3712124e-08, -28.836622, -1.8583374, -28.883596)
-size = Vector3(11.307404, 3.9425926, 3.7948647)
+transform = Transform3D(1.9106857e-15, 1.0000001, 4.3712202e-08, 4.37122e-08, -4.37122e-08, 1, 1.0000001, 1.6348772e-22, -4.3712202e-08, -28.836622, -1.8583374, -28.93744)
+size = Vector3(11.199722, 3.9425926, 3.7948647)
 
 [node name="Cupboard -z2" type="CSGBox3D" parent="Hole_maker" unique_id=215304366]
 transform = Transform3D(1, 2.4868996e-14, -1.0587912e-21, -2.4868996e-14, 1, 2.4868996e-14, -1.0587912e-21, -2.4868996e-14, 1, 12.605219, 47.23899, -40.382187)
@@ -250,8 +257,99 @@ size = Vector3(60, 1, 101)
 material = ExtResource("1_j87t8")
 
 [node name="Hole_wall" type="CSGBox3D" parent="Hole_maker" unique_id=1633334237]
-transform = Transform3D(1, 2.2737368e-13, -9.952637e-21, -2.2737368e-13, 1, 2.2737368e-13, -9.952637e-21, -2.2737368e-13, 1, -6.0000057, -4.241005, -19.676)
-size = Vector3(50, 7.5, 7.5)
+transform = Transform3D(-4.371139e-08, -1, -1.8846483e-20, 1, -4.371139e-08, 4.2987836e-13, -4.2987836e-13, 5.1245493e-20, 1, -28.770367, -3.0029068, -15.353938)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall17" type="CSGBox3D" parent="Hole_maker" unique_id=1406524375]
+transform = Transform3D(-4.371139e-08, -1, -1.9058241e-20, 1, -4.371139e-08, 4.3698378e-13, -4.3698378e-13, 5.2092526e-20, 1, -28.770367, -3.0029068, -24.009157)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall9" type="CSGBox3D" parent="Hole_maker" unique_id=1833505335]
+transform = Transform3D(1.4210855e-14, 4.37114e-08, 1, 1, -4.3711378e-08, -1.0658141e-14, 4.371139e-08, 1, -4.371139e-08, -30.99482, -3.0029068, -19.53256)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall2" type="CSGBox3D" parent="Hole_maker" unique_id=1317865463]
+transform = Transform3D(-4.371139e-08, -1, -1.9058241e-20, 1, -4.371139e-08, 4.3698378e-13, -4.3698378e-13, 5.2092526e-20, 1, -21.307697, -3.0029068, -15.35394)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall3" type="CSGBox3D" parent="Hole_maker" unique_id=1627649918]
+transform = Transform3D(-4.371139e-08, -1, -1.927e-20, 1, -4.371139e-08, 4.405365e-13, -4.405365e-13, 5.2516043e-20, 1, -13.807686, -3.0029068, -15.353941)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall4" type="CSGBox3D" parent="Hole_maker" unique_id=314050363]
+transform = Transform3D(-4.371139e-08, -1, -1.9481758e-20, 1, -4.371139e-08, 4.440892e-13, -4.440892e-13, 5.293956e-20, 1, -6.349537, -3.0029068, -15.353942)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall5" type="CSGBox3D" parent="Hole_maker" unique_id=304653915]
+transform = Transform3D(-4.371139e-08, -1, -1.9693516e-20, 1, -4.371139e-08, 4.4764192e-13, -4.4764192e-13, 5.3363076e-20, 1, 1.0656548, -3.0029106, -15.353943)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall6" type="CSGBox3D" parent="Hole_maker" unique_id=542901034]
+transform = Transform3D(-4.371139e-08, -1, -1.9693516e-20, 1, -4.371139e-08, 4.5119464e-13, -4.5119464e-13, 5.3786592e-20, 1, 1.0656548, -3.0029144, -15.353944)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall7" type="CSGBox3D" parent="Hole_maker" unique_id=978305771]
+transform = Transform3D(-4.371139e-08, -1, -2.0117032e-20, 1, -4.371139e-08, 4.5830006e-13, -4.5830006e-13, 5.4633625e-20, 1, 8.385397, -3.002922, -15.353946)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall8" type="CSGBox3D" parent="Hole_maker" unique_id=1155901289]
+transform = Transform3D(-4.371139e-08, -1, -2.901088e-20, 1, -4.371139e-08, 6.6080474e-13, -6.6080474e-13, 7.8774064e-20, 1, 14.989248, -4.0621758, -15.3539505)
+size = Vector3(9.089539, 8.461914, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall19" type="CSGBox3D" parent="Hole_maker" unique_id=987022853]
+transform = Transform3D(-4.3711434e-08, -1, -4.6185278e-14, 0.054078843, -2.3638158e-09, -0.99853665, 0.9985374, -4.364742e-08, 0.054078892, 14.989229, -9.276707, -19.683508)
+size = Vector3(9.283051, 8.461914, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall18" type="CSGBox3D" parent="Hole_maker" unique_id=1749997773]
+transform = Transform3D(1.4210855e-13, 4.3711527e-08, 1, 1, -4.3711378e-08, -1.3855583e-13, 4.371139e-08, 1, -4.371139e-08, 19.542704, -4.0372734, -19.822685)
+size = Vector3(9.039734, 8.316528, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall10" type="CSGBox3D" parent="Hole_maker" unique_id=1519581830]
+transform = Transform3D(-4.371139e-08, -1, -1.9481758e-20, 1, -4.371139e-08, 4.440892e-13, -4.440892e-13, 5.293956e-20, 1, -21.307697, -3.0029068, -23.975698)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall11" type="CSGBox3D" parent="Hole_maker" unique_id=5175861]
+transform = Transform3D(-4.371139e-08, -1, -1.9693516e-20, 1, -4.371139e-08, 4.4764192e-13, -4.4764192e-13, 5.3363076e-20, 1, -13.807686, -3.0029068, -23.9757)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall12" type="CSGBox3D" parent="Hole_maker" unique_id=320962429]
+transform = Transform3D(-4.371139e-08, -1, -1.9693516e-20, 1, -4.371139e-08, 4.5119464e-13, -4.5119464e-13, 5.3786592e-20, 1, -6.349539, -3.0029144, -23.9757)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall13" type="CSGBox3D" parent="Hole_maker" unique_id=732700338]
+transform = Transform3D(-4.371139e-08, -1, -1.9905274e-20, 1, -4.371139e-08, 4.5474735e-13, -4.5474735e-13, 5.421011e-20, 1, 1.0656548, -3.0029182, -23.9757)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall14" type="CSGBox3D" parent="Hole_maker" unique_id=1029977003]
+transform = Transform3D(-4.371139e-08, -1, -2.0117032e-20, 1, -4.371139e-08, 4.5830006e-13, -4.5830006e-13, 5.4633625e-20, 1, 1.0656548, -3.002922, -23.975702)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall15" type="CSGBox3D" parent="Hole_maker" unique_id=1019632428]
+transform = Transform3D(-4.371139e-08, -1, -2.032879e-20, 1, -4.371139e-08, 4.654055e-13, -4.654055e-13, 5.548066e-20, 1, 8.385389, -3.0029297, -23.975704)
+size = Vector3(6.9710693, 7.5, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
+
+[node name="Hole_wall16" type="CSGBox3D" parent="Hole_maker" unique_id=1394803914]
+transform = Transform3D(-4.371139e-08, -1, 3.3246043e-20, 1, -4.371139e-08, 6.430412e-13, -6.430412e-13, 7.665648e-20, 1, 15.214827, -4.0277596, -23.975704)
+size = Vector3(9.020691, 8.913086, 1.3586731)
+material = SubResource("StandardMaterial3D_op5ol")
 
 [node name="Hole" type="CSGPolygon3D" parent="Hole_maker" unique_id=1506180309]
 transform = Transform3D(1.1, 0, -2.4868996e-14, -2.4868996e-14, -4.8082526e-08, -1.1, -6.352747e-22, 1.1, -4.808253e-08, -30.427034, -0.57662964, -19.121819)
@@ -521,6 +619,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -44.77812, 55.408207, -
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1580043793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.771786)
+material_override = SubResource("StandardMaterial3D_il1tg")
 use_collision = true
 size = Vector3(7.2348022, 0.40185547, 4.4582825)
 
@@ -893,6 +992,7 @@ light_energy = 0.3
 light_size = 500.0
 light_specular = 16.0
 light_cull_mask = 4294967293
+shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.496

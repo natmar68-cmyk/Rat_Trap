@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://nod1s670vrou" path="res://Low Poly Furniture/Miscellaneous/plant_b.tscn" id="24_v7v86"]
 [ext_resource type="PackedScene" uid="uid://4oj8k500mmll" path="res://Low Poly Furniture/Kitchen/toaster.tscn" id="24_wj3rr"]
 [ext_resource type="PackedScene" uid="uid://dq18r17lc8opc" path="res://Low Poly Furniture/Miscellaneous/light_switch.tscn" id="25_v7v86"]
-[ext_resource type="PackedScene" uid="uid://dgdkvg1p67lfs" path="res://Low Poly Furniture/Miscellaneous/Bowl.fbx" id="26_j87t8"]
 [ext_resource type="PackedScene" uid="uid://tx4fgbixkkg0" path="res://Low Poly Furniture/Miscellaneous/bowl.tscn" id="27_v7v86"]
 [ext_resource type="PackedScene" uid="uid://d4l1hl66hn7vh" path="res://Low Poly Furniture/Kitchen/fridge.tscn" id="29_ra1nx"]
 [ext_resource type="PackedScene" uid="uid://cg0uigvxr6ahr" path="res://Low Poly Furniture/Kitchen/microwave.tscn" id="30_csig0"]
@@ -687,7 +686,7 @@ size = Vector3(7.5, 1, 40)
 material = SubResource("StandardMaterial3D_kr0tx")
 
 [node name="Shelf3" type="CSGBox3D" parent="Shelfholder" unique_id=1035494458]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.178009, 42.795334, -46.230488)
+transform = Transform3D(-4.371139e-08, 1.0842022e-19, 1, -6.4623485e-27, 1, -3.1100991e-27, -1, 0, -4.371139e-08, -14.178009, 44.04242, -46.23049)
 use_collision = true
 size = Vector3(7.5, 1, 11.617706)
 material = SubResource("StandardMaterial3D_2cl3g")
@@ -798,7 +797,7 @@ transform = Transform3D(4.3711136e-08, -3.821338e-15, 0.99999994, -8.742252e-08,
 transform = Transform3D(1, -2.842171e-14, -1.4210855e-14, -2.842171e-14, -1, 8.742278e-08, -1.4210855e-14, -8.742278e-08, -1, 0, 0.3673973, 0)
 
 [node name="FoodItem19" parent="Food_Holder" unique_id=1041630382 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -7.1054274e-14, -3.5527137e-14, -7.1054274e-14, -1, 8.742278e-08, -3.5527137e-14, -8.742278e-08, -1, -3.9807968, 3.1235085, 40.086132)
+transform = Transform3D(1, -8.526513e-14, -4.2632564e-14, -8.526513e-14, -1, 8.742278e-08, -4.2632564e-14, -8.742278e-08, -1, -10.11536, 3.123516, 38.877132)
 
 [node name="FoodItem21" parent="Food_Holder" unique_id=273828209 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -1.2789769e-13, -6.3948846e-14, -1.2789769e-13, -1, 8.742278e-08, -6.3948846e-14, -8.742278e-08, -1, -3.9807663, 13.294327, 81.400665)
@@ -825,10 +824,10 @@ transform = Transform3D(1, -2.7711167e-13, -1.3855583e-13, -2.7711167e-13, -1, 8
 transform = Transform3D(1, -3.0553338e-13, -1.5276669e-13, -3.0553338e-13, -1, 8.742278e-08, -1.5276669e-13, -8.742278e-08, -1, 16.036812, 49.594563, 28.62502)
 
 [node name="FoodItem20" parent="Food_Holder" unique_id=758238386 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -1.2079227e-13, -6.039613e-14, -1.2079227e-13, -1, 8.742278e-08, -6.039613e-14, -8.742278e-08, -1, -11.44305, 23.145134, 17.29082)
+transform = Transform3D(1, -1.2789769e-13, -6.3948846e-14, -1.2789769e-13, -1, 8.742278e-08, -6.3948846e-14, -8.742278e-08, -1, -11.44305, 23.145134, 12.012817)
 
 [node name="FoodItem5" parent="Food_Holder" unique_id=749743208 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -5.684342e-14, -2.842171e-14, -5.684342e-14, -1, 8.742278e-08, -2.842171e-14, -8.742278e-08, -1, 37.36979, 0.3673935, -1.5125122)
+transform = Transform3D(1, -7.81597e-14, -3.907985e-14, -7.81597e-14, -1, 8.742278e-08, -3.907985e-14, -8.742278e-08, -1, 33.11675, 0.3673935, -5.2181168)
 
 [node name="FoodItem2" parent="Food_Holder" unique_id=84737561 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -7.81597e-14, -3.907985e-14, -7.81597e-14, -1, 8.742278e-08, -3.907985e-14, -8.742278e-08, -1, -8.787312, 7.2336044, -4.1205177)
@@ -840,7 +839,16 @@ transform = Transform3D(1, -1.2789769e-13, -6.3948846e-14, -1.2789769e-13, -1, 8
 transform = Transform3D(1, -1.563194e-13, -7.81597e-14, -1.563194e-13, -1, 8.742278e-08, -7.81597e-14, -8.742278e-08, -1, -2.2973824, 29.980326, -4.5869713)
 
 [node name="FoodItem10" parent="Food_Holder" unique_id=779747774 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -1.6342483e-13, -8.1712415e-14, -1.6342483e-13, -1, 8.742278e-08, -8.1712415e-14, -8.742278e-08, -1, 57.516796, 29.980322, -4.5869713)
+transform = Transform3D(1, -1.9184654e-13, -9.592327e-14, -1.9184654e-13, -1, 8.742278e-08, -9.592327e-14, -8.742278e-08, -1, 46.75974, 20.471622, -10.6177025)
+
+[node name="FoodItem31" parent="Food_Holder" unique_id=788827256 instance=ExtResource("1_pb1w8")]
+transform = Transform3D(1, -2.2737368e-13, -1.1368684e-13, -2.2737368e-13, -1, 8.742278e-08, -1.1368684e-13, -8.742278e-08, -1, 60.96746, 8.502167, -14.243591)
+
+[node name="FoodItem29" parent="Food_Holder" unique_id=884878174 instance=ExtResource("1_pb1w8")]
+transform = Transform3D(1, -2.2737368e-13, -1.1368684e-13, -2.2737368e-13, -1, 8.742278e-08, -1.1368684e-13, -8.742278e-08, -1, 77.61725, 22.038055, -5.1171455)
+
+[node name="FoodItem30" parent="Food_Holder" unique_id=1434911959 instance=ExtResource("1_pb1w8")]
+transform = Transform3D(-0.16160376, -1.41278775e-08, -0.98685575, 8.7422805e-08, -1, 2.842171e-14, -0.986856, -8.627367e-08, 0.16160376, 65.35698, 14.151085, 18.716747)
 
 [node name="FoodItem12" parent="Food_Holder" unique_id=1175226204 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -1.9184654e-13, -9.592327e-14, -1.9184654e-13, -1, 8.742278e-08, -9.592327e-14, -8.742278e-08, -1, 51.440525, 41.992104, -4.586956)
@@ -861,10 +869,10 @@ transform = Transform3D(1, -2.5579538e-13, -1.2789769e-13, -2.5579538e-13, -1, 8
 transform = Transform3D(1, -2.7000624e-13, -1.3500312e-13, -2.7000624e-13, -1, 8.742278e-08, -1.3500312e-13, -8.742278e-08, -1, 0.68839645, 49.048958, -5.52948)
 
 [node name="FoodItem11" parent="Food_Holder" unique_id=771083891 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -1.9184654e-13, -9.592327e-14, -1.9184654e-13, -1, 8.742278e-08, -9.592327e-14, -8.742278e-08, -1, 70.29802, 29.980322, 31.840508)
+transform = Transform3D(1, -2.5579538e-13, -1.2789769e-13, -2.5579538e-13, -1, 8.742278e-08, -1.2789769e-13, -8.742278e-08, -1, 77.26294, 28.752087, 22.872995)
 
 [node name="FoodItem18" parent="Food_Holder" unique_id=89035783 instance=ExtResource("1_pb1w8")]
-transform = Transform3D(1, -1.9895197e-13, -9.947598e-14, -1.9895197e-13, -1, 8.742278e-08, -9.947598e-14, -8.742278e-08, -1, 33.6773, 29.980328, 34.574997)
+transform = Transform3D(1, -2.060574e-13, -1.030287e-13, -2.060574e-13, -1, 8.742278e-08, -1.030287e-13, -8.742278e-08, -1, 31.727276, 29.98033, 34.574997)
 
 [node name="FoodItem4" parent="Food_Holder" unique_id=1955428714 instance=ExtResource("1_pb1w8")]
 transform = Transform3D(1, -1.3500312e-13, -6.750156e-14, -1.3500312e-13, -1, 8.742278e-08, -6.750156e-14, -8.742278e-08, -1, -11.222675, 14.79211, -9.761478)
@@ -1039,9 +1047,6 @@ transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, -4
 [node name="Light Switch" parent="." unique_id=821638734 instance=ExtResource("25_v7v86")]
 transform = Transform3D(-6, 0, -9.0597484e-07, 0, 6, 0, 9.0597484e-07, 0, -6, 14.54183, 32.80063, 49.79792)
 
-[node name="Bowl" parent="." unique_id=91248876 instance=ExtResource("26_j87t8")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.481615, 20.147669, 0.110957146)
-
 [node name="Bowl2" parent="." unique_id=1574834663 instance=ExtResource("27_v7v86")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -47.219925, 43.364113, -2.0675213)
 
@@ -1092,3 +1097,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.866132, -0.35866794, 21.44
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap/TrapTrigger" unique_id=1756774806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
 shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Bowl" parent="." unique_id=91248876 instance=ExtResource("27_v7v86")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -0.19214535, 20.178604, -2.7671356)

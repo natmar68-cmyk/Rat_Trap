@@ -42,7 +42,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tseak")
 text = "YOU DIED"
 
-[node name="Button" type="Button" parent="." unique_id=679652745]
+[node name="RetryButton" type="Button" parent="." unique_id=679652745]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

@@ -1,5 +1,5 @@
 extends Button
 
-
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/kitchen.tscn")
+	# Use the global LoadingScreen to handle the transition
+	LoadingScreen.load_scene("res://Scenes/kitchen.tscn")

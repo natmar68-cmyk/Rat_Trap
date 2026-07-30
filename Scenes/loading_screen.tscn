@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dnowm72kxlro6"]
+
+[ext_resource type="Script" uid="uid://b1f5lmksqnjon" path="res://Scripts/loading_screen.gd" id="1_oobaa"]
+[ext_resource type="FontFile" uid="uid://di6b5cal1j5t7" path="res://Bronzier-Medium.otf" id="2_0t5xw"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=742712194]
+layer = 100
+script = ExtResource("1_oobaa")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1455453562]
+offset_right = 1153.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=155649682]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 243.0
+offset_right = 642.0
+offset_bottom = 266.0
+text = "THE GAME IS LOAdiNG!!!!!!"
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1981356359]
+offset_left = 956.0
+offset_top = -12.0
+offset_right = 1154.0
+offset_bottom = 531.0
+color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=236105157]
+offset_top = 528.0
+offset_right = 1165.0
+offset_bottom = 655.0
+color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1749261165]
+offset_left = 17.0
+offset_top = 558.0
+offset_right = 595.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0t5xw")
+theme_override_font_sizes/font_size = 89
+text = "Rat Trap Loading"

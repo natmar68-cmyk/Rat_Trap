@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://g4l2x6uwav8q"
 AudioManager="*uid://em3vv4gmm0up"
+LoadingScreen="*uid://dnowm72kxlro6"
 
 [editor_plugins]
 

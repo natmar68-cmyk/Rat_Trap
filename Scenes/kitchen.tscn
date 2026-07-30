@@ -109,7 +109,7 @@ font_size = 28
 size = Vector3(0.5986328, 2.7465572, 0.8955078)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(1.3206787, 0.14624023, 1)
+size = Vector3(1.3206787, 0.48425293, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -1090,5 +1090,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.866132, -0.35866794, 21.44
 [node name="TrapTrigger" type="Area3D" parent="Mouse_Trap" unique_id=922122921]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mouse_Trap/TrapTrigger" unique_id=1756774806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, -0.041574538, 0.21196365)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87395525, 0.12743181, 0.21196365)
 shape = SubResource("BoxShape3D_g4v7s")

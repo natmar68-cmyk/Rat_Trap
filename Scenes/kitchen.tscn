@@ -34,6 +34,8 @@
 [ext_resource type="PackedScene" uid="uid://didydh1gm8fme" path="res://Low Poly Furniture/Kitchen/blender.tscn" id="30_wj3rr"]
 [ext_resource type="PackedScene" uid="uid://dwjc56bj2awpb" path="res://Assets/Mouse_trap.tscn" id="31_rdhyb"]
 [ext_resource type="PackedScene" uid="uid://6ye411mlm2l3" path="res://sink.tscn" id="33_csig0"]
+[ext_resource type="PackedScene" uid="uid://u1m4lw5imm7c" path="res://Scenes/chef.tscn" id="35_il1tg"]
+[ext_resource type="PackedScene" uid="uid://b4bq2ehlue3pq" path="res://Scenes/cat_v2.tscn" id="36_vlmwv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
@@ -91,6 +93,21 @@ albedo_texture = ExtResource("1_23qos")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4clir"]
 albedo_texture = ExtResource("1_23qos")
 
+[sub_resource type="LabelSettings" id="LabelSettings_1qvrs"]
+font = ExtResource("5_hqj0s")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_75g51"]
+font = ExtResource("5_hqj0s")
+font_size = 28
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1.3206787, 0.48425293, 1)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_g4v7s"]
+vertices = PackedVector3Array(48.915314, 59.7071, 49.81492, 49.415314, 59.7071, -0.6850815, 49.415314, 59.4571, -50.68508, -53.334686, 59.2071, -51.18508, -53.834686, 59.4571, 5.5649185, -53.834686, 59.4571, 49.56492, -50.084686, -0.2928983, 45.06492, -50.084686, -0.2928983, 49.56492, 48.665314, -0.042898297, 49.81492, 49.165314, -0.2928983, -24.435081, 49.165314, -0.2928983, -49.18508, -49.834686, -0.5428983, -49.43508)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(6, 11, 7), PackedInt32Array(7, 11, 8), PackedInt32Array(8, 11, 9), PackedInt32Array(9, 11, 10)]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
 albedo_texture = ExtResource("1_23qos")
 
@@ -104,17 +121,6 @@ albedo_texture = ExtResource("1_23qos")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pjjr"]
 albedo_texture = ExtResource("1_23qos")
-
-[sub_resource type="LabelSettings" id="LabelSettings_1qvrs"]
-font = ExtResource("5_hqj0s")
-font_size = 28
-
-[sub_resource type="LabelSettings" id="LabelSettings_75g51"]
-font = ExtResource("5_hqj0s")
-font_size = 28
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(1.3206787, 0.48425293, 1)
 
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
@@ -642,6 +648,10 @@ transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0
 use_collision = true
 size = Vector3(18.083862, 28.267048, 23.901367)
 
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Kitchen_blocks/Island" unique_id=1114620537]
+radius = 18.85
+affect_navigation_mesh = true
+
 [node name="CSGBox3D" type="CSGBox3D" parent="Kitchen_blocks" unique_id=1580043793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.771786)
 material_override = SubResource("StandardMaterial3D_il1tg")
@@ -821,38 +831,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.
 material_override = SubResource("StandardMaterial3D_4clir")
 use_collision = true
 size = Vector3(7.5, 1, 21.231506)
-
-[node name="Floorholder" type="Node3D" parent="Kitchen_blocks" unique_id=1514696419]
-
-[node name="Floor3" type="CSGBox3D" parent="Kitchen_blocks/Floorholder" unique_id=13815731]
-transform = Transform3D(0.99999386, -0.0034906515, 0, 0.003490646, 0.9999924, 0.0017453282, -6.0923326e-06, -0.0017453177, 0.9999984, -25.184, -1.037, -24.791)
-use_collision = true
-size = Vector3(50, 0.25, 50)
-material = SubResource("StandardMaterial3D_pb1w8")
-
-[node name="Floor4" type="CSGBox3D" parent="Kitchen_blocks/Floorholder" unique_id=1516741049]
-transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, 24.41718, -0.88, -24.679)
-use_collision = true
-size = Vector3(50, 0.25, 50.0166)
-material = SubResource("StandardMaterial3D_jbuf1")
-
-[node name="Floor" type="CSGBox3D" parent="Kitchen_blocks/Floorholder" unique_id=1162045850]
-transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, 24.244, -0.75, 25.27083)
-use_collision = true
-size = Vector3(50, 0.25, 50)
-material = SubResource("StandardMaterial3D_lvc4q")
-
-[node name="Floor5" type="CSGBox3D" parent="Kitchen_blocks/Floorholder" unique_id=1956712544]
-transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -2.1917057, 59.00335, -0.6360798)
-use_collision = true
-size = Vector3(103.71527, 0.25, 101.515625)
-material = SubResource("StandardMaterial3D_iw6an")
-
-[node name="Floor2" type="CSGBox3D" parent="Kitchen_blocks/Floorholder" unique_id=1291026617]
-transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -25.222, -0.89, 25.045)
-use_collision = true
-size = Vector3(50, 0.25, 50)
-material = SubResource("StandardMaterial3D_6pjjr")
 
 [node name="Counter shelves" type="CSGBox3D" parent="Kitchen_blocks" unique_id=591262038]
 transform = Transform3D(1.8723814e-15, 4.283613e-08, 0.9800171, 0.9799999, -4.283613e-08, -7.181599e-20, 4.2836128e-08, 0.98, -4.2836604e-08, -42.439117, 7.2202797, -35.873756)
@@ -1317,3 +1295,44 @@ transform = Transform3D(3.380946, 0, -7.2504625, 0, 8, 0, 7.2504625, 0, 3.380946
 
 [node name="Pan3" parent="." unique_id=1648511249 instance=ExtResource("24_j87t8")]
 transform = Transform3D(-3.4334896, 0.23407184, -4.914912, 0.40809178, 5.9861064, 0, 4.903531, -0.33428922, -3.441459, -36.712364, 0.7425792, 14.502723)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=834646760]
+navigation_mesh = SubResource("NavigationMesh_g4v7s")
+
+[node name="Floorholder" type="Node3D" parent="NavigationRegion3D" unique_id=1514696419]
+
+[node name="Floor3" type="CSGBox3D" parent="NavigationRegion3D/Floorholder" unique_id=13815731]
+transform = Transform3D(0.99999386, -0.0034906515, 0, 0.003490646, 0.9999924, 0.0017453282, -6.0923326e-06, -0.0017453177, 0.9999984, -25.184, -1.037, -24.791)
+use_collision = true
+size = Vector3(50, 0.25, 50)
+material = SubResource("StandardMaterial3D_pb1w8")
+
+[node name="Floor4" type="CSGBox3D" parent="NavigationRegion3D/Floorholder" unique_id=1516741049]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, 24.41718, -0.88, -24.679)
+use_collision = true
+size = Vector3(50, 0.25, 50.0166)
+material = SubResource("StandardMaterial3D_jbuf1")
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D/Floorholder" unique_id=1162045850]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, 24.244, -0.75, 25.27083)
+use_collision = true
+size = Vector3(50, 0.25, 50)
+material = SubResource("StandardMaterial3D_lvc4q")
+
+[node name="Floor5" type="CSGBox3D" parent="NavigationRegion3D/Floorholder" unique_id=1956712544]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -2.1917057, 59.00335, -0.6360798)
+use_collision = true
+size = Vector3(103.71527, 0.25, 101.515625)
+material = SubResource("StandardMaterial3D_iw6an")
+
+[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D/Floorholder" unique_id=1291026617]
+transform = Transform3D(0.99997985, -0.0029092368, -0.0056352024, 0.002923705, 0.9999925, 0.0025586656, 0.00562771, -0.002575104, 0.9999808, -25.222, -0.89, 25.045)
+use_collision = true
+size = Vector3(50, 0.25, 50)
+material = SubResource("StandardMaterial3D_6pjjr")
+
+[node name="chef" parent="." unique_id=2039077097 instance=ExtResource("35_il1tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.10582, -0.56148165, 22.431389)
+
+[node name="cat_v2" parent="." unique_id=211245245 instance=ExtResource("36_vlmwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.69145, -0.67125803, -16.993637)

@@ -358,7 +358,7 @@ func _connect_enemies() -> void:
 
 func _on_player_hit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/death_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/death_screen.tscn")
 	
 func capture():
 	captured = true

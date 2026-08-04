@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn7jv8m2hige"
 path.s3tc="res://.godot/imported/Material_Base_Color.png-5648a1ec852010e5768ea07622030430.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_Base_Color.png-5648a1ec852010e5768ea07622030430.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/cheese/textures/Material_Base_Color.png"
-dest_files=["res://.godot/imported/Material_Base_Color.png-5648a1ec852010e5768ea07622030430.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_Base_Color.png-5648a1ec852010e5768ea07622030430.s3tc.ctex", "res://.godot/imported/Material_Base_Color.png-5648a1ec852010e5768ea07622030430.etc2.ctex"]
 
 [params]
 

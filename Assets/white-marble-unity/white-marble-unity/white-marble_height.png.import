@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy5bu282mdxlk"
 path.s3tc="res://.godot/imported/white-marble_height.png-3fc4f0a536228437e820cc58c47b9c33.s3tc.ctex"
+path.etc2="res://.godot/imported/white-marble_height.png-3fc4f0a536228437e820cc58c47b9c33.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/white-marble-unity/white-marble-unity/white-marble_height.png"
-dest_files=["res://.godot/imported/white-marble_height.png-3fc4f0a536228437e820cc58c47b9c33.s3tc.ctex"]
+dest_files=["res://.godot/imported/white-marble_height.png-3fc4f0a536228437e820cc58c47b9c33.s3tc.ctex", "res://.godot/imported/white-marble_height.png-3fc4f0a536228437e820cc58c47b9c33.etc2.ctex"]
 
 [params]
 

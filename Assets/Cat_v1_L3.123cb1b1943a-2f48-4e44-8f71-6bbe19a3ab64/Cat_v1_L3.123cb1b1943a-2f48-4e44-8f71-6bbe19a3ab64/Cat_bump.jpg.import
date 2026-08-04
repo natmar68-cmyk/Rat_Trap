@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ljjj1xkxo60j"
 path.s3tc="res://.godot/imported/Cat_bump.jpg-5dad7d46ef90d9aaaa84c98341addcce.s3tc.ctex"
+path.etc2="res://.godot/imported/Cat_bump.jpg-5dad7d46ef90d9aaaa84c98341addcce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Cat_v1_L3.123cb1b1943a-2f48-4e44-8f71-6bbe19a3ab64/Cat_v1_L3.123cb1b1943a-2f48-4e44-8f71-6bbe19a3ab64/Cat_bump.jpg"
-dest_files=["res://.godot/imported/Cat_bump.jpg-5dad7d46ef90d9aaaa84c98341addcce.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cat_bump.jpg-5dad7d46ef90d9aaaa84c98341addcce.s3tc.ctex", "res://.godot/imported/Cat_bump.jpg-5dad7d46ef90d9aaaa84c98341addcce.etc2.ctex"]
 
 [params]
 

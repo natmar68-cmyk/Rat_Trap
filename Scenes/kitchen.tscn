@@ -94,7 +94,7 @@ albedo_texture = ExtResource("1_23qos")
 albedo_texture = ExtResource("1_23qos")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
-size = Vector3(5.396942, 1.0578995, 1.4464417)
+size = Vector3(2.7048912, 4.6884017, 2.9700108)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1qvrs"]
 font = ExtResource("5_hqj0s")
@@ -856,7 +856,11 @@ script = ExtResource("7_cetdd")
 [node name="Node3D3" type="Node3D" parent="Kitchen_blocks/RatHoleEntrance" unique_id=2122235732]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen_blocks/RatHoleEntrance" unique_id=2054676801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.033564, -0.22962284, -50.85953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.849855, 0.9532113, -51.382683)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Kitchen_blocks/RatHoleEntrance" unique_id=301667964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.912937, 44.348255, -51.268284)
 shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Kitchen_blocks" unique_id=808849564]

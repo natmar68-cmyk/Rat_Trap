@@ -93,6 +93,9 @@ albedo_texture = ExtResource("1_23qos")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4clir"]
 albedo_texture = ExtResource("1_23qos")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(5.396942, 1.0578995, 1.4464417)
+
 [sub_resource type="LabelSettings" id="LabelSettings_1qvrs"]
 font = ExtResource("5_hqj0s")
 font_size = 28
@@ -852,6 +855,10 @@ script = ExtResource("7_cetdd")
 
 [node name="Node3D3" type="Node3D" parent="Kitchen_blocks/RatHoleEntrance" unique_id=2122235732]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kitchen_blocks/RatHoleEntrance" unique_id=2054676801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.033564, -0.22962284, -50.85953)
+shape = SubResource("BoxShape3D_yf5fn")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Kitchen_blocks" unique_id=808849564]
 script = ExtResource("6_jbuf1")
 popup_font = ExtResource("5_hqj0s")
@@ -872,7 +879,7 @@ offset_bottom = 180.0
 label_settings = SubResource("LabelSettings_75g51")
 
 [node name="Player" parent="." unique_id=757251869 groups=["Player"] instance=ExtResource("1_7u47w")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -19.472527, 0.38284302, -53.22303)
+transform = Transform3D(0.018910253, 0, -0.49964228, 0, 0.5, 0, 0.49964228, 0, 0.018910253, -19.472527, 0.38284302, -53.22303)
 
 [node name="Cereal_box Holder" type="Node3D" parent="." unique_id=2135943534]
 transform = Transform3D(-9, 0, 7.86805e-07, 0, 9, 0, -7.86805e-07, 0, -9, -44.99761, 35.137074, -30.98063)

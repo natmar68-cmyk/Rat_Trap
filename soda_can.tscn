@@ -1,20 +1,20 @@
-[gd_scene format=4 uid="uid://cvmvb1a0neh76"]
+[gd_scene format=4 uid="uid://btcjpikl187vs"]
 
-[ext_resource type="Texture2D" uid="uid://6bja33ggmfny" path="res://food_pack_9.png" id="1_2oyq3"]
-[ext_resource type="Texture2D" uid="uid://d4f5sfsurkj7c" path="res://food_pack_10.png" id="2_2x2vl"]
-[ext_resource type="Texture2D" uid="uid://boduq2h105lih" path="res://food_pack_11.png" id="3_w8wig"]
+[ext_resource type="Texture2D" uid="uid://6bja33ggmfny" path="res://food_pack_9.png" id="1_eo8wn"]
+[ext_resource type="Texture2D" uid="uid://d4f5sfsurkj7c" path="res://food_pack_10.png" id="2_le843"]
+[ext_resource type="Texture2D" uid="uid://boduq2h105lih" path="res://food_pack_11.png" id="3_g4fk7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avyba"]
 resource_name = "can.COla"
 cull_mode = 2
-albedo_texture = ExtResource("1_2oyq3")
+albedo_texture = ExtResource("1_eo8wn")
 metallic = 1.0
-metallic_texture = ExtResource("2_2x2vl")
+metallic_texture = ExtResource("2_le843")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2_2x2vl")
+roughness_texture = ExtResource("2_le843")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("3_w8wig")
+normal_texture = ExtResource("3_g4fk7")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2c2y4"]
@@ -156,7 +156,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6uy8c")
 
-[node name="Sketchfab_Scene" type="Node3D" unique_id=863274067]
+[node name="Soda_can" type="Node3D" unique_id=863274067]
 
 [node name="Sketchfab_model" type="Node3D" parent="." unique_id=27415064]
 transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 0)
@@ -170,6 +170,7 @@ transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 879.99457, 133.68799, 262.5537)
 
 [node name="Vert_can_COla_0" type="MeshInstance3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode/Vert" unique_id=813677482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.098289, 0, 0)
 mesh = SubResource("ArrayMesh_7hccu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode/Vert/Vert_can_COla_0" unique_id=1593547677]
@@ -178,19 +179,19 @@ mesh = SubResource("ArrayMesh_7hccu")
 shape = SubResource("ConcavePolygonShape3D_bnieh")
 
 [node name="Cube_001" type="Node3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode" unique_id=1079934193]
-transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 878.79535, 229.36867, 267.07584)
+transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 68.99453, 229.36867, 267.07584)
 
 [node name="Cube_001_can_COla_0" type="MeshInstance3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode/Cube_001" unique_id=1737686820]
 mesh = SubResource("ArrayMesh_0abcg")
 
 [node name="Plane" type="Node3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode" unique_id=32563298]
-transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 880.6574, 231.65858, 252.13492)
+transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 71.12433, 231.65858, 252.13492)
 
 [node name="Plane_can_COla_0" type="MeshInstance3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode/Plane" unique_id=493727835]
 mesh = SubResource("ArrayMesh_cy4n6")
 
 [node name="Cylinder_005" type="Node3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode" unique_id=1222388219]
-transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 879.87585, 231.19482, 260.58487)
+transform = Transform3D(100, 0, 0, 0, -1.6292068e-05, 100, 0, -100, -1.6292068e-05, 69.92423, 231.19482, 260.58487)
 
 [node name="Cylinder_005_can_COla_0" type="MeshInstance3D" parent="Sketchfab_model/cans_pack1_fbx/RootNode/Cylinder_005" unique_id=274442084]
 mesh = SubResource("ArrayMesh_s1ge2")

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://yr07ce1vp6si"
 path.s3tc="res://.godot/imported/white-marble_albedo.png-3da8dd2a24398fd9c2736b5ec8cc1add.s3tc.ctex"
-path.etc2="res://.godot/imported/white-marble_albedo.png-3da8dd2a24398fd9c2736b5ec8cc1add.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/white-marble-unity/white-marble-unity/white-marble_albedo.png"
-dest_files=["res://.godot/imported/white-marble_albedo.png-3da8dd2a24398fd9c2736b5ec8cc1add.s3tc.ctex", "res://.godot/imported/white-marble_albedo.png-3da8dd2a24398fd9c2736b5ec8cc1add.etc2.ctex"]
+dest_files=["res://.godot/imported/white-marble_albedo.png-3da8dd2a24398fd9c2736b5ec8cc1add.s3tc.ctex"]
 
 [params]
 

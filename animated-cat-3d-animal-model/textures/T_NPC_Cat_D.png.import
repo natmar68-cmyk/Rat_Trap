@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4p51br4wni1x"
 path.s3tc="res://.godot/imported/T_NPC_Cat_D.png-0df44f0fe42b49d2704f4b8ed8141fbf.s3tc.ctex"
-path.etc2="res://.godot/imported/T_NPC_Cat_D.png-0df44f0fe42b49d2704f4b8ed8141fbf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://animated-cat-3d-animal-model/textures/T_NPC_Cat_D.png"
-dest_files=["res://.godot/imported/T_NPC_Cat_D.png-0df44f0fe42b49d2704f4b8ed8141fbf.s3tc.ctex", "res://.godot/imported/T_NPC_Cat_D.png-0df44f0fe42b49d2704f4b8ed8141fbf.etc2.ctex"]
+dest_files=["res://.godot/imported/T_NPC_Cat_D.png-0df44f0fe42b49d2704f4b8ed8141fbf.s3tc.ctex"]
 
 [params]
 

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dej60bijln4go"
 path.s3tc="res://.godot/imported/Material_Height.png-07888eeb8a0e9e54ae63a30a2607655c.s3tc.ctex"
-path.etc2="res://.godot/imported/Material_Height.png-07888eeb8a0e9e54ae63a30a2607655c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/cheese/textures/Material_Height.png"
-dest_files=["res://.godot/imported/Material_Height.png-07888eeb8a0e9e54ae63a30a2607655c.s3tc.ctex", "res://.godot/imported/Material_Height.png-07888eeb8a0e9e54ae63a30a2607655c.etc2.ctex"]
+dest_files=["res://.godot/imported/Material_Height.png-07888eeb8a0e9e54ae63a30a2607655c.s3tc.ctex"]
 
 [params]
 

@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpeo1ywfmxtl2"
 path.s3tc="res://.godot/imported/lospec500-32x.png-3e66cbc4864d9ab18e9c34f352a092aa.s3tc.ctex"
-path.etc2="res://.godot/imported/lospec500-32x.png-3e66cbc4864d9ab18e9c34f352a092aa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://ChefModel/Materials/lospec500-32x.png"
-dest_files=["res://.godot/imported/lospec500-32x.png-3e66cbc4864d9ab18e9c34f352a092aa.s3tc.ctex", "res://.godot/imported/lospec500-32x.png-3e66cbc4864d9ab18e9c34f352a092aa.etc2.ctex"]
+dest_files=["res://.godot/imported/lospec500-32x.png-3e66cbc4864d9ab18e9c34f352a092aa.s3tc.ctex"]
 
 [params]
 

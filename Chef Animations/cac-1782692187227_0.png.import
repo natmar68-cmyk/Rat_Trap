@@ -4,9 +4,8 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k0iowns3neda"
 path.s3tc="res://.godot/imported/cac-1782692187227_0.png-a0312a2dce39c317500c9c5e6b0dc46e.s3tc.ctex"
-path.etc2="res://.godot/imported/cac-1782692187227_0.png-a0312a2dce39c317500c9c5e6b0dc46e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -16,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Chef Animations/cac-1782692187227_0.png"
-dest_files=["res://.godot/imported/cac-1782692187227_0.png-a0312a2dce39c317500c9c5e6b0dc46e.s3tc.ctex", "res://.godot/imported/cac-1782692187227_0.png-a0312a2dce39c317500c9c5e6b0dc46e.etc2.ctex"]
+dest_files=["res://.godot/imported/cac-1782692187227_0.png-a0312a2dce39c317500c9c5e6b0dc46e.s3tc.ctex"]
 
 [params]
 

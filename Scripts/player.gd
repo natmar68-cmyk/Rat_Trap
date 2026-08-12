@@ -14,15 +14,12 @@ const STAMINA_MAX   := 100.0
 const STAMINA_DRAIN := 20.0
 const STAMINA_REGEN := 20.0
 
-const CLIMB_SPEED         := 6.0
-const CLIMB_DETECT_DIST   := 1.2
-const VAULT_BOOST         := 8.0
-const CLIMB_GRACE_TIME    := 0.3
-const MESH_TILT_SPEED     := 8.0
-const CAM_TILT_SPEED      := 5.0
-const VAULT_TOP_CLEARANCE := 0.35
-const VAULT_PROBE_HEIGHT  := 10.0
-const CLIMB_PROBE_HEIGHTS : Array[float] = [0.3, 1.0, 1.6]
+const CLIMB_SPEED        := 6.0
+const CLIMB_DETECT_DIST  := 1.2
+const VAULT_BOOST        := 8.0
+const CLIMB_GRACE_TIME   := 0.3
+const MESH_TILT_SPEED    := 8.0
+const CAM_TILT_SPEED     := 5.0
 
 # ── State ──────────────────────────────────────────────────────────────────────
 
@@ -33,7 +30,6 @@ var was_sprinting     := false
 var is_climbing       := false
 var climb_normal      := Vector3.ZERO
 var climb_grace_timer := 0.0
-var climb_lost_timer  := 0.0
 
 var is_first_person     := true
 var target_head_pitch   := 0.0
@@ -202,7 +198,7 @@ func _update_stamina(draining: bool, delta: float, regen_rate: float = 1.0) -> v
 
 # ── Climbing ───────────────────────────────────────────────────────────────────
 
-func _probe_climbable_at_height(height: float) -> Dictionary:
+func _get_nearby_climbable() -> Dictionary:
 	var space      := get_world_3d().direct_space_state
 	var yaw        := rotation.y
 	var probe_dirs : Array[Vector3] = [
@@ -211,7 +207,7 @@ func _probe_climbable_at_height(height: float) -> Dictionary:
 		Vector3( cos(yaw), 0, -sin(yaw)),  # right
 		Vector3(-cos(yaw), 0,  sin(yaw)),  # left
 	]
-	var ray_origin := global_position + Vector3.UP * height
+	var ray_origin := global_position + Vector3.UP * 0.3
 
 	for dir in probe_dirs:
 		var excluded : Array = [self]
@@ -228,13 +224,6 @@ func _probe_climbable_at_height(height: float) -> Dictionary:
 			excluded.append(collider)
 	return {}
 
-func _get_nearby_climbable() -> Dictionary:
-	for h in CLIMB_PROBE_HEIGHTS:
-		var result := _probe_climbable_at_height(h)
-		if not result.is_empty():
-			return result
-	return {}
-
 func _try_enter_climb() -> void:
 	var result : Dictionary = _get_nearby_climbable()
 	if result.is_empty():
@@ -243,8 +232,7 @@ func _try_enter_climb() -> void:
 	if abs(climb_normal.dot(Vector3.UP)) > 0.9:
 		return
 	is_climbing         = true
-	climb_grace_timer    = CLIMB_GRACE_TIME
-	climb_lost_timer     = 0.0
+	climb_grace_timer   = CLIMB_GRACE_TIME
 	velocity            = Vector3.UP * 3.0 + (-climb_normal) * 2.0
 	var flat_normal     := Vector3(climb_normal.x, 0, climb_normal.z).normalized()
 	rotation.y          = Vector3.FORWARD.signed_angle_to(-flat_normal, Vector3.UP)
@@ -254,7 +242,6 @@ func _try_enter_climb() -> void:
 func _exit_climb() -> void:
 	is_climbing         = false
 	climb_normal        = Vector3.ZERO
-	climb_lost_timer     = 0.0
 	velocity            = Vector3.ZERO
 	target_head_pitch   = 0.0
 	override_head_pitch = false
@@ -292,41 +279,23 @@ func _process_climbing(delta: float) -> void:
 	move_and_slide()
 
 	climb_grace_timer = max(climb_grace_timer - delta, 0.0)
-
-	if _get_nearby_climbable().is_empty():
-		climb_lost_timer += delta
-	else:
-		climb_lost_timer = 0.0
-
-	if climb_lost_timer > CLIMB_GRACE_TIME or (is_on_floor() and climb_grace_timer <= 0.0):
+	if _get_nearby_climbable().is_empty() or (is_on_floor() and climb_grace_timer <= 0.0):
 		_exit_climb()
 
-func _get_wall_top_height() -> float:
-	var space       := get_world_3d().direct_space_state
-	var probe_xz    := global_position + (-climb_normal) * 0.5
-	var probe_start := probe_xz + Vector3.UP * VAULT_PROBE_HEIGHT
-	var probe_end   := probe_xz + Vector3.DOWN * VAULT_PROBE_HEIGHT
-	var query       := PhysicsRayQueryParameters3D.create(probe_start, probe_end)
-	query.exclude   = [self]
-	var hit : Dictionary = space.intersect_ray(query)
-	if hit.is_empty():
-		return -INF
-	return hit["position"].y
-
 func _can_vault_over() -> bool:
-	var wall_top_y := _get_wall_top_height()
-	if wall_top_y == -INF:
-		return false
+	var space := get_world_3d().direct_space_state
 
-	if global_position.y + VAULT_TOP_CLEARANCE < wall_top_y:
-		return false
+	var chest_origin := global_position + Vector3.UP * 0.3
+	var chest_query  := PhysicsRayQueryParameters3D.create(
+		chest_origin, chest_origin + (-climb_normal) * CLIMB_DETECT_DIST
+	)
+	chest_query.exclude = [self]
 
-	var space       := get_world_3d().direct_space_state
-	var over_origin := Vector3(global_position.x, wall_top_y + VAULT_TOP_CLEARANCE, global_position.z) + (-climb_normal) * 0.8
+	var over_origin := global_position + Vector3.UP * 1.8 + (-climb_normal) * 0.8
 	var over_query  := PhysicsRayQueryParameters3D.create(over_origin, over_origin + Vector3.UP * 0.5)
 	over_query.exclude = [self]
 
-	return space.intersect_ray(over_query).is_empty()
+	return space.intersect_ray(chest_query).is_empty() and space.intersect_ray(over_query).is_empty()
 
 func _do_vault() -> void:
 	var saved_normal := climb_normal

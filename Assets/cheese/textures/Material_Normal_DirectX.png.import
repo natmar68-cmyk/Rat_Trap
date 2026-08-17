@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccyg8mrug3t6u"
 path.s3tc="res://.godot/imported/Material_Normal_DirectX.png-605263ca99538f0e2737b01cf1de89f9.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_Normal_DirectX.png-605263ca99538f0e2737b01cf1de89f9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/cheese/textures/Material_Normal_DirectX.png"
-dest_files=["res://.godot/imported/Material_Normal_DirectX.png-605263ca99538f0e2737b01cf1de89f9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_Normal_DirectX.png-605263ca99538f0e2737b01cf1de89f9.s3tc.ctex", "res://.godot/imported/Material_Normal_DirectX.png-605263ca99538f0e2737b01cf1de89f9.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bu5c2hhq2iomi"
 path.s3tc="res://.godot/imported/canned_food_psx_0.png-6ea86412760ad176f1937df181f646e7.s3tc.ctex"
+path.etc2="res://.godot/imported/canned_food_psx_0.png-6ea86412760ad176f1937df181f646e7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://canned_food_psx_0.png"
-dest_files=["res://.godot/imported/canned_food_psx_0.png-6ea86412760ad176f1937df181f646e7.s3tc.ctex"]
+dest_files=["res://.godot/imported/canned_food_psx_0.png-6ea86412760ad176f1937df181f646e7.s3tc.ctex", "res://.godot/imported/canned_food_psx_0.png-6ea86412760ad176f1937df181f646e7.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://boduq2h105lih"
 path.s3tc="res://.godot/imported/food_pack_11.png-81b597db587fbf045ecc0cb6497ab5fb.s3tc.ctex"
+path.etc2="res://.godot/imported/food_pack_11.png-81b597db587fbf045ecc0cb6497ab5fb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://food_pack_11.png"
-dest_files=["res://.godot/imported/food_pack_11.png-81b597db587fbf045ecc0cb6497ab5fb.s3tc.ctex"]
+dest_files=["res://.godot/imported/food_pack_11.png-81b597db587fbf045ecc0cb6497ab5fb.s3tc.ctex", "res://.godot/imported/food_pack_11.png-81b597db587fbf045ecc0cb6497ab5fb.etc2.ctex"]
 
 [params]
 

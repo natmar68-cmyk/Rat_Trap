@@ -218,6 +218,11 @@ func _on_blender_finished(exit_code: int, output: Array, output_path: String) ->
 		_set_status("Python script error: " + result.get("error", "Unknown error"), Color.RED)
 		return
 
+	if output_path == "":
+		_set_status("Export failed: output file path is empty", Color.RED)
+		push_error("Output path is empty; cannot open export file.")
+		return
+
 	if not FileAccess.file_exists(output_path):
 		_set_status("Export failed: output file not created", Color.RED)
 		push_error("Output file not created at: " + output_path)

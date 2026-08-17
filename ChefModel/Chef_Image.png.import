@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb5qc25ttp60f"
 path.s3tc="res://.godot/imported/Chef_Image.png-2cb2fdde71413ff7502be16198ba59de.s3tc.ctex"
+path.etc2="res://.godot/imported/Chef_Image.png-2cb2fdde71413ff7502be16198ba59de.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://ChefModel/Chef_Image.png"
-dest_files=["res://.godot/imported/Chef_Image.png-2cb2fdde71413ff7502be16198ba59de.s3tc.ctex"]
+dest_files=["res://.godot/imported/Chef_Image.png-2cb2fdde71413ff7502be16198ba59de.s3tc.ctex", "res://.godot/imported/Chef_Image.png-2cb2fdde71413ff7502be16198ba59de.etc2.ctex"]
 
 [params]
 

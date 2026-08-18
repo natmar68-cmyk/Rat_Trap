@@ -78,8 +78,6 @@ bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nakb8"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_g4v7s"]
-
 [node name="Menu" type="Node2D" unique_id=975360590]
 script = ExtResource("1_158mb")
 
@@ -185,11 +183,6 @@ theme_override_font_sizes/mono_font_size = 76
 text = "Rat Trap
 "
 horizontal_alignment = 1
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=303795439]
-offset_right = 40.0
-offset_bottom = 40.0
-stream = SubResource("VideoStreamTheora_g4v7s")
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Settings" to="Play" method="_on_settings_pressed"]

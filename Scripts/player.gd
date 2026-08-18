@@ -4,8 +4,8 @@ extends CharacterBody3D
 
 const SPEED           := 10.0
 const SPRINT_SPEED    := 20.0
-const JUMP_VELOCITY   := 10.0
-const GRAVITY         := 25.0
+const JUMP_VELOCITY   := 15.0
+const GRAVITY         := 30.0
 
 const MOUSE_SENSITIVITY := 0.002
 const PITCH_LIMIT       := deg_to_rad(89)
@@ -21,6 +21,11 @@ const CLIMB_GRACE_TIME   := 0.3
 const MESH_TILT_SPEED    := 8.0
 const CAM_TILT_SPEED     := 5.0
 
+const AIR_ACCEL        := 12.0  # how quickly you can steer mid-air - much less than ground snap
+const COYOTE_TIME      := 0.12  # grace window to still jump just after walking off a ledge
+const JUMP_BUFFER_TIME := 0.12  # grace window so a jump press just before landing still registers
+const MAX_FALL_SPEED   := 40.0  # terminal velocity, prevents runaway speed on long falls
+
 # ── State ──────────────────────────────────────────────────────────────────────
 
 var stamina           := STAMINA_MAX
@@ -30,6 +35,9 @@ var was_sprinting     := false
 var is_climbing       := false
 var climb_normal      := Vector3.ZERO
 var climb_grace_timer := 0.0
+
+var coyote_timer      := 0.0
+var jump_buffer_timer := 0.0
 
 var is_first_person     := true
 var target_head_pitch   := 0.0
@@ -151,6 +159,7 @@ func _physics_process(delta: float) -> void:
 func _process_normal(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
+		velocity.y = max(velocity.y, -MAX_FALL_SPEED)
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
@@ -170,15 +179,39 @@ func _process_normal(delta: float) -> void:
 	var speed     := SPRINT_SPEED if sprinting else SPEED
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+	if is_on_floor():
+		# Ground movement: snappy and fully responsive, same as before.
+		if direction:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.z = move_toward(velocity.z, 0, speed)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		# Air movement: momentum from your last grounded step carries through.
+		# You can nudge your trajectory a little, but can't instantly flick
+		# direction the way you could while grounded.
+		if direction:
+			velocity.x = move_toward(velocity.x, direction.x * speed, AIR_ACCEL * delta)
+			velocity.z = move_toward(velocity.z, direction.z * speed, AIR_ACCEL * delta)
+		# No input while airborne: leave velocity.x/z untouched so momentum carries.
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Coyote time: still allowed to jump for a brief window after walking off a ledge.
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer = max(coyote_timer - delta, 0.0)
+
+	# Jump buffering: a jump press slightly before landing still registers.
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer = JUMP_BUFFER_TIME
+	else:
+		jump_buffer_timer = max(jump_buffer_timer - delta, 0.0)
+
+	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 		velocity.y = JUMP_VELOCITY
+		jump_buffer_timer = 0.0
+		coyote_timer = 0.0
 
 	move_and_slide()
 

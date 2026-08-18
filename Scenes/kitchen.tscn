@@ -131,6 +131,10 @@ albedo_texture = ExtResource("1_23qos")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pjjr"]
 albedo_texture = ExtResource("1_23qos")
 
+[sub_resource type="Environment" id="Environment_yf5fn"]
+ambient_light_source = 2
+ambient_light_color = Color(0.51593727, 0.5315051, 0.5042535, 1)
+
 [node name="Kitchen" type="Node3D" unique_id=2066472100]
 
 [node name="Kitchen_blocks" type="Node3D" parent="." unique_id=1573756453]
@@ -659,10 +663,6 @@ size = Vector3(15.080406, 0.40185547, 23.293705)
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.9999999, -4.371139e-08, 0, 0, 0, 0.99999994, 4.0268292, 8.215735, -1.3498305)
 use_collision = true
 size = Vector3(18.083862, 28.267048, 23.901367)
-
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Kitchen_blocks/Island" unique_id=1114620537]
-radius = 18.85
-affect_navigation_mesh = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Kitchen_blocks" unique_id=1580043793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.69396, 43.552986, -52.771786)
@@ -1271,11 +1271,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.64807, 7.567714, -10.6595
 transform = Transform3D(7.1054274e-15, 4.371138e-08, 1, 1, -4.371138e-08, -5.1947425e-15, 4.371138e-08, 1, -4.371138e-08, -1.9073486e-06, 55.94084, -1.9073486e-05)
 light_color = Color(0.9999998, 0.97387224, 0.70304704, 1)
 light_energy = 0.3
+light_indirect_energy = 32.045
 light_size = 1.0
 light_specular = 16.0
 light_cull_mask = 4294967293
+shadow_enabled = true
 shadow_bias = 0.0
-omni_range = 4096.0
+omni_range = 4109.905
 omni_attenuation = 0.496
 
 [node name="Sketchfab_Scene" parent="." unique_id=820238195 instance=ExtResource("33_csig0")]
@@ -1470,3 +1472,6 @@ transform = Transform3D(-4.449404, 0, -0.6729087, 0, 4.499999, 0, 0.6729087, 0, 
 
 [node name="Pork_Beans3" parent="Pork_Beans_holder" unique_id=1102664482 instance=ExtResource("45_o55kn")]
 transform = Transform3D(-4.449404, 0, -0.6729087, 0, 4.499999, 0, 0.6729087, 0, -4.449404, -30.317953, -17.552017, -12.23432)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=361473268]
+environment = SubResource("Environment_yf5fn")

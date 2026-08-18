@@ -8,6 +8,10 @@ func _ready() -> void:
 	set_process(false)
 
 func load_scene(path: String) -> void:
+	if path == "":
+		push_error("LoadingScreen.load_scene called with an empty path.")
+		return
+
 	next_scene_path = path
 	show() # Show the loading UI
 	

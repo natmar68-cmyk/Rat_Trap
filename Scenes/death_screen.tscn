@@ -2,16 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bxuvg47g7clos" path="res://Scripts/DeathScreen.gd" id="1_8hps1"]
 [ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="2_rwas2"]
+[ext_resource type="FontFile" uid="uid://di6b5cal1j5t7" path="res://Bronzier-Medium.otf" id="3_tseak"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tseak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amiou"]
-bg_color = Color(0.9019608, 0.4627451, 0.08235294, 1)
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tseak"]
+bg_color = Color(0.12156863, 0.3529412, 0.5568628, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb6s7"]
-bg_color = Color(0.9019608, 0.4627451, 0.08235294, 1)
+bg_color = Color(0.33333334, 0.61960787, 0.8901961, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpvs2"]
+bg_color = Color(0.12279921, 0.35249454, 0.5556039, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwas2"]
+font = ExtResource("3_tseak")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_tseak"]
+font = ExtResource("3_tseak")
+font_size = 24
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=389953836]
 script = ExtResource("1_8hps1")
@@ -22,9 +35,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.87700397, 0.2275804, 0.2551377, 0.69411767)
+color = Color(0.75189686, 0.17989323, 0.1356864, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1332553061]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,7 +68,10 @@ offset_right = 33.0
 offset_bottom = -207.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tseak")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_amiou")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tseak")
 text = "TRY AGAIN"
 
 [node name="Button2" type="Button" parent="." unique_id=1547237864]
@@ -62,8 +79,33 @@ offset_left = 496.0
 offset_top = 474.0
 offset_right = 610.0
 offset_bottom = 505.0
+theme_override_fonts/font = ExtResource("3_tseak")
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_vb6s7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tpvs2")
-text = "back to menu"
+text = "BACK TO MENU"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=321553749]
+offset_left = 660.0
+offset_top = 477.0
+offset_right = 700.0
+offset_bottom = 500.0
+label_settings = SubResource("LabelSettings_rwas2")
+
+[node name="HighScoreLabel" type="Label" parent="." unique_id=742028337]
+offset_left = 660.0
+offset_top = 413.0
+offset_right = 700.0
+offset_bottom = 436.0
+label_settings = SubResource("LabelSettings_tseak")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=74648877]
+offset_left = 144.0
+offset_top = 131.0
+offset_right = 990.0
+offset_bottom = 379.0
+theme_override_fonts/normal_font = ExtResource("3_tseak")
+theme_override_font_sizes/normal_font_size = 241
+text = "YOU DIED"
 
 [connection signal="pressed" from="Button2" to="." method="_on_main_menu_pressed"]

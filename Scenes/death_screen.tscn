@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bxuvg47g7clos" path="res://Scripts/DeathScreen.gd" id="1_8hps1"]
 [ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="2_rwas2"]
+[ext_resource type="Texture2D" uid="uid://b7wu1rxnxovm1" path="res://Screenshot 2026-08-21 101956.png" id="2_tpvs2"]
+[ext_resource type="Script" uid="uid://s8pf8j54hus" path="res://Scripts/Panning_Bacckground.gd" id="3_l3qio"]
 [ext_resource type="FontFile" uid="uid://di6b5cal1j5t7" path="res://Bronzier-Medium.otf" id="3_tseak"]
+[ext_resource type="Shader" uid="uid://bsdx8bwgddlew" path="res://Shaders/death_screen_blur.gdshader" id="4_dmfwj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fayou"]
+shader = ExtResource("4_dmfwj")
+shader_parameter/blur_amount = 2.5
+shader_parameter/tint_color = Color(1, 0, 0, 0.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tseak"]
 
@@ -29,13 +37,24 @@ font_size = 24
 [node name="DeathScreen" type="CanvasLayer" unique_id=389953836]
 script = ExtResource("1_8hps1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1185619978]
+[node name="Background" type="TextureRect" parent="." unique_id=1744574968]
+offset_left = -100.0
+offset_top = -5.0
+offset_right = 1272.3914
+offset_bottom = 648.0
+texture = ExtResource("2_tpvs2")
+script = ExtResource("3_l3qio")
+
+[node name="ShaderBlur" type="ColorRect" parent="." unique_id=150480672]
+material = SubResource("ShaderMaterial_fayou")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.75189686, 0.17989323, 0.1356864, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." unique_id=1332553061]
 visible = false

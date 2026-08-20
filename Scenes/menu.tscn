@@ -4,22 +4,23 @@
 [ext_resource type="Script" uid="uid://d0p5uc1xnbajv" path="res://Scripts/menu.gd" id="1_158mb"]
 [ext_resource type="Script" uid="uid://cmiaf8aa3ejrs" path="res://Scripts/Menu Scripts/play.gd" id="1_xhh6f"]
 [ext_resource type="Script" uid="uid://dgule5t5mslv2" path="res://Scripts/Menu Scripts/settings.gd" id="2_cayip"]
+[ext_resource type="Texture2D" uid="uid://b7wu1rxnxovm1" path="res://Screenshot 2026-08-21 101956.png" id="2_q3rjx"]
 [ext_resource type="FontFile" uid="uid://di6b5cal1j5t7" path="res://Bronzier-Medium.otf" id="2_wwsa2"]
+[ext_resource type="Script" uid="uid://s8pf8j54hus" path="res://Scripts/Panning_Bacckground.gd" id="3_6swd7"]
+[ext_resource type="Shader" uid="uid://bode1jmg40u8a" path="res://Shaders/BackgroundBlur.gdshader" id="4_7qvly"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsrd8"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfqti"]
+shader = ExtResource("4_7qvly")
+shader_parameter/blur_amount = 2.5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbdvm"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ph6h"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3rjx"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6swd7"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p34a"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qvly"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+bg_color = Color(0.12156863, 0.3529412, 0.5568628, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfqti"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
@@ -30,20 +31,14 @@ bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23t3j"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwsa2"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owyel"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ph6h"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ti5v"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by5w"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pde1v"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmwmt"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+bg_color = Color(0.12156863, 0.3529412, 0.5568628, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rc6uw"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
@@ -54,20 +49,14 @@ bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d77ms"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p34a"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_747ic"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owyel"]
-bg_color = Color(0.90123487, 0.46469766, 0.08311031, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h63v2"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6llh"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0760"]
+bg_color = Color(0.2392526, 0.6265583, 0.9227253, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocger"]
-bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
+bg_color = Color(0.12156863, 0.3529412, 0.5568628, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i37ye"]
 bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
@@ -81,10 +70,24 @@ bg_color = Color(0.7794608, 0.39198098, 0.0392514, 1)
 [node name="Menu" type="Node2D" unique_id=975360590]
 script = ExtResource("1_158mb")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2039531744]
-offset_right = 1155.0
-offset_bottom = 662.0
-color = Color(0.25882354, 0.67058825, 0.98039216, 1)
+[node name="Background" type="TextureRect" parent="." unique_id=2069835680]
+offset_left = -100.0
+offset_top = -5.0
+offset_right = 1272.3914
+offset_bottom = 648.0
+texture = ExtResource("2_q3rjx")
+script = ExtResource("3_6swd7")
+
+[node name="ShaderBlur" type="ColorRect" parent="." unique_id=36535055]
+material = SubResource("ShaderMaterial_rfqti")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="." unique_id=312970535]
 anchors_preset = -1
@@ -100,10 +103,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_jsrd8")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_wbdvm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q3rjx")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_6swd7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ph6h")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3p34a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7qvly")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_rfqti")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_g8i7c")
@@ -125,10 +126,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_8ph6h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5ti5v")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1by5w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_owyel")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_pde1v")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kmwmt")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_rc6uw")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dldpb")
@@ -150,10 +149,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 27
-theme_override_styles/normal = SubResource("StyleBoxFlat_3p34a")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_owyel")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h63v2")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_l6llh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_747ic")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_x0760")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ocger")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_i37ye")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jbv25")

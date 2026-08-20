@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://ddfaxucgqkb8o" path="res://Scripts/settings_return.gd" id="1_4geyq"]
 [ext_resource type="Script" uid="uid://d26a2fwqovmrs" path="res://Scripts/settings.gd" id="1_6kysc"]
 [ext_resource type="FontFile" uid="uid://fm5bmiint5gj" path="res://Assets/Bronzier-Medium.otf" id="1_i44u3"]
+[ext_resource type="Texture2D" uid="uid://b7wu1rxnxovm1" path="res://Screenshot 2026-08-21 101956.png" id="2_f60ng"]
+[ext_resource type="Shader" uid="uid://bode1jmg40u8a" path="res://Shaders/BackgroundBlur.gdshader" id="3_bismi"]
 [ext_resource type="FontFile" uid="uid://di6b5cal1j5t7" path="res://Bronzier-Medium.otf" id="3_lhmql"]
+[ext_resource type="Script" uid="uid://s8pf8j54hus" path="res://Scripts/Panning_Bacckground.gd" id="3_rgw85"]
 [ext_resource type="Texture2D" uid="uid://svagyx4sqqbo" path="res://Scripts/cursor_regular_icon_205413-removebg-preview.png" id="4_aaqfp"]
-[ext_resource type="VideoStream" uid="uid://ddsyvo4fimfhc" path="res://test recoding godot.ogv" id="5_j2dne"]
+[ext_resource type="VideoStream" uid="uid://bpry3x2v1q4k0" path="res://Screen Recording 2026-08-21 101243.ogv" id="6_6kysc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("3_bismi")
+shader_parameter/blur_amount = 2.5
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhmql"]
 font = ExtResource("1_i44u3")
@@ -21,10 +28,24 @@ font_size = 30
 [node name="Settings" type="Node2D" unique_id=1317655628]
 script = ExtResource("1_6kysc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=714865771]
-offset_right = 1154.0
-offset_bottom = 646.0
-color = Color(0.38039216, 0.6, 0.37254903, 1)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1502249712]
+offset_left = -100.0
+offset_top = -5.0
+offset_right = 1272.3914
+offset_bottom = 648.0
+texture = ExtResource("2_f60ng")
+script = ExtResource("3_rgw85")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1964643294]
+material = SubResource("ShaderMaterial_yf5fn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Control Title" type="Label" parent="." unique_id=72852364]
 offset_left = 460.0
@@ -35,10 +56,10 @@ text = "CONTROLS"
 label_settings = SubResource("LabelSettings_lhmql")
 
 [node name="Settings_Return" type="Button" parent="." unique_id=1883649695]
-offset_left = 412.0
-offset_top = 378.0
-offset_right = 707.0
-offset_bottom = 409.0
+offset_left = 407.0
+offset_top = 308.0
+offset_right = 702.0
+offset_bottom = 339.0
 theme_override_fonts/font = ExtResource("1_i44u3")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_aaqfp")
@@ -59,10 +80,10 @@ label_settings = SubResource("LabelSettings_j2dne")
 [node name="ObjectiveHover" type="Control" parent="." unique_id=23198389]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 247.0
-offset_top = 332.0
-offset_right = 873.0
-offset_bottom = 372.0
+offset_left = 270.0
+offset_top = 135.0
+offset_right = 896.0
+offset_bottom = 175.0
 
 [node name="Objective" type="Label" parent="ObjectiveHover" unique_id=612017615]
 layout_mode = 1
@@ -82,16 +103,18 @@ theme_override_font_sizes/font_size = 29
 text = "Pick up cheese pieces and take them to your rat hole!"
 
 [node name="CursorRegularIcon205413RemovebgPreview" type="Sprite2D" parent="." unique_id=1067532100]
-position = Vector2(870, 376.00003)
+position = Vector2(891.00006, 172)
 scale = Vector2(0.084, 0.084)
 texture = ExtResource("4_aaqfp")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=538528312]
-offset_left = 518.0
-offset_top = 444.0
-offset_right = 696.0
-offset_bottom = 541.0
-stream = ExtResource("5_j2dne")
+offset_left = 336.0
+offset_top = 355.0
+offset_right = 1432.0
+offset_bottom = 845.0
+scale = Vector2(0.4, 0.4)
+stream = ExtResource("6_6kysc")
+loop = true
 
 [connection signal="pressed" from="Settings_Return" to="Settings_Return" method="_on_pressed"]
 [connection signal="mouse_entered" from="ObjectiveHover" to="." method="_on_objective_hover_mouse_entered"]

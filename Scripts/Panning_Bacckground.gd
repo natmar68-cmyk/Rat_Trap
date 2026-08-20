@@ -1,6 +1,6 @@
 extends TextureRect
 
-@export var pan_speed: float = 0.2 # Adjust this to make it faster or slower
+@export var pan_speed: float = 0.2	 # Adjust this to make it faster or slower
 var time_passed: float = 0.0
 var max_pan_distance: float = 0.0
 

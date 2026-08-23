@@ -216,7 +216,7 @@ func _do_attack():
 	player.position = Vector3.ZERO
 	player.rotation = Vector3.ZERO
 
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	emit_signal("player_hit")
 # --------------------------------------------------

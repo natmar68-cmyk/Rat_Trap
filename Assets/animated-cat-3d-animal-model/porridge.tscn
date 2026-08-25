@@ -1,0 +1,76 @@
+[gd_scene format=4 uid="uid://dqejdnjio8kg4"]
+
+[ext_resource type="Texture2D" uid="uid://bh3ijy3un47vm" path="res://food_collection_-_game_ready_1.png" id="1_cn26e"]
+[ext_resource type="Texture2D" uid="uid://btawbfw82m485" path="res://food_collection_-_game_ready_2.png" id="2_tfx4r"]
+[ext_resource type="Texture2D" uid="uid://cn6rvtox88450" path="res://food_collection_-_game_ready_3.png" id="3_48gjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8h5u"]
+resource_name = "Asset"
+cull_mode = 2
+albedo_texture = ExtResource("1_cn26e")
+metallic = 1.0
+metallic_texture = ExtResource("2_tfx4r")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_tfx4r")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_48gjv")
+ao_enabled = true
+ao_texture = ExtResource("2_tfx4r")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qy0mv"]
+_surfaces = [{
+"aabb": AABB(-7.384707, -1.9646912, -10.775182, 14.769414, 3.9293823, 21.550365),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAQAEAAMABAABAAAAAwAEAAUAAAAFAAQABQAGAAMABgAFAAAAAgADAAYAAAAHAAYABgAHAAIAAgAHAAAA"),
+"name": "Asset",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAAAAAAAAA/v8AAAAA/v/+/wAAAAD//wAAAAAAAP//AAD//wAA/v////7/AAAAAP7//v8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_421f7"]
+resource_name = "Sketchfab_Scene_SM_Porridge_01_Asset_0"
+_surfaces = [{
+"aabb": AABB(-7.384707, -1.9646912, -10.775182, 14.769414, 3.9293823, 21.550365),
+"attribute_data": PackedByteArray("f0kfon9J33MPQd9zD0Efol/2Xy6f1l8un9afXF/2n1wvSi+in1Ivop9S33MvSt9ztyAfom9AH6JvQN9ztyDfc7+iP4Rfwj+EX8Lfe7+i33t//z8uH/c/Lh/3/01///9N"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_d8h5u"),
+"name": "Asset",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAAAAAABU1QAA/v8AAFTVAAD+//7/VNX+/////v//vwAA/v/+//+/AAD+/wAA/7/+//7/AAD/v///AAD//1TV/v////7/VNX+//7/AABU1f//AAAAAFTVAAAAAP///7///wAA////v///AAAAAP+/AAAAAAAA/78AAAAAAAD/////AAAAAP///v/+/wAA//8AAP7/AAD//wAAAAD///+/AAD+//7//7/+/////v//v///AAD///+/VFWqqlRVqapUVamqVFWqqv7//3/+//9//v//f/7//3+qKqoqqiqqKqoqqiqqKqoqAAD/fwAA/38AAP9/AAD/f/7//3/+//9//v//f/7//3//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qy0mv")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1djxd"]
+data = PackedVector3Array(-7.3847, -1.9647, 10.7752, -7.3847, -1.9647, -10.7752, -7.3847, 1.9646, -10.7752, -7.3847, 1.9646, -10.7752, -7.3847, 1.9646, 10.7748995, -7.3847, -1.9647, 10.7752, 7.3845, 1.9647, 10.7748995, -7.3847, 1.9646, 10.7748995, -7.3847, 1.9646, -10.7752, -7.3847, 1.9646, -10.7752, 7.3845, 1.9646, -10.7752, 7.3845, 1.9647, 10.7748995, 7.3847, -1.9647, 10.7752, 7.3845, 1.9647, 10.7748995, 7.3845, 1.9646, -10.7752, 7.3845, 1.9646, -10.7752, 7.3847, -1.9647, -10.7752, 7.3847, -1.9647, 10.7752, -7.3847, -1.9647, 10.7752, 7.3847, -1.9647, 10.7752, 7.3847, -1.9647, -10.7752, 7.3847, -1.9647, -10.7752, -7.3847, -1.9647, -10.7752, -7.3847, -1.9647, 10.7752, -7.3847, -1.9647, -10.7752, 7.3847, -1.9647, -10.7752, 7.3845, 1.9646, -10.7752, 7.3845, 1.9646, -10.7752, -7.3847, 1.9646, -10.7752, -7.3847, -1.9647, -10.7752, -7.3847, -1.9647, 10.7752, -7.3847, 1.9646, 10.7748995, 7.3845, 1.9647, 10.7748995, 7.3845, 1.9647, 10.7748995, 7.3847, -1.9647, 10.7752, -7.3847, -1.9647, 10.7752)
+
+[node name="Porridge" type="Node3D" unique_id=764080926]
+
+[node name="Sketchfab_model" type="Node3D" parent="." unique_id=419810127]
+transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 0)
+
+[node name="79921df8810045c68adc59ba8ade9047_fbx" type="Node3D" parent="Sketchfab_model" unique_id=640868174]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+
+[node name="RootNode" type="Node3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx" unique_id=728715009]
+
+[node name="SM_Porridge_01" type="Node3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode" unique_id=1116829765]
+transform = Transform3D(1, 0, 0, 0, -1.6292068e-07, 1, 0, -1, -1.6292068e-07, 0, 10, 0)
+
+[node name="SM_Porridge_01_Asset_0" type="MeshInstance3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Porridge_01" unique_id=1969256212]
+mesh = SubResource("ArrayMesh_421f7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Porridge_01/SM_Porridge_01_Asset_0" unique_id=214538195]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Porridge_01/SM_Porridge_01_Asset_0/StaticBody3D" unique_id=703255164]
+shape = SubResource("ConcavePolygonShape3D_1djxd")

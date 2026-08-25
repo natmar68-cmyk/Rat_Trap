@@ -70,7 +70,7 @@ albedo_color = Color(0.70980394, 0.50980395, 0.4117647, 1)
 albedo_texture = ExtResource("4_csig0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph0rv"]
-albedo_color = Color(0.70980394, 0.50980395, 0.4117647, 1)
+albedo_color = Color(1.1489997, 1.003288, 0.67166555, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
@@ -167,7 +167,7 @@ sdfgi_normal_bias = 0.5
 sdfgi_probe_bias = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0u6y"]
-albedo_color = Color(0.83081526, 0.6689462, 0.58632, 1)
+albedo_color = Color(0.5673357, 0.8671078, 0.98909336, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
 albedo_color = Color(0.8115329, 0.69812715, 0.36962557, 1)

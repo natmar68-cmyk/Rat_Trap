@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://de7cthrjhsg6k" path="res://Scenes/chefCharacter.tscn" id="6_lvmq8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vr64p"]
-radius = 3.0185547
+radius = 5.930664
 height = 42.815674
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sqin4"]
@@ -21,7 +21,7 @@ sight_fov_deg = 200.0
 alert_linger = 1.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1022989235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.404663, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11106205, 21.404663, -1.3992858)
 shape = SubResource("CapsuleShape3D_vr64p")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1456739691]

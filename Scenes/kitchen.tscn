@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0p5wgpks03o" path="res://meat_pate.tscn" id="47_md1px"]
 [ext_resource type="PackedScene" uid="uid://xbf03jt6fecr" path="res://Assets/animated-cat-3d-animal-model/cereal_2.tscn" id="48_17nd7"]
 [ext_resource type="PackedScene" uid="uid://dqejdnjio8kg4" path="res://Assets/animated-cat-3d-animal-model/porridge.tscn" id="49_w1pom"]
+[ext_resource type="PackedScene" uid="uid://b1pfy4y5qkf6i" path="res://Assets/animated-cat-3d-animal-model/oil.tscn" id="51_u4mvt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
@@ -1694,3 +1695,6 @@ transform = Transform3D(40, 0, 0, 0, 24.791162, 31.391056, 0, -31.391056, 24.791
 
 [node name="Porridge4" parent="." unique_id=1763880159 instance=ExtResource("49_w1pom")]
 transform = Transform3D(40, 0, 0, 0, 24.791162, 31.391056, 0, -31.391056, 24.791162, -42.21428, 8.271684, 2.2006528)
+
+[node name="Oil" parent="." unique_id=991000418 instance=ExtResource("51_u4mvt")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -44.524662, 7.6275244, 16.781122)

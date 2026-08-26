@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvlxdw7g8s88k"
-path.s3tc="res://.godot/imported/food_pack_0.png-3873c949abb330c05a6ed4d5bd63b021.s3tc.ctex"
-path.etc2="res://.godot/imported/food_pack_0.png-3873c949abb330c05a6ed4d5bd63b021.etc2.ctex"
+uid="uid://d3mlgxnngc8mg"
+path.s3tc="res://.godot/imported/food_collection_-_game_ready_4.png-33d61202b4548a587f6de18652d160c0.s3tc.ctex"
+path.etc2="res://.godot/imported/food_collection_-_game_ready_4.png-33d61202b4548a587f6de18652d160c0.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d837f143da528ac7094197c261d55b1c"
+"md5": "e81e28c279d2641b54db9e6fa209ccb8"
 }
 
 [deps]
 
-source_file="res://Scenes/food_pack_0.png"
-dest_files=["res://.godot/imported/food_pack_0.png-3873c949abb330c05a6ed4d5bd63b021.s3tc.ctex", "res://.godot/imported/food_pack_0.png-3873c949abb330c05a6ed4d5bd63b021.etc2.ctex"]
+source_file="res://food_collection_-_game_ready_4.png"
+dest_files=["res://.godot/imported/food_collection_-_game_ready_4.png-33d61202b4548a587f6de18652d160c0.s3tc.ctex", "res://.godot/imported/food_collection_-_game_ready_4.png-33d61202b4548a587f6de18652d160c0.etc2.ctex"]
 
 [params]
 

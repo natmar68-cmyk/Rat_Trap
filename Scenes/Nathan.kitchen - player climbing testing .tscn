@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b7r5wcbcuw7s6"]
 
 [ext_resource type="PackedScene" uid="uid://chb6j77e846ue" path="res://Scenes/player.tscn" id="1_g80ae"]
-[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://Scenes/food_item.tscn" id="2_x7gce"]
+[ext_resource type="PackedScene" uid="uid://cw5fd08d4wqkk" path="res://food_item.tscn" id="2_x7gce"]
 [ext_resource type="Script" uid="uid://bgkx7slv5gbav" path="res://Scripts/FoodLabel.gd" id="3_p8fgl"]
 [ext_resource type="Script" uid="uid://dqhbwwp5n3pax" path="res://Scripts/rat_hole_entrance.gd" id="4_igqup"]
 [ext_resource type="PackedScene" uid="uid://da6uslpxkiodk" path="res://Scenes/mouse_trap.tscn" id="5_0r5da"]

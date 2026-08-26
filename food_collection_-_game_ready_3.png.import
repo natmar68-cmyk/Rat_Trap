@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://41cqk6fm4qbg"
-path.s3tc="res://.godot/imported/food_pack_13.png-36fac43bb4450d3afca5bd14fa04e627.s3tc.ctex"
-path.etc2="res://.godot/imported/food_pack_13.png-36fac43bb4450d3afca5bd14fa04e627.etc2.ctex"
+uid="uid://cn6rvtox88450"
+path.s3tc="res://.godot/imported/food_collection_-_game_ready_3.png-53ff8d2e221d4e1d16d0d537349662f8.s3tc.ctex"
+path.etc2="res://.godot/imported/food_collection_-_game_ready_3.png-53ff8d2e221d4e1d16d0d537349662f8.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7c5b484789b100b00ed3cd34706e65ef"
+"md5": "92a945efe78dae701c7811b4837e350a"
 }
 
 [deps]
 
-source_file="res://Scenes/food_pack_13.png"
-dest_files=["res://.godot/imported/food_pack_13.png-36fac43bb4450d3afca5bd14fa04e627.s3tc.ctex", "res://.godot/imported/food_pack_13.png-36fac43bb4450d3afca5bd14fa04e627.etc2.ctex"]
+source_file="res://food_collection_-_game_ready_3.png"
+dest_files=["res://.godot/imported/food_collection_-_game_ready_3.png-53ff8d2e221d4e1d16d0d537349662f8.s3tc.ctex", "res://.godot/imported/food_collection_-_game_ready_3.png-53ff8d2e221d4e1d16d0d537349662f8.etc2.ctex"]
 
 [params]
 
@@ -26,12 +26,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://food_collection_-_game_ready_3.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

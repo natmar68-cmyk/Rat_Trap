@@ -1,0 +1,78 @@
+[gd_scene format=4 uid="uid://xbf03jt6fecr"]
+
+[ext_resource type="Texture2D" uid="uid://b32aomejwu26p" path="res://Assets/animated-cat-3d-animal-model/food_collection_-_game_ready_4.png" id="1_uex8s"]
+[ext_resource type="Texture2D" uid="uid://dl5pal3dgnc6q" path="res://Assets/animated-cat-3d-animal-model/food_collection_-_game_ready_5.png" id="2_dvlhv"]
+[ext_resource type="Texture2D" uid="uid://isf0ausj85ey" path="res://Assets/animated-cat-3d-animal-model/food_collection_-_game_ready_6.png" id="3_assy6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5e1f"]
+resource_name = "Asset_2"
+cull_mode = 2
+albedo_texture = ExtResource("1_uex8s")
+metallic = 1.0
+metallic_texture = ExtResource("2_dvlhv")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_dvlhv")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_assy6")
+ao_enabled = true
+ao_texture = ExtResource("2_dvlhv")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hrv0l"]
+_surfaces = [{
+"aabb": AABB(-7.7259984, -1.7662269, -9.323691, 15.451999, 3.5233421, 18.647411),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgABAAgAAAAGAAEACAABAAYAAAACAAkACAAJAAIACgAGAAAABgAKAAgACQALAAAAAAALAAoACwAJAAQABAAJAAgACgALAAMABAADAAsAAwAFAAoABQADAAQABwAIAAoACgAFAAcACAAHAAQABQAEAAcA"),
+"lods": [0.0881117, PackedByteArray("AAABAAIAAgADAAAAAwACAAQABAACAAEAAAADAAUABQADAAQABQAGAAAAAAAGAAEABgAFAAEABwABAAUAAQAHAAQABQAEAAcA")],
+"name": "Asset_2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//+JBQAAAAAAAP7/AAAAAAAAiQUAAAAA//+JBf//AAAAAIkF//8AAP///////wAA///+/wAAAAAAAP////8AAD0AdfqSegAAPQAAAJJ6AADB/3X6g4cAAMH/AACDhwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_exchh"]
+resource_name = "Sketchfab_Scene_SM_Cereal_01_Asset 2_0"
+_surfaces = [{
+"aabb": AABB(-7.7259984, -1.7662269, -9.323691, 15.451999, 3.5233421, 18.647411),
+"attribute_data": PackedByteArray("z3nfIc953yEfoH8qH6B/Kh+g3yEfoN8hz3l/Ks95fyr/al8y/2pfMq9EXyuvRF8rr0RfMq9EXzL/al8r/2pfK08m/2BPJv9gTybfMk8m3zIAAP9gAAD/YAAA3zIAAN8yD00fYQ9NH2G/Jt8yvybfMr8mH2G/Jh9hD03fMg9N3zJfTb8yX02/Ml9NH2JfTR9iv1UfYr9VH2K/Vb8yv1W/Mh9WvzIfVr8yH1bfXx9W31/fXt9f317fX99evzLfXr8yCQA/SwkAP0s/Jv9IPyb/SP9MX0v/TF9Lzyb/SM8m/0hfTZ9KX02fSr9Vn0q/VZ9K315/Sd9ef0kfVn9JH1Z/SQ=="),
+"format": 34896613431,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUAGAAKAAgACAAZABgACwAYABkAGQAJAAsADgAMABoAGgAbAA4AGwAaAA8ADwANABsAHAARABIAEgAdABwAHAAdABMAEwAQABwAFQAWAB4AHgAfABUAFAAfAB4AHgAXABQA"),
+"lods": [0.0881117, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAKAAkADAANAA4ADQAMAA8AEAARABIAEgATABAAFAAVABYAFgAXABQA")],
+"material": SubResource("StandardMaterial3D_f5e1f"),
+"name": "Asset_2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("//+JBQAA//8AAP7/AAD//wAAiQUAAP/////+/wAA//////////8AgAAAiQX//wCAAAD/////AID//4kF//8AgAAA//////T/AAD+/wAA/////////////////v8AAPf///+JBf//rL8AAIkFAABSwAAAiQX//6y///+JBQAAUcAAAP7/AABU1QAA/////1TVAACJBf//VNUAAIkFAABU1f//iQUAAFTV//+JBf//VNX///////9U1f///v8AAFTVwf91+oOH9f89AHX6knr0/8H/AACDh/+/PQAAAJJ6/r89AHX6knpU1T0AAACSelTVwf91+oOHVdXB/wAAg4dV1f9/////f////3////9/////f////3////9/////f///v78FAP9/vb//fz/AQ8AHAAAA/38AAP9/DwD4fw8A939UVaqqVVWpqlVVqapUVaqqqiqqKqoqqiqqKqoqqiqqKgTACgAEwAoAFAD1fxQA9X9VVamqVVWpqqoqqiqqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hrv0l")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2exje"]
+data = PackedVector3Array(7.726, -1.6899999, -9.3237, -7.726, 1.7571, -9.3237, -7.726, -1.6899999, -9.3237, 7.726, -1.6899999, -9.3237, 7.726, 1.7571, -9.3237, -7.726, 1.7571, -9.3237, 7.726, 1.7571, 9.3237, -7.726, -1.6899999, 9.3237, -7.726, 1.7571, 9.3237, 7.726, 1.7571, 9.3237, 7.726, -1.6899999, 9.3237, -7.726, -1.6899999, 9.3237, 7.7114, 1.6809, 0.5473, 7.726, 1.7571, 9.3237, -7.726, 1.7571, 9.3237, -7.726, 1.7571, 9.3237, -7.7116, 1.6809, -0.3954, 7.7114, 1.6809, 0.5473, 7.726, 1.7571, -9.3237, 7.7114, 1.6809, 0.5473, -7.7116, 1.6809, -0.3954, -7.7116, 1.6809, -0.3954, -7.726, 1.7571, -9.3237, 7.726, 1.7571, -9.3237, -7.726, -1.6899999, 9.3237, 7.726, -1.6899999, 9.3237, 7.7114, -1.7662, 0.5473, 7.7114, -1.7662, 0.5473, -7.7116, -1.7662, -0.3954, -7.726, -1.6899999, 9.3237, -7.7116, -1.7662, -0.3954, 7.7114, -1.7662, 0.5473, 7.726, -1.6899999, -9.3237, 7.726, -1.6899999, -9.3237, -7.726, -1.6899999, -9.3237, -7.7116, -1.7662, -0.3954, -7.7116, 1.6809, -0.3954, -7.726, 1.7571, 9.3237, -7.726, -1.6899999, 9.3237, -7.726, -1.6899999, 9.3237, -7.7116, -1.7662, -0.3954, -7.7116, 1.6809, -0.3954, -7.7116, 1.6809, -0.3954, -7.7116, -1.7662, -0.3954, -7.726, -1.6899999, -9.3237, -7.726, -1.6899999, -9.3237, -7.726, 1.7571, -9.3237, -7.7116, 1.6809, -0.3954, 7.726, -1.6899999, 9.3237, 7.726, 1.7571, 9.3237, 7.7114, 1.6809, 0.5473, 7.7114, 1.6809, 0.5473, 7.7114, -1.7662, 0.5473, 7.726, -1.6899999, 9.3237, 7.726, -1.6899999, -9.3237, 7.7114, -1.7662, 0.5473, 7.7114, 1.6809, 0.5473, 7.7114, 1.6809, 0.5473, 7.726, 1.7571, -9.3237, 7.726, -1.6899999, -9.3237)
+
+[node name="Cereal_2" type="Node3D" unique_id=228437362]
+
+[node name="Sketchfab_model" type="Node3D" parent="." unique_id=1251566602]
+transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, 0, 0)
+
+[node name="79921df8810045c68adc59ba8ade9047_fbx" type="Node3D" parent="Sketchfab_model" unique_id=206299874]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+
+[node name="RootNode" type="Node3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx" unique_id=1609380422]
+
+[node name="SM_Cereal_01" type="Node3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode" unique_id=1173632774]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+
+[node name="SM_Cereal_01_Asset 2_0" type="MeshInstance3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Cereal_01" unique_id=124337331]
+mesh = SubResource("ArrayMesh_exchh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Cereal_01/SM_Cereal_01_Asset 2_0" unique_id=1664838417]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/79921df8810045c68adc59ba8ade9047_fbx/RootNode/SM_Cereal_01/SM_Cereal_01_Asset 2_0/StaticBody3D" unique_id=1204721768]
+shape = SubResource("ConcavePolygonShape3D_2exje")
